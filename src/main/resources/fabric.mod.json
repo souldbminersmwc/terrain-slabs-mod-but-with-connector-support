@@ -5,7 +5,7 @@
 	"name": "Terrain Slabs",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"Countered!"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"net.countered.terrainslabs.TerrainSlabsDataGenerator"
+		],
+		"client": [
+			"net.countered.terrainslabs.TerrainSlabsClient"
 		]
 	},
 	"mixins": [
