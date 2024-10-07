@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
@@ -31,22 +32,26 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
 
-                BlockPos surfacePos = world.getTopPosition(Heightmap.Type.WORLD_SURFACE_WG, chunkPos.getBlockPos(x, 0, z));
+                BlockPos surfacePos = world.getTopPosition(Heightmap.Type.OCEAN_FLOOR_WG, chunkPos.getBlockPos(x, 0, z));
 
-                if (world.getBlockState(surfacePos.down()).isOpaqueFullCube(world, surfacePos.down()) && world.getBlockState(surfacePos.down().down()).isOpaqueFullCube(world, surfacePos.down().down())) {
+                if (world.getBlockState(surfacePos.down()).isOpaque() && world.getBlockState(surfacePos.down().down()).isOpaque() ) {
 
                     for (Direction direction : Direction.Type.HORIZONTAL) {
 
                         BlockPos neighborPos = surfacePos.down().offset(direction);
 
-                        if (!world.getBlockState(neighborPos).isOpaque() && world.getBlockState(neighborPos.up()).isAir()) {
+                        if (!world.getBlockState(neighborPos).isOpaque() && !world.getBlockState(neighborPos.up()).isOpaque()) {
+
                             BlockPos belowPos = surfacePos.down();
                             BlockState blockBelowState = world.getBlockState(belowPos);
                             Block slabToPlace = ModSlabsMap.getSlabForBlock(blockBelowState.getBlock());
 
-                            world.setBlockState(surfacePos.down(), slabToPlace.getDefaultState(), 3);
-                            world.setBlockState(surfacePos, Blocks.AIR.getDefaultState(), 3);
+                            BlockState slabState = slabToPlace.getDefaultState();
 
+                            if (world.getBlockState(surfacePos).getBlock() == Blocks.WATER || world.getBlockState(neighborPos).getBlock() == Blocks.WATER) {
+                                slabState = slabState.with(Properties.WATERLOGGED, true);
+                            }
+                            world.setBlockState(belowPos, slabState, 3);
                             break;
                         }
                     }

@@ -1,10 +1,11 @@
 package net.countered.terrainslabs;
 
-import net.countered.terrainslabs.block.ModSlabsRegistry;
+import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.countered.terrainslabs.worldgen.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.data.client.BlockStateModelGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,8 +23,9 @@ public class TerrainSlabs implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		LOGGER.info("Initializing TerrainSlabs");
-		ModSlabsRegistry.registerModBlocks();
+		ModBlocksRegistry.registerModBlocks();
 		ModAddedFeatures.registerFeatures();
 		ModSlabGeneration.generateSlabs();
+
 	}
 }

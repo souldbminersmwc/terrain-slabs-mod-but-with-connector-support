@@ -1,5 +1,7 @@
 package net.countered.terrainslabs;
 
+import net.countered.datagen.ModLootTableProvider;
+import net.countered.datagen.ModModelProvider;
 import net.countered.datagen.ModWorldGenerator;
 import net.countered.terrainslabs.worldgen.ModConfiguredFeatures;
 import net.countered.terrainslabs.worldgen.ModPlacedFeatures;
@@ -19,5 +21,7 @@ public class TerrainSlabsDataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(ModWorldGenerator::new);
+		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModLootTableProvider::new);
 	}
 }

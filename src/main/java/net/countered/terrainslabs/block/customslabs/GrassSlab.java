@@ -1,4 +1,4 @@
-package net.countered.terrainslabs.block;
+package net.countered.terrainslabs.block.customslabs;
 
 import net.minecraft.block.SlabBlock;
 
