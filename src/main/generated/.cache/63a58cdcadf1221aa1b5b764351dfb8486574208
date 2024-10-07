@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-07T15:56:17.1592663	Terrain Slabs/Model Definitions
+// 1.21.1	2024-10-07T22:13:13.6412024	Terrain Slabs/Model Definitions
 c698a83fdbc7dde5eac58d9ca1bafd0e1c24d53e assets\minecraft\models\block\yellow_terracotta.json
 c5a245a007f283cdda54929e8df9610584f6673b assets\terrainslabs\models\item\gravel_slab.json
 ef6c25460502975b299c29a44455dd138a761983 assets\terrainslabs\models\item\yellow_terracotta_slab.json
@@ -41,8 +41,8 @@ e640b5b57b090ea9936476687e184a6078fe307c assets\minecraft\models\block\mud.json
 d177f105092958ccb6ae3089b9eb2bf40b19e5bb assets\minecraft\blockstates\yellow_terracotta.json
 b957c8f0b4635dc4969eee2df8f780eff7f420d3 assets\terrainslabs\models\item\mud_slab.json
 876c441b53a78cb889ebd06e5cd132cd579049b5 assets\terrainslabs\models\block\mud_slab.json
-c4b09d6c7659cda8b2fa433f36d3a49ad37b8440 assets\minecraft\blockstates\terracotta.json
 59eb8dd5b7ffb922c678282ad4a98e1e5ae23f67 assets\minecraft\blockstates\red_sand.json
+c4b09d6c7659cda8b2fa433f36d3a49ad37b8440 assets\minecraft\blockstates\terracotta.json
 c2a45e73a0ae07c41e140b8599653f4480975839 assets\terrainslabs\models\block\white_terracotta_slab_top.json
 9dc86be2423b8aa51ffd792cd31371f1f7c0e5d0 assets\terrainslabs\models\block\gravel_slab.json
 e863a065b9a38ef3655affc217dd156220a3324d assets\terrainslabs\blockstates\red_terracotta_slab.json

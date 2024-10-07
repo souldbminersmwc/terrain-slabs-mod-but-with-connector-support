@@ -6,4 +6,6 @@ public class GrassSlab extends SlabBlock {
     public GrassSlab(Settings settings) {
         super(settings);
     }
+
+
 }

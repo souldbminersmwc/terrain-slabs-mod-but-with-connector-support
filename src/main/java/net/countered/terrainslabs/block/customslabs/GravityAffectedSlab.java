@@ -1,7 +1,8 @@
-package net.countered.terrainslabs.block.customslabs.gravityaffected;
+package net.countered.terrainslabs.block.customslabs;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;

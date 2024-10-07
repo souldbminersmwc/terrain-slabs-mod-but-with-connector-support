@@ -15,7 +15,7 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.STONE, Blocks.STONE_SLAB);
         SLAB_MAP.put(Blocks.SANDSTONE, Blocks.SANDSTONE_SLAB);
 
-        SLAB_MAP.put(Blocks.GRASS_BLOCK, Blocks.OAK_SLAB);
+        SLAB_MAP.put(Blocks.GRASS_BLOCK, ModBlocksRegistry.GRASS_SLAB);
 
         SLAB_MAP.put(Blocks.GRAVEL, ModBlocksRegistry.GRAVEL_SLAB);
         SLAB_MAP.put(Blocks.SAND, ModBlocksRegistry.SAND_SLAB);

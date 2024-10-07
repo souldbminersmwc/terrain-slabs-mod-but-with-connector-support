@@ -2,7 +2,7 @@ package net.countered.terrainslabs.block;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.block.customslabs.GrassSlab;
-import net.countered.terrainslabs.block.customslabs.gravityaffected.GravityAffectedSlab;
+import net.countered.terrainslabs.block.customslabs.GravityAffectedSlab;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
+//TODO snow, ice      snowy tag for grass slab?
 public class ModBlocksRegistry {
 
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
@@ -21,7 +21,7 @@ public class ModBlocksRegistry {
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
 
     public static final Block GRASS_SLAB = registerBlock("grass_slab",
-            new GrassSlab(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+            new GrassSlab(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
 
     public static final Block GRAVEL_SLAB = registerBlock("gravel_slab",
             new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
