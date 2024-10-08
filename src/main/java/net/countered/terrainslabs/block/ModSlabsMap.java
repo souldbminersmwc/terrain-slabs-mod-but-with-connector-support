@@ -16,6 +16,8 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.SANDSTONE, Blocks.SANDSTONE_SLAB);
 
         SLAB_MAP.put(Blocks.GRASS_BLOCK, ModBlocksRegistry.GRASS_SLAB);
+        SLAB_MAP.put(Blocks.MYCELIUM, ModBlocksRegistry.MYCELIUM_SLAB);
+        SLAB_MAP.put(Blocks.PODZOL, ModBlocksRegistry.PODZOL_SLAB);
 
         SLAB_MAP.put(Blocks.GRAVEL, ModBlocksRegistry.GRAVEL_SLAB);
         SLAB_MAP.put(Blocks.SAND, ModBlocksRegistry.SAND_SLAB);
@@ -23,6 +25,9 @@ public class ModSlabsMap {
 
         SLAB_MAP.put(Blocks.DIRT, ModBlocksRegistry.DIRT_SLAB);
         SLAB_MAP.put(Blocks.MUD, ModBlocksRegistry.MUD_SLAB);
+        SLAB_MAP.put(Blocks.COARSE_DIRT, ModBlocksRegistry.COARSE_SLAB);
+        SLAB_MAP.put(Blocks.SNOW_BLOCK, ModBlocksRegistry.SNOW_SLAB);
+        SLAB_MAP.put(Blocks.PACKED_ICE, ModBlocksRegistry.PACKED_ICE_SLAB);
 
         SLAB_MAP.put(Blocks.TERRACOTTA, ModBlocksRegistry.TERRACOTTA_SLAB);
         SLAB_MAP.put(Blocks.RED_TERRACOTTA, ModBlocksRegistry.RED_TERRACOTTA_SLAB);

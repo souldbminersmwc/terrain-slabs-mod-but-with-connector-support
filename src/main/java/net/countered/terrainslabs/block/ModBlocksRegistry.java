@@ -1,8 +1,10 @@
 package net.countered.terrainslabs.block;
 
 import net.countered.terrainslabs.TerrainSlabs;
-import net.countered.terrainslabs.block.customslabs.GrassSlab;
+import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
 import net.countered.terrainslabs.block.customslabs.GravityAffectedSlab;
+import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
+import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -12,16 +14,26 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-//TODO snow, ice      snowy tag for grass slab?
+//TODO pathslab
 public class ModBlocksRegistry {
 
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
     public static final Block MUD_SLAB = registerBlock("mud_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    public static final Block COARSE_SLAB = registerBlock("coarse_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    public static final Block SNOW_SLAB = registerBlock("snow_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    public static final Block PACKED_ICE_SLAB = registerBlock("packed_ice_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
 
     public static final Block GRASS_SLAB = registerBlock("grass_slab",
             new GrassSlab(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
+    public static final Block MYCELIUM_SLAB = registerBlock("mycelium_slab",
+            new MyceliumSlab(AbstractBlock.Settings.copy(Blocks.MYCELIUM)));
+    public static final Block PODZOL_SLAB = registerBlock("podzol_slab",
+            new PodzolSlab(AbstractBlock.Settings.copy(Blocks.PODZOL)));
 
     public static final Block GRAVEL_SLAB = registerBlock("gravel_slab",
             new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));

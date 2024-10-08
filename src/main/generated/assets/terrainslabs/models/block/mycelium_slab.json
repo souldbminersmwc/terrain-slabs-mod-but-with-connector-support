@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "terrainslabs:block/dirt_slab",
+    "side": "terrainslabs:block/mycelium_slab_side",
+    "top": "terrainslabs:block/mycelium_slab_top"
+  }
+}

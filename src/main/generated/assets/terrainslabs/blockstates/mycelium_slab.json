@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "terrainslabs:block/mycelium_slab"
+      },
+      {
+        "model": "terrainslabs:block/mycelium_slab",
+        "y": 90
+      },
+      {
+        "model": "terrainslabs:block/mycelium_slab",
+        "y": 180
+      },
+      {
+        "model": "terrainslabs:block/mycelium_slab",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "terrainslabs:block/grass_slab_snow"
+    }
+  }
+}

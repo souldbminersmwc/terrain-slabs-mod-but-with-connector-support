@@ -40,7 +40,9 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
 
                         BlockPos neighborPos = surfacePos.down().offset(direction);
 
-                        if (!world.getBlockState(neighborPos).isOpaque() && !world.getBlockState(neighborPos.up()).isOpaque()) {
+                        if (!world.getBlockState(neighborPos).isOpaque() && !world.getBlockState(neighborPos.up()).isOpaque()
+                                && !world.getBlockState(neighborPos).equals(Blocks.ICE)
+                                && !world.getBlockState(neighborPos).equals(Blocks.LAVA)) {
 
                             BlockPos belowPos = surfacePos.down();
                             BlockState blockBelowState = world.getBlockState(belowPos);
