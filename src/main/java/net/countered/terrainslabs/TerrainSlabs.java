@@ -6,7 +6,10 @@ import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.block.BlockColorProvider;
+import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import org.slf4j.Logger;
@@ -35,5 +38,11 @@ public class TerrainSlabs implements ModInitializer {
 		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
 			return tintIndex == 0 ? BiomeColors.getGrassColor(world, pos) : -1;
 		}, ModBlocksRegistry.GRASS_SLAB);
+
+		ColorProviderRegistry.ITEM.register(
+				(stack, tintIndex) -> tintIndex == 0 ?
+						MinecraftClient.getInstance().getBlockColors().getColor(Blocks.GRASS_BLOCK.getDefaultState(), null, null, tintIndex) : -1,
+				ModBlocksRegistry.GRASS_SLAB
+		);
 	}
 }

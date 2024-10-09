@@ -1,5 +1,6 @@
 package net.countered.terrainslabs;
 
+import net.countered.datagen.ModBlockTagsProvider;
 import net.countered.datagen.ModLootTableProvider;
 import net.countered.datagen.ModModelProvider;
 import net.countered.datagen.ModWorldGenerator;
@@ -23,5 +24,6 @@ public class TerrainSlabsDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModWorldGenerator::new);
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
+		pack.addProvider(ModBlockTagsProvider::new);
 	}
 }
