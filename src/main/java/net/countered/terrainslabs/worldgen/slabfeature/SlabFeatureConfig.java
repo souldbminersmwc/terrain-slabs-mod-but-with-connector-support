@@ -34,7 +34,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
 
                 BlockPos surfacePos = world.getTopPosition(Heightmap.Type.OCEAN_FLOOR_WG, chunkPos.getBlockPos(x, 0, z));
 
-                if (world.getBlockState(surfacePos.down()).isOpaque() && world.getBlockState(surfacePos.down().down()).isOpaque() ) {
+                if (world.getBlockState(surfacePos.down()).isOpaque() /*&& world.getBlockState(surfacePos.down().down()).isOpaque()*/ ) {
 
                     for (Direction direction : Direction.Type.HORIZONTAL) {
 
