@@ -39,6 +39,6 @@ public class ModSlabsMap {
     }
 
     public static Block getSlabForBlock(Block blockBelow) {
-        return SLAB_MAP.getOrDefault(blockBelow, Blocks.STONE_SLAB); // Default slab if no match
+        return SLAB_MAP.getOrDefault(blockBelow, blockBelow); // Default slab if no match
     }
 }

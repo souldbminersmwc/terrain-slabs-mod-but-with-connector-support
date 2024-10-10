@@ -15,8 +15,17 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//TODO add pathslab, add underground feature?, add stairs instead of slabs?, add class mudslab and snowslab?
+//TODO add pathslab,
+// add mycelium and podzol
+// add vegetation placed on slabs
+// add drops
+// add crafting
+// add vertical slabs?
+// add underground feature?,
+// add stairs instead of slabs?,
+// add class mudslab and snowslab?
 
+//fixme slabs under snow generation, grass slab converting to bottom type with block above
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 
@@ -34,15 +43,5 @@ public class TerrainSlabs implements ModInitializer {
 		ModBlocksRegistry.registerModBlocks();
 		ModAddedFeatures.registerFeatures();
 		ModSlabGeneration.generateSlabs();
-
-		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
-			return tintIndex == 0 ? BiomeColors.getGrassColor(world, pos) : -1;
-		}, ModBlocksRegistry.GRASS_SLAB);
-
-		ColorProviderRegistry.ITEM.register(
-				(stack, tintIndex) -> tintIndex == 0 ?
-						MinecraftClient.getInstance().getBlockColors().getColor(Blocks.GRASS_BLOCK.getDefaultState(), null, null, tintIndex) : -1,
-				ModBlocksRegistry.GRASS_SLAB
-		);
 	}
 }
