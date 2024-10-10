@@ -41,34 +41,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.YELLOW_TERRACOTTA).slab(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.LIGHT_GRAY_TERRACOTTA).slab(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB);
 
-        //registerTopSoilsSlabs(blockStateModelGenerator);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 
-    }
-
-    private void registerTopSoilsSlabs(BlockStateModelGenerator blockStateModelGenerator) {
-        Identifier identifier = TextureMap.getId(ModBlocksRegistry.DIRT_SLAB);
-        TextureMap textureMap = new TextureMap()
-                .put(TextureKey.BOTTOM, identifier)
-                .inherit(TextureKey.BOTTOM, TextureKey.PARTICLE)
-                .put(TextureKey.TOP, TextureMap.getSubId(ModBlocksRegistry.GRASS_SLAB, "_top"))
-                .put(TextureKey.SIDE, TextureMap.getSubId(ModBlocksRegistry.GRASS_SLAB, "_snow"));
-        BlockStateVariant blockStateVariant = BlockStateVariant.create()
-                .put(VariantSettings.MODEL, Models.CUBE_BOTTOM_TOP.upload(ModBlocksRegistry.GRASS_SLAB, "_snow", textureMap, blockStateModelGenerator.modelCollector));
-        blockStateModelGenerator.registerTopSoil(ModBlocksRegistry.GRASS_SLAB, ModelIds.getBlockModelId(ModBlocksRegistry.GRASS_SLAB), blockStateVariant);
-        Identifier identifier2 = TexturedModel.CUBE_BOTTOM_TOP
-                .get(ModBlocksRegistry.MYCELIUM_SLAB)
-                .textures(textures -> textures.put(TextureKey.BOTTOM, identifier))
-                .upload(ModBlocksRegistry.MYCELIUM_SLAB, blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.registerTopSoil(ModBlocksRegistry.MYCELIUM_SLAB, identifier2, blockStateVariant);
-        Identifier identifier3 = TexturedModel.CUBE_BOTTOM_TOP
-                .get(ModBlocksRegistry.PODZOL_SLAB)
-                .textures(textures -> textures.put(TextureKey.BOTTOM, identifier))
-                .upload(ModBlocksRegistry.PODZOL_SLAB, blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.registerTopSoil(ModBlocksRegistry.PODZOL_SLAB, identifier3, blockStateVariant);
     }
 }
 
