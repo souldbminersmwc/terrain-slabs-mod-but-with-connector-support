@@ -2,11 +2,9 @@ package net.countered.terrainslabs.worldgen.slabfeature;
 
 import com.mojang.serialization.Codec;
 import net.countered.terrainslabs.block.ModSlabsMap;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -23,61 +21,87 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         super(codec);
     }
 
+    private static BlockState slabstate = Blocks.AIR.getDefaultState();
+
     @Override
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         WorldAccess world = context.getWorld();
         BlockPos origin = context.getOrigin();
         ChunkPos chunkPos = new ChunkPos(origin);
-        int count = 0;
 
-        //check chunk surface
-        for (int x = 0; x < 16; x++) {
-            for (int z = 0; z < 16; z++) {
-                //get surface position
-                BlockPos surfacePos = world.getTopPosition(Heightmap.Type.OCEAN_FLOOR_WG, chunkPos.getBlockPos(x, 0, z));
-                //check whether top block has air next to it and no blocks above (to avoid changing where trees are placed)
-                if (world.getBlockState(surfacePos.down()).isOpaque() && !world.getBlockState(surfacePos).isOpaque() && world.getBlockState(surfacePos.down().down()).isOpaque()) {
+        for (int y = world.getHeight(); y > 0; y--) {
+            for (int x = 0; x < 16; x++) {
+                for (int z = 0; z < 16; z++) {
+                    BlockPos currentPos = chunkPos.getBlockPos(x, y, z);
+                    BlockState currentBlockState = world.getBlockState(currentPos.down());
+                    slabstate = ModSlabsMap.getSlabForBlock(currentBlockState.getBlock()).getDefaultState();
 
-                    BlockPos placePos = surfacePos.down();
-                    BlockState blockBelowState = world.getBlockState(placePos);
-                    BlockState slabState = ModSlabsMap.getSlabForBlock(blockBelowState.getBlock()).getDefaultState();
-
-                    for (Direction direction : Direction.Type.HORIZONTAL) {
-                        BlockPos neighborPos = surfacePos.down().offset(direction);
-                        if (slabState.contains(Properties.WATERLOGGED)) {
-                            if (world.getBlockState(neighborPos).contains(Properties.WATERLOGGED)) {
-                                if (world.getBlockState(neighborPos).get(Properties.WATERLOGGED)) {
-                                    slabState = slabState.with(Properties.WATERLOGGED, true);
-                                }
-                            }
-                            else if (world.getBlockState(neighborPos).getBlock().equals(Blocks.WATER)) {
-                                slabState = slabState.with(Properties.WATERLOGGED, true);
-                            }
-                        }
-                        //check for a neighboring block being walk-through + blocks where we dont want slabs next to
-                        if (!world.getBlockState(neighborPos).isOpaque() && !world.getBlockState(neighborPos).getBlock().equals(Blocks.ICE) && !world.getBlockState(neighborPos).getBlock().equals(Blocks.LAVA)) {
-                            if (world.getBlockState(neighborPos.up()).isOpaque()) {
-                                count = 0;
-                                break;
-                            }
-                            count++;
-                        }
+                    // Check conditions to place a slab on top of the current block
+                    if (checkSlabTopPlacement(world, currentPos)) {
+                        world.setBlockState(currentPos, slabstate, 3);
                     }
-                    if (count != 0){
-                        if (slabState.contains(Properties.WATERLOGGED)) {
-                            if (world.getBlockState(surfacePos).contains(Properties.WATERLOGGED)) {
-                                if (world.getBlockState(surfacePos).get(Properties.WATERLOGGED)) {
-                                    slabState = slabState.with(Properties.WATERLOGGED, true);
-                                }
-                            } else if (world.getBlockState(surfacePos).getBlock().equals(Blocks.WATER)) {
-                                slabState = slabState.with(Properties.WATERLOGGED, true);
-                            }
-                        }
-                        world.setBlockState(placePos, slabState, 3);
+
+                    // Check conditions to place a slab on the underside of the current block
+                    /*
+                    if (canPlaceSlabUnderneath(currentBlockState, world, currentPos)) {
+                        placeSlabUnderneath(currentBlockState, world, currentPos);
                     }
+
+                     */
                 }
             }
         }
         return true;
+    }
+
+    private boolean canPlaceSlabUnderneath(WorldAccess world, BlockPos pos) {
+
+        return false;
+    }
+    private void placeSlabUnderneath(BlockState slabState, WorldAccess world, BlockPos pos) {
+
+
+    }
+    private boolean checkSlabTopPlacement(WorldAccess world, BlockPos currentPos) {
+        boolean placeSlab = false;
+        if(world.getBlockState(currentPos.down()).isOpaque() && !world.getBlockState(currentPos).isOpaque()) {
+
+            for (Direction direction : Direction.Type.HORIZONTAL) {
+                BlockPos neighborPos = currentPos.offset(direction);
+                slabstate = checkWaterState( world, currentPos, direction);
+                //check for a neighboring block being walk-through + blocks where we dont want slabs next to
+                if (!(world.getBlockState(neighborPos).getBlock() instanceof SlabBlock) && world.getBlockState(neighborPos).isOpaque() && !world.getBlockState(neighborPos).getBlock().equals(Blocks.ICE) && !world.getBlockState(neighborPos).getBlock().equals(Blocks.LAVA)) {
+                    if (world.getBlockState(neighborPos.up()).isOpaque()) {
+                        return false;
+                    }
+                    placeSlab = true;
+                }
+            }
+            return placeSlab;
+        }
+        return false;
+    }
+    private BlockState checkWaterState( WorldAccess world, BlockPos pos, Direction direction) {
+        BlockPos neighborPos = pos.offset(direction);
+        BlockPos surfacePos = pos.up();
+
+        if (slabstate.contains(Properties.WATERLOGGED)) {
+            if (world.getBlockState(neighborPos).contains(Properties.WATERLOGGED)) {
+                if (world.getBlockState(neighborPos).get(Properties.WATERLOGGED)) {
+                    return slabstate.with(Properties.WATERLOGGED, true);
+                }
+            }
+            else if (world.getBlockState(neighborPos).getBlock().equals(Blocks.WATER)) {
+                return slabstate.with(Properties.WATERLOGGED, true);
+            }
+            else if (world.getBlockState(surfacePos).contains(Properties.WATERLOGGED)) {
+                if (world.getBlockState(surfacePos).get(Properties.WATERLOGGED)) {
+                    return slabstate.with(Properties.WATERLOGGED, true);
+                }
+            } else if (world.getBlockState(surfacePos).getBlock().equals(Blocks.WATER)) {
+                return slabstate.with(Properties.WATERLOGGED, true);
+            }
+        }
+        return slabstate;
     }
 }
