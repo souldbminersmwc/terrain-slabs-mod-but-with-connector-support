@@ -10,14 +10,13 @@ import org.slf4j.LoggerFactory;
 
 //TODO add pathslab,
 // important
-// add mycelium and podzol
 // add vegetation placed on slabs
 // add drops
 // add crafting
 // add vertical slabs?
 // add underground feature,
 // add class mudslab and snowslab?
-// add granite slabs
+// add granite slabs, andesite, diorite
 // grass slab converting to bottom type with block above,
 // slabs breaking correct pixels, map colors, copy settings
 // make sandstone slab top texture
