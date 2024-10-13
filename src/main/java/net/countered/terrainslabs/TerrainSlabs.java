@@ -5,27 +5,26 @@ import net.countered.terrainslabs.worldgen.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.color.block.BlockColorProvider;
-import net.minecraft.client.color.item.ItemColorProvider;
-import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.data.client.BlockStateModelGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO add pathslab,
+// important
 // add mycelium and podzol
 // add vegetation placed on slabs
 // add drops
 // add crafting
 // add vertical slabs?
-// add underground feature?,
-// add stairs instead of slabs?,
+// add underground feature,
 // add class mudslab and snowslab?
+// add granite slabs
+// grass slab converting to bottom type with block above,
+// slabs breaking correct pixels, map colors, copy settings
+// make sandstone slab top texture
+// water should be running through slabs?
+// wrong slabs placement (dirt on sand)
+// slabs next to cactus, dungeons
 
-//fixme slabs under snow generation, grass slab converting to bottom type with block above
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 

@@ -24,7 +24,7 @@ public class ModPlacedFeatures {
         register(context, SLAB_FEATURE_PLACED_KEY,
                 configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SLAB_FEATURE_KEY),
                 List.of(
-                        //HeightmapPlacementModifier.of(Heightmap.Type.WORLD_SURFACE_WG)// Ensures placement on the surface
+
                 )
         );
     }

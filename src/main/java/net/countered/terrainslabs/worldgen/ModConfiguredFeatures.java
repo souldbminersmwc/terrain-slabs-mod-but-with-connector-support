@@ -18,7 +18,7 @@ public class ModConfiguredFeatures {
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context){
-        register(context, SLAB_FEATURE_KEY, ModAddedFeatures.SLAB_FEATURE, new DefaultFeatureConfig());    }
+        register(context, SLAB_FEATURE_KEY, ModAddedFeatures.SLAB_FEATURE, FeatureConfig.DEFAULT);    }
 
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
