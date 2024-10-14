@@ -1,7 +1,7 @@
 package net.countered.terrainslabs;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
-import net.countered.terrainslabs.worldgen.ModAddedFeatures;
+import net.countered.terrainslabs.worldgen.feature.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
 
@@ -9,20 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO add pathslab,
-// important
 // add vegetation placed on slabs
 // add drops
 // add crafting
 // add vertical slabs?
 // add underground feature,
 // add class mudslab and snowslab?
-// add granite slabs, andesite, diorite
+// add granite slabs, andesite, diorite, clay
 // grass slab converting to bottom type with block above,
 // slabs breaking correct pixels, map colors, copy settings
-// make sandstone slab top texture
 // water should be running through slabs?
 // wrong slabs placement (dirt on sand)
-// slabs next to cactus, dungeons
 
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";

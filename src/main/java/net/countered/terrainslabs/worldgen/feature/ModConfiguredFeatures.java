@@ -1,16 +1,11 @@
-package net.countered.terrainslabs.worldgen;
+package net.countered.terrainslabs.worldgen.feature;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 
 public class ModConfiguredFeatures {
 

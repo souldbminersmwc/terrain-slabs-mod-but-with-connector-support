@@ -1,4 +1,4 @@
-package net.countered.terrainslabs.worldgen;
+package net.countered.terrainslabs.worldgen.feature;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.minecraft.registry.Registerable;
@@ -8,8 +8,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 
 import java.util.List;

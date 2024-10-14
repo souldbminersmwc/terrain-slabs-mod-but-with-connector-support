@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.enums.SlabType;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -17,7 +18,6 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
@@ -30,6 +30,8 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     static {
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRASS_BLOCK);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PODZOL);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MYCELIUM);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.STONE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PACKED_ICE);
@@ -62,13 +64,8 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                 for (int z = 0; z < 16; z++) {
                     BlockPos currentPos = chunkPos.getBlockPos(x, y, z);
 
-                    // If no valid slab exists for the block or if it's already a slab, skip this position
-                    if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.down()).getBlock() instanceof SlabBlock){
-                        continue;
-                    }
-
                     // Check conditions to place a slab on top of the current block
-                    if (shouldPlaceSlab(world, currentPos)) {
+                    if (shouldPlaceSlabTop(world, currentPos)) {
                         if (world.getBlockState(currentPos).equals(Blocks.SNOW.getDefaultState())){
                             world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 3);
                             continue;
@@ -84,6 +81,19 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                                 || slabState.getBlock().equals(ModBlocksRegistry.MYCELIUM_SLAB)) {
                             world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 3);
                         }
+
+                        slabState = updateWaterloggedState(world, currentPos, slabState);
+                        world.setBlockState(currentPos, slabState, 3);
+                        continue;
+                    }
+
+
+                    if (shouldPlaceSlabOnUnderside(world, currentPos)) {
+                        BlockPos blockAbovePos = currentPos.up();
+                        BlockState blockAboveState = world.getBlockState(blockAbovePos);
+                        BlockState slabState = ModSlabsMap.getSlabForBlock(blockAboveState.getBlock()).getDefaultState();
+
+                        slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
                         slabState = updateWaterloggedState(world, currentPos, slabState);
                         world.setBlockState(currentPos, slabState, 3);
                     }
@@ -96,11 +106,14 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     /**
      * Determines if a slab should be placed at the given position based on world conditions.
      */
-    private boolean shouldPlaceSlab(WorldAccess world, BlockPos currentPos) {
+    private boolean shouldPlaceSlabTop(WorldAccess world, BlockPos currentPos) {
         BlockState blockBelow = world.getBlockState(currentPos.down());
         BlockState blockAbove = world.getBlockState(currentPos.up());
         BlockState currentBlockState = world.getBlockState(currentPos);
 
+        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.down()).getBlock() instanceof SlabBlock){
+            return false;
+        }
         // Check that the block below is opaque and not a slab, and the position is air or snow
         if (blockBelow.isOpaque() && !(blockBelow.getBlock() instanceof SlabBlock)
                 && (!currentBlockState.isOpaque() || currentBlockState.getBlock() == Blocks.SNOW || currentBlockState.isReplaceable())
@@ -129,13 +142,40 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         return false;
     }
 
+    private boolean shouldPlaceSlabOnUnderside(WorldAccess world, BlockPos currentPos) {
+        BlockState blockBelow = world.getBlockState(currentPos.down());
+        BlockState blockAbove = world.getBlockState(currentPos.up());
+        BlockState currentBlockState = world.getBlockState(currentPos.up());
+
+        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.up()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.up()).getBlock() instanceof SlabBlock){
+            return false;
+        }
+        // Check that the block below is opaque and not a slab, and the position is air or snow
+        if (VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(currentBlockState.getBlock())
+                && blockAbove.isOpaque() && !(blockAbove.getBlock() instanceof SlabBlock)
+                && (blockBelow.isAir() || blockBelow.getBlock() == Blocks.WATER)) {
+
+            // Check neighboring blocks to ensure at least one opaque block is adjacent
+            for (Direction direction : Direction.Type.HORIZONTAL) {
+                BlockPos neighborPos = currentPos.offset(direction);
+                BlockState neighborState = world.getBlockState(neighborPos);
+
+                // Check if a neighboring block is opaque and not a slab
+                if (!neighborState.isOpaque()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     /**
      * Updates the slab state to be waterlogged if applicable.
      */
     private BlockState updateWaterloggedState(WorldAccess world, BlockPos pos, BlockState slabState) {
 
         if (slabState.contains(Properties.WATERLOGGED)) {
-            if (world.getBlockState(pos.up()) == Blocks.WATER.getDefaultState()) {
+            if (world.getBlockState(pos.up()) == Blocks.WATER.getDefaultState() || world.getBlockState(pos.down()) == Blocks.WATER.getDefaultState()) {
                 return slabState.with(Properties.WATERLOGGED, true);
             }
             for (Direction direction1 : Direction.Type.HORIZONTAL) {
@@ -147,5 +187,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         }
         return slabState;
     }
+
+
 }
 

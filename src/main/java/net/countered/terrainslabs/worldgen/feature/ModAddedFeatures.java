@@ -1,4 +1,4 @@
-package net.countered.terrainslabs.worldgen;
+package net.countered.terrainslabs.worldgen.feature;
 
 
 import net.countered.terrainslabs.TerrainSlabs;
