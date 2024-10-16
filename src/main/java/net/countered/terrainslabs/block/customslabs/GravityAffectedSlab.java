@@ -21,9 +21,11 @@ public class GravityAffectedSlab extends SlabBlock {
         super(settings);
     }
 
+    public static final MapCodec<GravityAffectedSlab> CODEC = createCodec(GravityAffectedSlab::new);
+
     @Override
-    public MapCodec<? extends SlabBlock> getCodec() {
-        return null;
+    public MapCodec<GravityAffectedSlab> getCodec() {
+        return CODEC;
     }
     @Override
     protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
