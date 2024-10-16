@@ -5,6 +5,7 @@ import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
 import net.countered.terrainslabs.block.customslabs.GravityAffectedSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
+import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -20,7 +21,7 @@ public class ModBlocksRegistry {
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
     public static final Block MUD_SLAB = registerBlock("mud_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+            new MudSlab(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
     public static final Block COARSE_SLAB = registerBlock("coarse_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
     public static final Block SNOW_SLAB = registerBlock("snow_slab",

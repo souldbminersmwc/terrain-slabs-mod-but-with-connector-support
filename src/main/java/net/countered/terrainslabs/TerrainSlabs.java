@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 // add drops
 // add crafting
 // add vertical slabs?
-// add underground feature,
-// add class mudslab and snowslab?
-// add granite slabs, andesite, diorite, clay
+// fix bottom slabs being waterlogged when water below
+// add class snowslab?
+// add granite slabs, andesite, diorite, / fix generation clay
 // grass slab converting to bottom type with block above,
 // slabs breaking correct pixels, map colors, copy settings
 // water should be running through slabs?

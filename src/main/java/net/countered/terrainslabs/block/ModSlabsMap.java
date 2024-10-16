@@ -14,6 +14,9 @@ public class ModSlabsMap {
         // Register your block-to-slab mappings here
         SLAB_MAP.put(Blocks.STONE, Blocks.STONE_SLAB);
         SLAB_MAP.put(Blocks.SANDSTONE, Blocks.SANDSTONE_SLAB);
+        SLAB_MAP.put(Blocks.ANDESITE, Blocks.ANDESITE_SLAB);
+        SLAB_MAP.put(Blocks.DIORITE, Blocks.DIORITE_SLAB);
+        SLAB_MAP.put(Blocks.GRANITE, Blocks.GRANITE_SLAB);
 
         SLAB_MAP.put(Blocks.GRASS_BLOCK, ModBlocksRegistry.GRASS_SLAB);
         SLAB_MAP.put(Blocks.MYCELIUM, ModBlocksRegistry.MYCELIUM_SLAB);
