@@ -32,12 +32,20 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRASS_BLOCK);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PODZOL);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MYCELIUM);
+
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT);
-        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.STONE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PACKED_ICE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.COARSE_DIRT);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MUD);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SNOW_BLOCK);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SANDSTONE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.CLAY);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DEEPSLATE);
+
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.STONE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.ANDESITE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIORITE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRANITE);
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SAND);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRAVEL);
@@ -50,7 +58,6 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.LIGHT_GRAY_TERRACOTTA);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.YELLOW_TERRACOTTA);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.WHITE_TERRACOTTA);
-
     }
     @Override
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {

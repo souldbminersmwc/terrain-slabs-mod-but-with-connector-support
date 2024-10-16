@@ -28,6 +28,10 @@ public class ModBlocksRegistry {
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
     public static final Block PACKED_ICE_SLAB = registerBlock("packed_ice_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    public static final Block DEEPSLATE_SLAB = registerBlock("deepslate_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    public static final Block CLAY_SLAB = registerBlock("clay_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
 
     public static final Block GRASS_SLAB = registerBlock("grass_slab",
             new GrassSlab(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));

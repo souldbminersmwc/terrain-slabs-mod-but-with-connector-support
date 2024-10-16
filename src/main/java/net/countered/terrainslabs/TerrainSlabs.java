@@ -8,19 +8,20 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//TODO add pathslab,
+//TODO
 // add vegetation placed on slabs
 // add drops
 // add crafting
-// add vertical slabs?
 // fix bottom slabs being waterlogged when water below
 // add class snowslab?
-// add granite slabs, andesite, diorite, / fix generation clay
+// clay, deepslate, pathslab
 // grass slab converting to bottom type with block above,
-// slabs breaking correct pixels, map colors, copy settings
+// slabs breaking correct pixels, map colors, copy settings, translation
 // water should be running through slabs?
-// wrong slabs placement (dirt on sand)
+// only place on bottom of mountain
 
+// wrong slabs placement (dirt on sand)
+// add vertical slabs
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 
