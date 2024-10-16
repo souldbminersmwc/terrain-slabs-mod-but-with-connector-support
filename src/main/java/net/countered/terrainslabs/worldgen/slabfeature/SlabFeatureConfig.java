@@ -143,31 +143,33 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     }
 
     private boolean shouldPlaceSlabOnUnderside(WorldAccess world, BlockPos currentPos) {
-        BlockState blockBelow = world.getBlockState(currentPos.down());
         BlockState blockAbove = world.getBlockState(currentPos.up());
-        BlockState currentBlockState = world.getBlockState(currentPos.up());
+        BlockState currentBlock = world.getBlockState(currentPos);
+        BlockState blockBelow = world.getBlockState(currentPos.down());
+        boolean place = false;
 
         if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.up()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.up()).getBlock() instanceof SlabBlock){
             return false;
         }
-        // Check that the block below is opaque and not a slab, and the position is air or snow
-        if (VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(currentBlockState.getBlock())
-                && blockAbove.isOpaque() && !(blockAbove.getBlock() instanceof SlabBlock)
-                && (blockBelow.isAir() || blockBelow.getBlock() == Blocks.WATER)) {
+        // Check that the block above is a valid block for slab placement and that the current block is air or water
+        if (VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(blockAbove.getBlock())
+                && (blockBelow.isAir() || blockBelow.getBlock() == Blocks.WATER)
+                && currentBlock.isOpaque()) {
 
-            // Check neighboring blocks to ensure at least one opaque block is adjacent
+            // Check neighboring blocks to ensure at least one horizontal neighbor is air or water
             for (Direction direction : Direction.Type.HORIZONTAL) {
                 BlockPos neighborPos = currentPos.offset(direction);
                 BlockState neighborState = world.getBlockState(neighborPos);
 
-                // Check if a neighboring block is opaque and not a slab
-                if (!neighborState.isOpaque()) {
-                    return true;
+                // If at least one horizontal neighbor is air or water, mark this position for slab placement
+                if (neighborState.isAir() || neighborState.getBlock() == Blocks.WATER) {
+                    place = true;
                 }
             }
         }
-        return false;
+        return place;
     }
+
 
     /**
      * Updates the slab state to be waterlogged if applicable.
@@ -187,7 +189,5 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         }
         return slabState;
     }
-
-
 }
 
