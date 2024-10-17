@@ -118,7 +118,15 @@ public class GrassSlab extends SlabBlock {
     @Override
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!canSurvive(state, world, pos)) {
-            world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState());
+            if (state.get(TYPE) == SlabType.TOP) {
+                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.TOP), 3);
+            }
+            else if (state.get(TYPE) == SlabType.DOUBLE) {
+                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.DOUBLE), 3);
+            }
+            else {
+                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState(), 3);
+            }
         } else {
             if (world.getLightLevel(pos.up()) >= 9) {
                 BlockState blockState = this.getDefaultState();

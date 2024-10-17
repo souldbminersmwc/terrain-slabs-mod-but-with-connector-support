@@ -12,14 +12,11 @@ import org.slf4j.LoggerFactory;
 // add vegetation placed on slabs
 // add drops
 // add crafting
-// fix bottom slabs being waterlogged when water below
-// add class snowslab?
-// clay, deepslate, pathslab
-// grass slab converting to bottom type with block above,
+// add pathslab
 // slabs breaking correct pixels, map colors, copy settings, translation
-// water should be running through slabs?
 // only place on bottom of mountain
 
+// water should be running through slabs?
 // wrong slabs placement (dirt on sand)
 // add vertical slabs
 public class TerrainSlabs implements ModInitializer {

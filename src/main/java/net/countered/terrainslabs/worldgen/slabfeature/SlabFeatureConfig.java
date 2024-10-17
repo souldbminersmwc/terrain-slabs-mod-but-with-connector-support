@@ -100,6 +100,11 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                         BlockState blockAboveState = world.getBlockState(blockAbovePos);
                         BlockState slabState = ModSlabsMap.getSlabForBlock(blockAboveState.getBlock()).getDefaultState();
 
+                        if (slabState.getBlock().equals(ModBlocksRegistry.GRASS_SLAB)
+                                || slabState.getBlock().equals(ModBlocksRegistry.PODZOL_SLAB)
+                                || slabState.getBlock().equals(ModBlocksRegistry.MYCELIUM_SLAB)) {
+                            slabState = ModBlocksRegistry.DIRT_SLAB.getDefaultState();
+                        }
                         slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
                         slabState = updateWaterloggedState(world, currentPos, slabState);
                         world.setBlockState(currentPos, slabState, 3);
@@ -184,7 +189,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     private BlockState updateWaterloggedState(WorldAccess world, BlockPos pos, BlockState slabState) {
 
         if (slabState.contains(Properties.WATERLOGGED)) {
-            if (world.getBlockState(pos.up()) == Blocks.WATER.getDefaultState() || world.getBlockState(pos.down()) == Blocks.WATER.getDefaultState()) {
+            if (world.getBlockState(pos.up()) == Blocks.WATER.getDefaultState() || world.getBlockState(pos) == Blocks.WATER.getDefaultState()) {
                 return slabState.with(Properties.WATERLOGGED, true);
             }
             for (Direction direction1 : Direction.Type.HORIZONTAL) {
