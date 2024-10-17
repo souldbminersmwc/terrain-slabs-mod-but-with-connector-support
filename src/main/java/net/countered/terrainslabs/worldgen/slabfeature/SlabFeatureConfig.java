@@ -73,7 +73,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
 
                     // Check conditions to place a slab on top of the current block
                     if (shouldPlaceSlabTop(world, currentPos)) {
-                        if (world.getBlockState(currentPos).equals(Blocks.SNOW.getDefaultState())){
+                        if (world.getBlockState(currentPos).isOf(Blocks.SNOW)){
                             world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 3);
                             continue;
                         }
@@ -83,9 +83,9 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                         BlockState slabState = ModSlabsMap.getSlabForBlock(blockBelowState.getBlock()).getDefaultState();
 
                         // Handle grass slab special case by converting grass to dirt before placing the slab
-                        if (slabState.getBlock().equals(ModBlocksRegistry.GRASS_SLAB)
-                                || slabState.getBlock().equals(ModBlocksRegistry.PODZOL_SLAB)
-                                || slabState.getBlock().equals(ModBlocksRegistry.MYCELIUM_SLAB)) {
+                        if (slabState.isOf(ModBlocksRegistry.GRASS_SLAB)
+                                || slabState.isOf(ModBlocksRegistry.PODZOL_SLAB)
+                                || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)) {
                             world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 3);
                         }
 
@@ -96,13 +96,12 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
 
 
                     if (shouldPlaceSlabOnUnderside(world, currentPos)) {
-                        BlockPos blockAbovePos = currentPos.up();
-                        BlockState blockAboveState = world.getBlockState(blockAbovePos);
-                        BlockState slabState = ModSlabsMap.getSlabForBlock(blockAboveState.getBlock()).getDefaultState();
+                        BlockState previousBlockState = world.getBlockState(currentPos);
+                        BlockState slabState = ModSlabsMap.getSlabForBlock(previousBlockState.getBlock()).getDefaultState();
 
-                        if (slabState.getBlock().equals(ModBlocksRegistry.GRASS_SLAB)
-                                || slabState.getBlock().equals(ModBlocksRegistry.PODZOL_SLAB)
-                                || slabState.getBlock().equals(ModBlocksRegistry.MYCELIUM_SLAB)) {
+                        if (slabState.isOf(ModBlocksRegistry.GRASS_SLAB)
+                                || slabState.isOf(ModBlocksRegistry.PODZOL_SLAB)
+                                || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)) {
                             slabState = ModBlocksRegistry.DIRT_SLAB.getDefaultState();
                         }
                         slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
@@ -128,11 +127,14 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         }
         // Check that the block below is opaque and not a slab, and the position is air or snow
         if (blockBelow.isOpaque() && !(blockBelow.getBlock() instanceof SlabBlock)
-                && (!currentBlockState.isOpaque() || currentBlockState.getBlock() == Blocks.SNOW || currentBlockState.isReplaceable())
-                && (blockAbove.isAir() || blockAbove.getBlock() == Blocks.WATER)) {
+                && (!currentBlockState.isOpaque() || currentBlockState.isOf(Blocks.SNOW) || currentBlockState.isReplaceable())
+                && (blockAbove.isAir() || blockAbove.isOf(Blocks.WATER))) {
 
             // Check neighboring blocks to ensure at least one opaque block is adjacent
             for (Direction direction : Direction.Type.HORIZONTAL) {
+                if (badNextToWaterSlab(world, currentPos, direction)){
+                    return false;
+                }
                 BlockPos neighborPos = currentPos.offset(direction);
                 BlockState neighborState = world.getBlockState(neighborPos);
 
@@ -140,10 +142,10 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                 if (neighborState.isOpaque() && VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(neighborState.getBlock())
                         && !(neighborState.getBlock() instanceof SlabBlock)
                         && (!world.getBlockState(neighborPos.up()).isOpaque() || world.getBlockState(neighborPos.up()).getBlock() == Blocks.SNOW)
-                        && !world.getBlockState(neighborPos).equals(Blocks.SNOW.getDefaultState())) {
+                        && !world.getBlockState(neighborPos).isOf(Blocks.SNOW)) {
 
                     for (Direction direction2 : Direction.Type.HORIZONTAL) {
-                        if (world.getBlockState(currentPos.offset(direction2)).getBlock().equals(Blocks.ICE) || world.getBlockState(currentPos.offset(direction2)).getBlock().equals(Blocks.LAVA)) {
+                        if (world.getBlockState(currentPos.offset(direction2)).isOf(Blocks.ICE) || world.getBlockState(currentPos.offset(direction2)).isOf(Blocks.LAVA)) {
                             return false;
                         }
                     }
@@ -155,7 +157,6 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     }
 
     private boolean shouldPlaceSlabOnUnderside(WorldAccess world, BlockPos currentPos) {
-        BlockState blockAbove = world.getBlockState(currentPos.up());
         BlockState currentBlock = world.getBlockState(currentPos);
         BlockState blockBelow = world.getBlockState(currentPos.down());
         boolean place = false;
@@ -164,17 +165,20 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
             return false;
         }
         // Check that the block above is a valid block for slab placement and that the current block is air or water
-        if (VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(blockAbove.getBlock())
+        if (VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(currentBlock.getBlock())
                 && (blockBelow.isAir() || blockBelow.getBlock() == Blocks.WATER)
                 && currentBlock.isOpaque()) {
 
             // Check neighboring blocks to ensure at least one horizontal neighbor is air or water
             for (Direction direction : Direction.Type.HORIZONTAL) {
+                if (badNextToWaterSlab(world, currentPos, direction)){
+                    return false;
+                }
                 BlockPos neighborPos = currentPos.offset(direction);
                 BlockState neighborState = world.getBlockState(neighborPos);
 
                 // If at least one horizontal neighbor is air or water, mark this position for slab placement
-                if (neighborState.isAir() || neighborState.getBlock() == Blocks.WATER) {
+                if ((neighborState.isAir() || neighborState.getBlock() == Blocks.WATER) && !neighborState.isOf(Blocks.LAVA)) {
                     place = true;
                 }
             }
@@ -189,17 +193,24 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     private BlockState updateWaterloggedState(WorldAccess world, BlockPos pos, BlockState slabState) {
 
         if (slabState.contains(Properties.WATERLOGGED)) {
-            if (world.getBlockState(pos.up()) == Blocks.WATER.getDefaultState() || world.getBlockState(pos) == Blocks.WATER.getDefaultState()) {
+            if (world.getBlockState(pos).isOf(Blocks.WATER)) {
                 return slabState.with(Properties.WATERLOGGED, true);
             }
             for (Direction direction1 : Direction.Type.HORIZONTAL) {
                 // Check if the neighbor or the block above contains water to set the waterlogged property
-                if (world.getBlockState(pos.offset(direction1)) == Blocks.WATER.getDefaultState()) {
+                if (world.getBlockState(pos.offset(direction1)).isOf(Blocks.WATER)) {
                     return slabState.with(Properties.WATERLOGGED, true);
                 }
             }
         }
         return slabState;
     }
-}
 
+    private Boolean badNextToWaterSlab(WorldAccess world, BlockPos currentPos, Direction direction) {
+        if (world.getBlockState(currentPos.offset(direction)).isOf(Blocks.WATER) &&
+                (world.getBlockState(currentPos.down()).isOf(Blocks.AIR) || world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() == Blocks.AIR)) {
+            return true;
+        }
+        return false;
+    }
+}

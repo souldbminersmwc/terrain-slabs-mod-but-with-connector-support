@@ -9,13 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO
-// add vegetation placed on slabs
 // add drops
 // add crafting
-// add pathslab
 // slabs breaking correct pixels, map colors, copy settings, translation
 // only place on bottom of mountain
+// place slab whenever surrounded by atleast one slab plus opaque blocks
+// add tuff and moss slab, updating slab
+// check configured/placed feature settings/class
+// top falling slabs to bottom conversion
 
+// add pathslab
+// add vegetation placed on slabs
 // water should be running through slabs?
 // wrong slabs placement (dirt on sand)
 // add vertical slabs
