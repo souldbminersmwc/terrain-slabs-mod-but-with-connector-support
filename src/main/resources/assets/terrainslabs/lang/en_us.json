@@ -1,0 +1,28 @@
+{
+  "itemgroup.terrainslabs":"Terrain Slabs",
+
+  "block.terrainslabs.dirt_slab": "Dirt Slab",
+  "block.terrainslabs.mud_slab": "Mud Slab",
+  "block.terrainslabs.coarse_slab": "Coarse Dirt Slab",
+  "block.terrainslabs.snow_slab": "Snow Slab",
+  "block.terrainslabs.packed_ice_slab": "Packed Ice Slab",
+  "block.terrainslabs.deepslate_slab": "Deepslate Slab",
+  "block.terrainslabs.clay_slab": "Clay Slab",
+  "block.terrainslabs.moss_slab": "Moss Slab",
+
+  "block.terrainslabs.grass_slab": "Grass Slab",
+  "block.terrainslabs.mycelium_slab": "Mycelium Slab",
+  "block.terrainslabs.podzol_slab": "Podzol Slab",
+
+  "block.terrainslabs.gravel_slab": "Gravel Slab",
+  "block.terrainslabs.sand_slab": "Sand Slab",
+  "block.terrainslabs.red_sand_slab": "Red Sand Slab",
+
+  "block.terrainslabs.terracotta_slab": "Terracotta Slab",
+  "block.terrainslabs.red_terracotta_slab": "Red Terracotta Slab",
+  "block.terrainslabs.orange_terracotta_slab": "Orange Terracotta Slab",
+  "block.terrainslabs.light_gray_terracotta_slab": "Light Gray Terracotta Slab",
+  "block.terrainslabs.white_terracotta_slab": "White Terracotta Slab",
+  "block.terrainslabs.brown_terracotta_slab": "Brown Terracotta Slab",
+  "block.terrainslabs.yellow_terracotta_slab": "Yellow Terracotta Slab"
+}

@@ -195,7 +195,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     private BlockState updateWaterloggedState(WorldAccess world, BlockPos pos, BlockState slabState) {
 
         if (slabState.contains(Properties.WATERLOGGED)) {
-            if (world.getBlockState(pos).isOf(Blocks.WATER)) {
+            if (world.getBlockState(pos).isOf(Blocks.WATER) || world.getBlockState(pos.up()).isOf(Blocks.WATER)) {
                 return slabState.with(Properties.WATERLOGGED, true);
             }
             for (Direction direction1 : Direction.Type.HORIZONTAL) {

@@ -12,28 +12,22 @@ import org.slf4j.LoggerFactory;
 //TODO
 // add drops
 // add crafting
-// slabs breaking correct pixels, map colors, copy settings, translation
+// slabs breaking correct pixels, map colors, copy settings
 // only place on bottom of mountain
+// wrong slabs placement (dirt on sand) make not feature
 
 // place slab whenever surrounded by atleast one slab plus opaque blocks
 // add pathslab
 // add vegetation placed on slabs
 // water should be running through slabs?
-// wrong slabs placement (dirt on sand)
 // add vertical slabs
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
 		LOGGER.info("Initializing TerrainSlabs");
 		ModBlocksRegistry.registerModBlocks();
 		ModAddedFeatures.registerFeatures();
