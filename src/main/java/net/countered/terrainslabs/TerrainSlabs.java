@@ -1,6 +1,7 @@
 package net.countered.terrainslabs;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.item.ModItemGroups;
 import net.countered.terrainslabs.worldgen.feature.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
@@ -13,7 +14,6 @@ import org.slf4j.LoggerFactory;
 // add crafting
 // slabs breaking correct pixels, map colors, copy settings, translation
 // only place on bottom of mountain
-// add creative tab,
 
 // place slab whenever surrounded by atleast one slab plus opaque blocks
 // add pathslab
@@ -38,5 +38,6 @@ public class TerrainSlabs implements ModInitializer {
 		ModBlocksRegistry.registerModBlocks();
 		ModAddedFeatures.registerFeatures();
 		ModSlabGeneration.generateSlabs();
+		ModItemGroups.registerItemGroups();
 	}
 }
