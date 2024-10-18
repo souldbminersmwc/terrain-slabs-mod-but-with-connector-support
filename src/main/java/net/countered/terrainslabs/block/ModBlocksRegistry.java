@@ -2,7 +2,7 @@ package net.countered.terrainslabs.block;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
-import net.countered.terrainslabs.block.customslabs.GravityAffectedSlab;
+import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffectedSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;

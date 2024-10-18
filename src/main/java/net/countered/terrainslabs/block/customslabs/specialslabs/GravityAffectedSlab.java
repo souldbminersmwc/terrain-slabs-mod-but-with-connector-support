@@ -1,4 +1,4 @@
-package net.countered.terrainslabs.block.customslabs;
+package net.countered.terrainslabs.block.customslabs.specialslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
