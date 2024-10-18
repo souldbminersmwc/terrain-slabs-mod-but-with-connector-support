@@ -15,8 +15,6 @@ import org.slf4j.LoggerFactory;
 // only place on bottom of mountain
 // place slab whenever surrounded by atleast one slab plus opaque blocks
 // add tuff and moss slab, updating slab
-// check configured/placed feature settings/class
-// top falling slabs to bottom conversion
 
 // add pathslab
 // add vegetation placed on slabs
