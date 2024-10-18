@@ -13,6 +13,7 @@ public class ModSlabsMap {
     static {
         // Register your block-to-slab mappings here
         SLAB_MAP.put(Blocks.STONE, Blocks.STONE_SLAB);
+        SLAB_MAP.put(Blocks.TUFF, Blocks.TUFF_SLAB);
         SLAB_MAP.put(Blocks.SANDSTONE, Blocks.SANDSTONE_SLAB);
         SLAB_MAP.put(Blocks.ANDESITE, Blocks.ANDESITE_SLAB);
         SLAB_MAP.put(Blocks.DIORITE, Blocks.DIORITE_SLAB);
@@ -33,6 +34,7 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.PACKED_ICE, ModBlocksRegistry.PACKED_ICE_SLAB);
         SLAB_MAP.put(Blocks.CLAY, ModBlocksRegistry.CLAY_SLAB);
         SLAB_MAP.put(Blocks.DEEPSLATE, ModBlocksRegistry.DEEPSLATE_SLAB);
+        SLAB_MAP.put(Blocks.MOSS_BLOCK, ModBlocksRegistry.MOSS_SLAB);
 
         SLAB_MAP.put(Blocks.TERRACOTTA, ModBlocksRegistry.TERRACOTTA_SLAB);
         SLAB_MAP.put(Blocks.RED_TERRACOTTA, ModBlocksRegistry.RED_TERRACOTTA_SLAB);

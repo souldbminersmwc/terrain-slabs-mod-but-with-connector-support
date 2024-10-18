@@ -34,6 +34,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MYCELIUM);
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MOSS_BLOCK);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PACKED_ICE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.COARSE_DIRT);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MUD);
@@ -46,6 +47,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.ANDESITE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIORITE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRANITE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.TUFF);
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SAND);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRAVEL);

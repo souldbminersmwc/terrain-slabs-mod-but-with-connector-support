@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 // slabs breaking correct pixels, map colors, copy settings, translation
 // only place on bottom of mountain
 // place slab whenever surrounded by atleast one slab plus opaque blocks
-// add tuff and moss slab, updating slab
+// add creative tab,
 
 // add pathslab
 // add vegetation placed on slabs
