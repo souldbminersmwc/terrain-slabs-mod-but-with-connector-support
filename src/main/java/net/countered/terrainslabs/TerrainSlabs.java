@@ -10,11 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO
-// add drops
-// add crafting
-// slabs breaking correct pixels, map colors, copy settings
-// Nether/end
+// Tags
 
+// Nether/end
 // place slab whenever surrounded by atleast one slab plus opaque blocks
 // add pathslab
 // add vegetation placed on slabs
