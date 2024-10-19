@@ -1,4 +1,12 @@
 {
   "feature": "terrainslabs:slab_feature",
-  "placement": []
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 1
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
 }

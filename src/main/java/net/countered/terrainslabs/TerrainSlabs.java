@@ -13,14 +13,16 @@ import org.slf4j.LoggerFactory;
 // add drops
 // add crafting
 // slabs breaking correct pixels, map colors, copy settings
-// only place on bottom of mountain
-// wrong slabs placement (dirt on sand) make not feature
+// Nether/end
 
 // place slab whenever surrounded by atleast one slab plus opaque blocks
 // add pathslab
 // add vegetation placed on slabs
 // water should be running through slabs?
 // add vertical slabs
+// fix ao
+// fix glow lichen underwater on slab
+// wrong slabs placement (dirt on sand)
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 

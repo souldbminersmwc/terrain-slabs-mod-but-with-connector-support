@@ -128,29 +128,27 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
             return false;
         }
         // Check that the block below is opaque and not a slab, and the position is air or snow
-        if (blockBelow.isOpaque() && !(blockBelow.getBlock() instanceof SlabBlock)
+        if (blockBelow.isOpaque() && !(blockBelow.getBlock() instanceof SlabBlock) && badMountainSlab(world, currentPos)
                 && (!currentBlockState.isOpaque() || currentBlockState.isOf(Blocks.SNOW) || currentBlockState.isReplaceable())
                 && (blockAbove.isAir() || blockAbove.isOf(Blocks.WATER))) {
 
             // Check neighboring blocks to ensure at least one opaque block is adjacent
             for (Direction direction : Direction.Type.HORIZONTAL) {
-                if (badNextToWaterSlab(world, currentPos, direction)){
+                if (badNextToWaterSlab(world, currentPos, direction) ||
+                        world.getBlockState(currentPos.offset(direction)).isOf(Blocks.ICE) ||
+                        world.getBlockState(currentPos.offset(direction)).isOf(Blocks.LAVA)) {
                     return false;
                 }
-                BlockPos neighborPos = currentPos.offset(direction);
-                BlockState neighborState = world.getBlockState(neighborPos);
+            }
 
+            for (Direction direction1 : Direction.Type.HORIZONTAL) {
+                BlockPos neighborPos = currentPos.offset(direction1);
+                BlockState neighborState = world.getBlockState(neighborPos);
                 // Check if a neighboring block is opaque and not a slab
                 if (neighborState.isOpaque() && VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(neighborState.getBlock())
                         && !(neighborState.getBlock() instanceof SlabBlock)
                         && (!world.getBlockState(neighborPos.up()).isOpaque() || world.getBlockState(neighborPos.up()).getBlock() == Blocks.SNOW)
                         && !world.getBlockState(neighborPos).isOf(Blocks.SNOW)) {
-
-                    for (Direction direction2 : Direction.Type.HORIZONTAL) {
-                        if (world.getBlockState(currentPos.offset(direction2)).isOf(Blocks.ICE) || world.getBlockState(currentPos.offset(direction2)).isOf(Blocks.LAVA)) {
-                            return false;
-                        }
-                    }
                     return true;
                 }
             }
@@ -212,6 +210,17 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         if (world.getBlockState(currentPos.offset(direction)).isOf(Blocks.WATER) &&
                 (world.getBlockState(currentPos.down()).isOf(Blocks.AIR) || world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() == Blocks.AIR)) {
             return true;
+        }
+        return false;
+    }
+
+    private boolean badMountainSlab(WorldAccess world, BlockPos currentPos) {
+        for (Direction direction : Direction.Type.HORIZONTAL) {
+            if (world.getBlockState(currentPos.offset(direction).down()).isOpaque() && world.getBlockState(currentPos.offset(direction.getOpposite())).isOpaque()
+            && !(world.getBlockState(currentPos.offset(direction).down()).getBlock() instanceof SlabBlock) && !(world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() instanceof SlabBlock))
+            {
+                return true;
+            }
         }
         return false;
     }
