@@ -128,7 +128,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
             return false;
         }
         // Check that the block below is opaque and not a slab, and the position is air or snow
-        if (blockBelow.isOpaque() && !(blockBelow.getBlock() instanceof SlabBlock) && badMountainSlab(world, currentPos)
+        if (blockBelow.isOpaque() && !(blockBelow.getBlock() instanceof SlabBlock) && bottomOfMountain(world, currentPos)
                 && (!currentBlockState.isOpaque() || currentBlockState.isOf(Blocks.SNOW) || currentBlockState.isReplaceable())
                 && (blockAbove.isAir() || blockAbove.isOf(Blocks.WATER))) {
 
@@ -161,7 +161,7 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         BlockState blockBelow = world.getBlockState(currentPos.down());
         boolean place = false;
 
-        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.up()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.up()).getBlock() instanceof SlabBlock){
+        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.up()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.up()).getBlock() instanceof SlabBlock || nextToGlowLichen(world, currentPos)){
             return false;
         }
         // Check that the block above is a valid block for slab placement and that the current block is air or water
@@ -171,11 +171,11 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
 
             // Check neighboring blocks to ensure at least one horizontal neighbor is air or water
             for (Direction direction : Direction.Type.HORIZONTAL) {
-                if (badNextToWaterSlab(world, currentPos, direction)){
-                    return false;
-                }
                 BlockPos neighborPos = currentPos.offset(direction);
                 BlockState neighborState = world.getBlockState(neighborPos);
+                if (badNextToWaterSlab(world, currentPos, direction)) {
+                    return false;
+                }
 
                 // If at least one horizontal neighbor is air or water, mark this position for slab placement
                 if ((neighborState.isAir() || neighborState.getBlock() == Blocks.WATER) && !neighborState.isOf(Blocks.LAVA)) {
@@ -214,11 +214,20 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         return false;
     }
 
-    private boolean badMountainSlab(WorldAccess world, BlockPos currentPos) {
+    private boolean bottomOfMountain(WorldAccess world, BlockPos currentPos) {
         for (Direction direction : Direction.Type.HORIZONTAL) {
             if (world.getBlockState(currentPos.offset(direction).down()).isOpaque() && world.getBlockState(currentPos.offset(direction.getOpposite())).isOpaque()
             && !(world.getBlockState(currentPos.offset(direction).down()).getBlock() instanceof SlabBlock) && !(world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() instanceof SlabBlock))
             {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean nextToGlowLichen(WorldAccess world, BlockPos currentPos) {
+        for (Direction direction : Direction.Type.HORIZONTAL) {
+            if (world.getBlockState(currentPos.offset(direction)).isOf(Blocks.GLOW_LICHEN)){
                 return true;
             }
         }
