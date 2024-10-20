@@ -1,2 +1,17 @@
-// 1.21.1	2024-10-19T21:55:05.4105763	Terrain Slabs/Tags for minecraft:block
+// 1.21.1	2024-10-20T13:47:57.078623	Terrain Slabs/Tags for minecraft:block
+1bc11c8bec75ce2c522acf56964caa54dd3662ca data\minecraft\tags\block\mineable\pickaxe.json
+ad7329cab53b0a4836849957deb6a32613a801ab data\minecraft\tags\block\sniffer_diggable_block.json
+7ef35874f01891e65d3aafd95fde3b328f4f1461 data\minecraft\tags\block\foxes_spawnable_on.json
+5a74ed37ffe34e05517ed69b0bafb1b916f2ba35 data\minecraft\tags\block\azalea_root_replaceable.json
+e7eb07c4c644d7e7e29724d2df3868262328f856 data\minecraft\tags\block\mineable\shovel.json
+3c55c1a0fa014d6711cd4e780ff6259619428448 data\minecraft\tags\block\rabbits_spawnable_on.json
+5bd33473ec7f768e5637a24662b205067cb39e17 data\minecraft\tags\block\frogs_spawnable_on.json
 1bdcc8cf031f51455fbe351f1c4b2fa88de58d93 data\minecraft\tags\block\slabs.json
+dcb1a45024b89c80b0c0ab4449c96cd855468838 data\minecraft\tags\block\armadillo_spawnable_on.json
+142ce4b73cd09476280f2f38a9a66267c68c5872 data\minecraft\tags\block\goats_spawnable_on.json
+2c71cc7278174728e59e096de0bf3f80d3e6e94a data\minecraft\tags\block\base_stone_overworld.json
+185b121f2be56b2e724e847a697cbe6d4dbabc6a data\minecraft\tags\block\mangrove_roots_can_grow_through.json
+57d4e79f601c8515e00a9605aeb6cdc01cbd1af0 data\minecraft\tags\block\snow.json
+185b121f2be56b2e724e847a697cbe6d4dbabc6a data\minecraft\tags\block\mangrove_logs_can_grow_through.json
+3fa5996967fc76760f668a692421a604da7284b0 data\minecraft\tags\block\wolves_spawnable_on.json
+1292eac83840bd7e748a1c14ed9c9b13a3749fd3 data\minecraft\tags\block\overworld_carver_replaceables.json

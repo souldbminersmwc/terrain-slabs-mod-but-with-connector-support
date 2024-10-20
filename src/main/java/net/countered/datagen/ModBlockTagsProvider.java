@@ -3,6 +3,7 @@ package net.countered.datagen;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.tag.TagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
@@ -16,7 +17,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.SLABS)
+        this.getOrCreateTagBuilder(BlockTags.SLABS)
                 .add(ModBlocksRegistry.DIRT_SLAB)
                 .add(ModBlocksRegistry.MUD_SLAB)
                 .add(ModBlocksRegistry.COARSE_SLAB)
@@ -38,5 +39,98 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocksRegistry.DIRT_SLAB)
+                .add(ModBlocksRegistry.MUD_SLAB)
+                .add(ModBlocksRegistry.COARSE_SLAB)
+                .add(ModBlocksRegistry.SNOW_SLAB)
+                .add(ModBlocksRegistry.CLAY_SLAB)
+                .add(ModBlocksRegistry.GRASS_SLAB)
+                .add(ModBlocksRegistry.MYCELIUM_SLAB)
+                .add(ModBlocksRegistry.PODZOL_SLAB)
+                .add(ModBlocksRegistry.GRAVEL_SLAB)
+                .add(ModBlocksRegistry.SAND_SLAB)
+                .add(ModBlocksRegistry.RED_SAND_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocksRegistry.PACKED_ICE_SLAB)
+                .add(ModBlocksRegistry.DEEPSLATE_SLAB)
+                .add(ModBlocksRegistry.TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.RED_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.ORANGE_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(ModBlocksRegistry.MOSS_SLAB);
+
+
+        this.getOrCreateTagBuilder(BlockTags.CAMEL_SAND_STEP_SOUND_BLOCKS).add(ModBlocksRegistry.SAND_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.SMELTS_TO_GLASS).add(ModBlocksRegistry.SAND_SLAB, ModBlocksRegistry.RED_SAND_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.PARROTS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.ANIMALS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.VALID_SPAWN).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.PODZOL_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.AXOLOTLS_SPAWNABLE_ON).add(ModBlocksRegistry.CLAY_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.RABBITS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.SNOW_SLAB, ModBlocksRegistry.SAND_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.GOATS_SPAWNABLE_ON) //needs improvement
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB, ModBlocksRegistry.SNOW_SLAB, ModBlocksRegistry.PACKED_ICE_SLAB, ModBlocksRegistry.GRAVEL_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.SNOW).add(ModBlocksRegistry.SNOW_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.SCULK_REPLACEABLE)
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
+                .add(ModBlocksRegistry.DIRT_SLAB)
+                .add(ModBlocksRegistry.TERRACOTTA_SLAB)  //need extension
+                .add(ModBlocksRegistry.SAND_SLAB, ModBlocksRegistry.RED_SAND_SLAB)
+                .add(ModBlocksRegistry.GRAVEL_SLAB)
+                .add(ModBlocksRegistry.CLAY_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB);
+
+
+        this.getOrCreateTagBuilder(BlockTags.AZALEA_ROOT_REPLACEABLE)
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
+                .add(ModBlocksRegistry.DIRT_SLAB)
+                .add(ModBlocksRegistry.TERRACOTTA_SLAB)  //need extension
+                .add(ModBlocksRegistry.RED_SAND_SLAB)
+                .add(ModBlocksRegistry.CLAY_SLAB)
+                .add(ModBlocksRegistry.GRAVEL_SLAB)
+                .add(ModBlocksRegistry.SAND_SLAB)
+                .add(ModBlocksRegistry.SNOW_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
+                .add(ModBlocksRegistry.DIRT_SLAB, ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.PODZOL_SLAB, ModBlocksRegistry.COARSE_SLAB, ModBlocksRegistry.MOSS_SLAB, ModBlocksRegistry.MUD_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.WOLVES_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.SNOW_SLAB, ModBlocksRegistry.COARSE_SLAB, ModBlocksRegistry.PODZOL_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.FOXES_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.SNOW_SLAB, ModBlocksRegistry.PODZOL_SLAB, ModBlocksRegistry.COARSE_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.ARMADILLO_SPAWNABLE_ON)
+                .add(ModBlocksRegistry.RED_SAND_SLAB, ModBlocksRegistry.COARSE_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)
+                .add(
+                        ModBlocksRegistry.MUD_SLAB);
+        this.getOrCreateTagBuilder(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH)
+                .add(ModBlocksRegistry.MUD_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.FROGS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.MUD_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.BADLANDS_TERRACOTTA)
+                .add(Blocks.TERRACOTTA)
+                .add(
+                        Blocks.WHITE_TERRACOTTA, Blocks.YELLOW_TERRACOTTA, Blocks.ORANGE_TERRACOTTA, Blocks.RED_TERRACOTTA, Blocks.BROWN_TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA
+                );
     }
+
 }

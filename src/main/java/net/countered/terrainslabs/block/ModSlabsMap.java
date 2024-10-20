@@ -12,12 +12,13 @@ public class ModSlabsMap {
 
     static {
         // Register your block-to-slab mappings here
-        SLAB_MAP.put(Blocks.STONE, Blocks.STONE_SLAB);
-        SLAB_MAP.put(Blocks.TUFF, Blocks.TUFF_SLAB);
-        SLAB_MAP.put(Blocks.SANDSTONE, Blocks.SANDSTONE_SLAB);
-        SLAB_MAP.put(Blocks.ANDESITE, Blocks.ANDESITE_SLAB);
-        SLAB_MAP.put(Blocks.DIORITE, Blocks.DIORITE_SLAB);
-        SLAB_MAP.put(Blocks.GRANITE, Blocks.GRANITE_SLAB);
+        SLAB_MAP.put(Blocks.STONE, ModBlocksRegistry.CUSTOM_STONE_SLAB);
+        SLAB_MAP.put(Blocks.TUFF, ModBlocksRegistry.CUSTOM_TUFF_SLAB);
+        SLAB_MAP.put(Blocks.SANDSTONE, ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB);
+        SLAB_MAP.put(Blocks.RED_SANDSTONE, ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB);
+        SLAB_MAP.put(Blocks.ANDESITE, ModBlocksRegistry.CUSTOM_ANDESITE_SLAB);
+        SLAB_MAP.put(Blocks.DIORITE, ModBlocksRegistry.CUSTOM_DIORITE_SLAB);
+        SLAB_MAP.put(Blocks.GRANITE, ModBlocksRegistry.CUSTOM_GRANITE_SLAB);
 
         SLAB_MAP.put(Blocks.GRASS_BLOCK, ModBlocksRegistry.GRASS_SLAB);
         SLAB_MAP.put(Blocks.MYCELIUM, ModBlocksRegistry.MYCELIUM_SLAB);

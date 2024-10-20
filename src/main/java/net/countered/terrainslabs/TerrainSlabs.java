@@ -18,9 +18,11 @@ import org.slf4j.LoggerFactory;
 // add vegetation placed on slabs
 // water should be running through slabs?
 // add vertical slabs
-// fix ao
-// fix glow lichen underwater on slab
+// fix ao (custom slab tag?)
 // wrong slabs placement (dirt on sand)
+// convert to mud tag
+// tag extension/improvement (carver replacable)
+// add correct silk touch drops
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 

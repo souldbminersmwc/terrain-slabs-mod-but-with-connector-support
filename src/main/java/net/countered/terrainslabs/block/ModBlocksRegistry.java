@@ -64,6 +64,20 @@ public class ModBlocksRegistry {
     public static final Block YELLOW_TERRACOTTA_SLAB = registerBlock("yellow_terracotta_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_TERRACOTTA)));
 
+    public static final Block CUSTOM_STONE_SLAB = registerBlock("custom_stone_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE_SLAB)));
+    public static final Block CUSTOM_TUFF_SLAB = registerBlock("custom_tuff_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF_SLAB)));
+    public static final Block CUSTOM_SANDSTONE_SLAB = registerBlock("custom_sandstone_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE_SLAB)));
+    public static final Block CUSTOM_RED_SANDSTONE_SLAB = registerBlock("custom_red_sandstone_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE_SLAB)));
+    public static final Block CUSTOM_ANDESITE_SLAB = registerBlock("custom_andesite_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE_SLAB)));
+    public static final Block CUSTOM_DIORITE_SLAB = registerBlock("custom_diorite_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE_SLAB)));
+    public static final Block CUSTOM_GRANITE_SLAB = registerBlock("custom_granite_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE_SLAB)));
 
 
     private static Block registerBlock(String name, Block block) {
