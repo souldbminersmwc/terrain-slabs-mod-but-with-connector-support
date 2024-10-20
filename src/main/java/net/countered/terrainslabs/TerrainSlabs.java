@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO
-// Tags
 
 // Nether/end
 // place slab whenever surrounded by atleast one slab plus opaque blocks

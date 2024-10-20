@@ -218,7 +218,8 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
     private boolean bottomOfMountain(WorldAccess world, BlockPos currentPos) {
         for (Direction direction : Direction.Type.HORIZONTAL) {
             if (world.getBlockState(currentPos.offset(direction).down()).isOpaque() && world.getBlockState(currentPos.offset(direction.getOpposite())).isOpaque()
-            && !(world.getBlockState(currentPos.offset(direction).down()).getBlock() instanceof SlabBlock) && !(world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() instanceof SlabBlock))
+            && !(world.getBlockState(currentPos.offset(direction).down()).getBlock() instanceof SlabBlock) && !(world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() instanceof SlabBlock)
+                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(Blocks.SNOW) && !world.getBlockState(currentPos.offset(direction).down()).isOf(Blocks.SNOW))
             {
                 return true;
             }
