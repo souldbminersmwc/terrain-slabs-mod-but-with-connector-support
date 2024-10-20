@@ -24,5 +24,13 @@
   "block.terrainslabs.light_gray_terracotta_slab": "Light Gray Terracotta Slab",
   "block.terrainslabs.white_terracotta_slab": "White Terracotta Slab",
   "block.terrainslabs.brown_terracotta_slab": "Brown Terracotta Slab",
-  "block.terrainslabs.yellow_terracotta_slab": "Yellow Terracotta Slab"
+  "block.terrainslabs.yellow_terracotta_slab": "Yellow Terracotta Slab",
+
+  "block.terrainslabs.terrain_stone_slab": "Terrain Stone Slab",
+  "block.terrainslabs.terrain_tuff_slab": "Terrain Tuff Slab",
+  "block.terrainslabs.terrain_sandstone_slab": "Terrain Sandstone Slab",
+  "block.terrainslabs.terrain_red_sandstone_slab": "Terrain Red Sandstone Slab",
+  "block.terrainslabs.terrain_andesite_slab": "Terrain Andesite Slab",
+  "block.terrainslabs.terrain_diorite_slab": "Terrain Diorite Slab",
+  "block.terrainslabs.terrain_granite_slab": "Terrain Granite Slab"
 }

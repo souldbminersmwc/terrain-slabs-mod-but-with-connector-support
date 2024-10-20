@@ -62,7 +62,14 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB)
-                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
+                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_TUFF_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_GRANITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocksRegistry.MOSS_SLAB);

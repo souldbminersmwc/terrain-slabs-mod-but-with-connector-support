@@ -48,6 +48,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.addDrop(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.WHITE_TERRACOTTA));
         this.addDrop(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.BROWN_TERRACOTTA));
         this.addDrop(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.YELLOW_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.CUSTOM_STONE_SLAB, block -> slabDrops(block, Blocks.STONE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB, block -> slabDrops(block, Blocks.ANDESITE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_DIORITE_SLAB, block -> slabDrops(block, Blocks.DIORITE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_GRANITE_SLAB, block -> slabDrops(block, Blocks.GRANITE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_TUFF_SLAB, block -> slabDrops(block, Blocks.TUFF));
+        this.addDrop(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB, block -> slabDrops(block, Blocks.SANDSTONE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB, block -> slabDrops(block, Blocks.RED_SANDSTONE));
     }
 
 

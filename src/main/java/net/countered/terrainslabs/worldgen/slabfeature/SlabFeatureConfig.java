@@ -39,7 +39,6 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.COARSE_DIRT);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MUD);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SNOW_BLOCK);
-        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SANDSTONE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.CLAY);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DEEPSLATE);
 
@@ -48,6 +47,8 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIORITE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRANITE);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.TUFF);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SANDSTONE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.RED_SANDSTONE);
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SAND);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRAVEL);
