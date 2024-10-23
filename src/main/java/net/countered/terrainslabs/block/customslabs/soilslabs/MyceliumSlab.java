@@ -21,6 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
+import net.minecraft.world.tick.ScheduledTickView;
 
 public class MyceliumSlab extends SlabBlock {
     public MyceliumSlab(AbstractBlock.Settings settings) {
@@ -40,20 +41,14 @@ public class MyceliumSlab extends SlabBlock {
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(
-            BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos
-    ) {
-        // Handle snowy logic
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         if (direction == Direction.UP) {
             state = state.with(SNOWY, isSnow(neighborState));
         }
 
-        // Handle waterlogging logic
-        if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        if ((Boolean)state.get(WATERLOGGED)) {
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-
-        // Return the modified state based on the slab's existing logic
         return state;
     }
 
@@ -104,8 +99,8 @@ public class MyceliumSlab extends SlabBlock {
         } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            int i = ChunkLightProvider.getRealisticOpacity(world, state, pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
-            return i < world.getMaxLightLevel();
+            int i = ChunkLightProvider.getRealisticOpacity(state, blockState, Direction.UP, blockState.getOpacity());
+            return i < 15;
         }
     }
 

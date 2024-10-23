@@ -14,83 +14,100 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 public class ModBlocksRegistry {
 
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIRT)));
+            new SlabBlock(createBlockSettings(Blocks.DIRT)));
     public static final Block MUD_SLAB = registerBlock("mud_slab",
-            new MudSlab(AbstractBlock.Settings.copy(Blocks.MUD)));
+            new MudSlab(createBlockSettings(Blocks.MUD)));
     public static final Block COARSE_SLAB = registerBlock("coarse_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.COARSE_DIRT)));
+            new SlabBlock(createBlockSettings(Blocks.COARSE_DIRT)));
     public static final Block SNOW_SLAB = registerBlock("snow_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK)));
+            new SlabBlock(createBlockSettings(Blocks.SNOW_BLOCK)));
     public static final Block PACKED_ICE_SLAB = registerBlock("packed_ice_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.PACKED_ICE)));
+            new SlabBlock(createBlockSettings(Blocks.PACKED_ICE)));
     public static final Block DEEPSLATE_SLAB = registerBlock("deepslate_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE)));
+            new SlabBlock(createBlockSettings(Blocks.DEEPSLATE)));
     public static final Block CLAY_SLAB = registerBlock("clay_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.CLAY)));
+            new SlabBlock(createBlockSettings(Blocks.CLAY)));
     public static final Block MOSS_SLAB = registerBlock("moss_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK)));
+            new SlabBlock(createBlockSettings(Blocks.MOSS_BLOCK)));
 
     public static final Block GRASS_SLAB = registerBlock("grass_slab",
-            new GrassSlab(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
+            new GrassSlab(createBlockSettings(Blocks.GRASS_BLOCK)));
     public static final Block MYCELIUM_SLAB = registerBlock("mycelium_slab",
-            new MyceliumSlab(AbstractBlock.Settings.copy(Blocks.MYCELIUM)));
+            new MyceliumSlab(createBlockSettings(Blocks.MYCELIUM)));
     public static final Block PODZOL_SLAB = registerBlock("podzol_slab",
-            new PodzolSlab(AbstractBlock.Settings.copy(Blocks.PODZOL)));
+            new PodzolSlab(createBlockSettings(Blocks.PODZOL)));
 
     public static final Block GRAVEL_SLAB = registerBlock("gravel_slab",
-            new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.GRAVEL)));
+            new GravityAffectedSlab(createBlockSettings(Blocks.GRAVEL)));
     public static final Block SAND_SLAB = registerBlock("sand_slab",
-            new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.SAND)));
+            new GravityAffectedSlab(createBlockSettings(Blocks.SAND)));
     public static final Block RED_SAND_SLAB = registerBlock("red_sand_slab",
-            new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.RED_SAND)));
+            new GravityAffectedSlab(createBlockSettings(Blocks.RED_SAND)));
 
     public static final Block TERRACOTTA_SLAB = registerBlock("terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.TERRACOTTA)));
     public static final Block RED_TERRACOTTA_SLAB = registerBlock("red_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.RED_TERRACOTTA)));
     public static final Block ORANGE_TERRACOTTA_SLAB = registerBlock("orange_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.ORANGE_TERRACOTTA)));
     public static final Block LIGHT_GRAY_TERRACOTTA_SLAB = registerBlock("light_gray_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.LIGHT_GRAY_TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.LIGHT_GRAY_TERRACOTTA)));
     public static final Block WHITE_TERRACOTTA_SLAB = registerBlock("white_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.WHITE_TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.WHITE_TERRACOTTA)));
     public static final Block BROWN_TERRACOTTA_SLAB = registerBlock("brown_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.BROWN_TERRACOTTA)));
     public static final Block YELLOW_TERRACOTTA_SLAB = registerBlock("yellow_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_TERRACOTTA)));
+            new SlabBlock(createBlockSettings(Blocks.YELLOW_TERRACOTTA)));
 
     public static final Block CUSTOM_STONE_SLAB = registerBlock("terrain_stone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.STONE_SLAB)));
     public static final Block CUSTOM_TUFF_SLAB = registerBlock("terrain_tuff_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.TUFF_SLAB)));
     public static final Block CUSTOM_SANDSTONE_SLAB = registerBlock("terrain_sandstone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.SANDSTONE_SLAB)));
     public static final Block CUSTOM_RED_SANDSTONE_SLAB = registerBlock("terrain_red_sandstone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.RED_SANDSTONE_SLAB)));
     public static final Block CUSTOM_ANDESITE_SLAB = registerBlock("terrain_andesite_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.ANDESITE_SLAB)));
     public static final Block CUSTOM_DIORITE_SLAB = registerBlock("terrain_diorite_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.DIORITE_SLAB)));
     public static final Block CUSTOM_GRANITE_SLAB = registerBlock("terrain_granite_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE_SLAB)));
+            new SlabBlock(createBlockSettings(Blocks.GRANITE_SLAB)));
 
-
-    private static Block registerBlock(String name, Block block) {
-        registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(TerrainSlabs.MOD_ID, name), block);
+    private static Block.Settings createBlockSettings(Block baseBlock) {
+        Identifier id = Identifier.of(TerrainSlabs.MOD_ID, Registries.BLOCK.getId(baseBlock).getPath() + "_slab");
+        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
+        return AbstractBlock.Settings.copy(baseBlock).registryKey(key);
     }
 
-    private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, Identifier.of(TerrainSlabs.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+
+    // Updated block registration method with the registry key
+    private static Block registerBlock(String name, Block block) {
+        Identifier id = Identifier.of(TerrainSlabs.MOD_ID, name);
+        RegistryKey<Block> blockKey = RegistryKey.of(RegistryKeys.BLOCK, id);
+        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, id);
+
+        registerBlockItem(name, block, itemKey);  // Register the item using a block-prefixed translation key
+        return Registry.register(Registries.BLOCK, blockKey, block);
+    }
+
+    // Method to register the BlockItem with the correct settings
+    private static void registerBlockItem(String name, Block block, RegistryKey<Item> itemKey) {
+        Item.Settings itemSettings = new Item.Settings()
+                .useBlockPrefixedTranslationKey()  // Use the block-prefixed translation key format
+                .registryKey(itemKey);
+
+        Registry.register(Registries.ITEM, itemKey, new BlockItem(block, itemSettings));
     }
 
     public static void registerModBlocks() {
-        TerrainSlabs.LOGGER.info("Registering Mod Blocks for" + TerrainSlabs.MOD_ID);
+        TerrainSlabs.LOGGER.info("Registering Mod Blocks for " + TerrainSlabs.MOD_ID);
     }
 }

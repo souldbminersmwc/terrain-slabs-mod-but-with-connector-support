@@ -19,6 +19,8 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
 public class GravityAffectedSlab extends SlabBlock {
@@ -38,19 +40,25 @@ public class GravityAffectedSlab extends SlabBlock {
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(
-            BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos
-    ) {
-        world.scheduleBlockTick(pos, this, this.getFallDelay());
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
-    }
-
-    @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY()) {
             FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
             this.configureFallingBlockEntity(fallingBlockEntity);
         }
+    }
+    @Override
+    protected BlockState getStateForNeighborUpdate(
+            BlockState state,
+            WorldView world,
+            ScheduledTickView tickView,
+            BlockPos pos,
+            Direction direction,
+            BlockPos neighborPos,
+            BlockState neighborState,
+            Random random
+    ) {
+        tickView.scheduleBlockTick(pos, this, this.getFallDelay());
+        return state;
     }
 
     protected void configureFallingBlockEntity(FallingBlockEntity entity) {
