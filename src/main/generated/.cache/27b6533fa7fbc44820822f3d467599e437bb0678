@@ -1,4 +1,4 @@
-// 1.21.2	2024-10-23T23:37:53.4909402	Terrain Slabs/Recipe Generator
+// 1.21.3	2024-10-24T23:23:13.6649499	Terrain Slabs/Recipe Generator
 a91dae7c53f3821fca73d0ddfe578b01f72f4dff data\terrainslabs\advancement\recipes\building_blocks\podzol_slab.json
 0d8bd6bd7e5935e8530c5f5e70da57568ce6e154 data\terrainslabs\recipe\coarse_slab.json
 dc81bb2042daffd97f41725e8bb18858a793afa2 data\terrainslabs\advancement\recipes\building_blocks\yellow_terracotta_slab.json
@@ -28,8 +28,8 @@ ddfde27851c7d6db2d0d4e3bcbea908d0e16b44e data\terrainslabs\recipe\terracotta_sla
 7727425dc14f40a8f1ae0ff46fbf15ca9d4cc8d9 data\terrainslabs\recipe\brown_terracotta_slab.json
 f858ef54776fc4118896fa5b2aaa0be5b1354b24 data\terrainslabs\advancement\recipes\building_blocks\mud_slab.json
 f0a53f3107d25513c7fb9e79de3c900f2ae8f429 data\terrainslabs\advancement\recipes\building_blocks\red_terracotta_slab.json
-a0c529241c680c589947050521722084071d2cc7 data\terrainslabs\recipe\gravel_slab.json
 299968e4ed1de7c832b6bd848935f8c93b15d11f data\terrainslabs\advancement\recipes\building_blocks\deepslate_slab.json
+a0c529241c680c589947050521722084071d2cc7 data\terrainslabs\recipe\gravel_slab.json
 1960f8a2bd6ca131d035912b6b2b4c2d98419bbd data\terrainslabs\recipe\dirt_slab.json
 6986d0263272b811b1d6b741d807030eefd59875 data\terrainslabs\recipe\podzol_slab.json
 71f7759ee031784dd81c9b69cd8b3a01841f3de0 data\terrainslabs\advancement\recipes\building_blocks\red_sand_slab.json
