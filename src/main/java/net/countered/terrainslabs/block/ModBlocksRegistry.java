@@ -82,7 +82,7 @@ public class ModBlocksRegistry {
             new SlabBlock(createBlockSettings(Blocks.GRANITE_SLAB)));
 
     private static Block.Settings createBlockSettings(Block baseBlock) {
-        Identifier id = Identifier.of(TerrainSlabs.MOD_ID, Registries.BLOCK.getId(baseBlock).getPath() + "_slab");
+        Identifier id = Identifier.of(TerrainSlabs.MOD_ID, Registries.BLOCK.getId(baseBlock).getPath());
         RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
         return AbstractBlock.Settings.copy(baseBlock).registryKey(key);
     }
