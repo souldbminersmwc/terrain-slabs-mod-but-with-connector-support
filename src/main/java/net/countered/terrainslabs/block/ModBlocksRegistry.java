@@ -16,6 +16,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocksRegistry {
@@ -23,7 +24,7 @@ public class ModBlocksRegistry {
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
             new SlabBlock(createBlockSettings(Blocks.DIRT)));
     public static final Block MUD_SLAB = registerBlock("mud_slab",
-            new MudSlab(createBlockSettings(Blocks.MUD)));
+            new MudSlab(createBlockSettings(Blocks.MUD).blockVision(Blocks::never)));
     public static final Block COARSE_SLAB = registerBlock("coarse_slab",
             new SlabBlock(createBlockSettings(Blocks.COARSE_DIRT)));
     public static final Block SNOW_SLAB = registerBlock("snow_slab",

@@ -92,17 +92,16 @@ public class MyceliumSlab extends SlabBlock {
     }
 
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {
-        BlockPos blockPos = pos.up();
-        BlockState blockState = world.getBlockState(blockPos);
-        if (blockState.isOf(Blocks.SNOW) && (Integer)blockState.get(SnowBlock.LAYERS) == 1
-                || blockState.isOf(ModBlocksRegistry.SNOW_SLAB)) {
+        BlockPos blockPosUp = pos.up();
+        BlockState blockStateUp = world.getBlockState(blockPosUp);
+        if (blockStateUp.isOf(Blocks.SNOW) && (Integer)blockStateUp.get(SnowBlock.LAYERS) == 1
+                || blockStateUp.isOf(ModBlocksRegistry.SNOW_SLAB)) {
             return true;
-        } else if (blockState.getFluidState().getLevel() == 8) {
+        } else if (blockStateUp.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            //int i = ChunkLightProvider.getRealisticOpacity(state, blockState, Direction.UP, blockState.getOpacity());
-            int i = world.getLightLevel(pos.up());
-            return i > 14;
+            int i = ChunkLightProvider.getRealisticOpacity(Blocks.GRASS_BLOCK.getDefaultState(), blockStateUp, Direction.UP, blockStateUp.getOpacity());
+            return i < 15;
         }
     }
 
