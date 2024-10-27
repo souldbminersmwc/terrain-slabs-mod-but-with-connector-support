@@ -101,8 +101,9 @@ public class GrassSlab extends SlabBlock {
         } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            int i = ChunkLightProvider.getRealisticOpacity(state, blockState, Direction.UP, blockState.getOpacity());
-            return i < 15;
+            //int i = ChunkLightProvider.getRealisticOpacity(state, blockState, Direction.UP, blockState.getOpacity());
+            int i = world.getLightLevel(pos.up());
+            return i > 14;
         }
     }
     private static boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
@@ -119,17 +120,18 @@ public class GrassSlab extends SlabBlock {
             else if (state.get(TYPE) == SlabType.DOUBLE) {
                 world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.DOUBLE), 3);
             }
-            else {
-                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState(), 3);
+            else if (state.get(TYPE) == SlabType.BOTTOM){
+                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.BOTTOM), 3);
             }
-        } else {
+        }
+        else {
             if (world.getLightLevel(pos.up()) >= 9) {
-                BlockState blockState = this.getDefaultState();
+                BlockState blockState = this.getDefaultState().with(TYPE,world.getBlockState(pos).get(TYPE) );
 
                 for (int i = 0; i < 4; i++) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
                     if (world.getBlockState(blockPos).isOf(ModBlocksRegistry.DIRT_SLAB) && canSpread(blockState, world, blockPos)) {
-                        world.setBlockState(blockPos, blockState.with(SNOWY, Boolean.valueOf(world.getBlockState(blockPos.up()).isOf(Blocks.SNOW))));
+                        world.setBlockState(blockPos, blockState.with(SNOWY, Boolean.valueOf(world.getBlockState(blockPos.up()).isOf(Blocks.SNOW))).with(TYPE, world.getBlockState(blockPos).get(TYPE)));
                     }
                 }
             }
