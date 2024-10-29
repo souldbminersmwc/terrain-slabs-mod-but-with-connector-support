@@ -1,6 +1,8 @@
 package net.countered.terrainslabs;
 
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.config.MyModConfig;
 import net.countered.terrainslabs.item.ModItemGroups;
 import net.countered.terrainslabs.worldgen.feature.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
@@ -10,18 +12,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO
-
+// improve ceiling gen
 // Nether/end
-// place slab whenever surrounded by atleast one slab plus opaque blocks
 // add pathslab
 // add vegetation placed on slabs
 // water should be running through slabs?
 // add vertical slabs
-// fix ao (custom slab tag?)
+// fix ao
 // wrong slabs placement (dirt on sand)
 // convert to mud tag
 // tag extension/improvement (carver replacable)
-// add correct silk touch drops
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 
@@ -30,6 +30,7 @@ public class TerrainSlabs implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing TerrainSlabs");
+		MidnightConfig.init(TerrainSlabs.MOD_ID, MyModConfig.class);
 		ModBlocksRegistry.registerModBlocks();
 		ModAddedFeatures.registerFeatures();
 		ModSlabGeneration.generateSlabs();
