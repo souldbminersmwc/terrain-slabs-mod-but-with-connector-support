@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-30T14:04:36.7189614	Countered's Terrain Slabs/Recipes
+// 1.20.1	2024-10-30T17:37:31.316116	Countered's Terrain Slabs/Recipes
 e31c219bd405521bfbadcf7cab00d15ac999ed0a data\terrainslabs\advancements\recipes\building_blocks\white_terracotta_slab.json
 14dfffd5536680762ab5c55d7739d2b5601cb3e6 data\terrainslabs\recipes\snow_slab.json
 5f7bc8ad7f508c76e8053c14da33cb2b5d1b6e7c data\terrainslabs\advancements\recipes\building_blocks\clay_slab.json
@@ -29,8 +29,8 @@ b5bacfe6c16e9acf0f5a5dca695b48be9963bcab data\terrainslabs\recipes\dirt_slab.jso
 742a7366a51a4507a94c11dde58eba55302c93df data\terrainslabs\recipes\mud_slab.json
 c137b9c8f907a196ac77fb6870b30414da0ca2e7 data\terrainslabs\recipes\packed_ice_slab.json
 1d9135f8cbae167a4627b231e0589f9629b270ad data\terrainslabs\recipes\clay_slab.json
-61fcc8387069b638f8f8ac2456e0a7c73df7add8 data\terrainslabs\advancements\recipes\building_blocks\mud_slab.json
 ab5b367c38474357e374ec65a7e0a53033f3d867 data\terrainslabs\recipes\deepslate_slab.json
+61fcc8387069b638f8f8ac2456e0a7c73df7add8 data\terrainslabs\advancements\recipes\building_blocks\mud_slab.json
 7b06324f60cdb2973a3aa3f6a0368302f8417e04 data\terrainslabs\advancements\recipes\building_blocks\moss_slab.json
 eb99102a0474522aa661b9e07352e5bb83c8d2ac data\terrainslabs\recipes\red_terracotta_slab.json
 b60256d5c1f14e0db8a6c6b7b15929c0d210511d data\terrainslabs\recipes\gravel_slab.json
