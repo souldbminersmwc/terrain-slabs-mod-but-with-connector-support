@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -16,7 +17,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
@@ -40,6 +41,16 @@ public class GrassSlab extends SlabBlock {
     }
 
     @Override
+    protected void spawnBreakParticles(World world, PlayerEntity player, BlockPos pos, BlockState state) {
+        if (state.get(TYPE) == SlabType.DOUBLE) {
+            super.spawnBreakParticles(world, player, pos, Blocks.DIRT.getDefaultState());
+        }
+        else {
+            super.spawnBreakParticles(world, player, pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState());
+        }
+    }
+
+    @Override
     protected BlockState getStateForNeighborUpdate(
             BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos
     ) {
@@ -56,7 +67,6 @@ public class GrassSlab extends SlabBlock {
         // Return the modified state based on the slab's existing logic
         return state;
     }
-
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -105,7 +115,7 @@ public class GrassSlab extends SlabBlock {
         } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            int i = ChunkLightProvider.getRealisticOpacity(world, state, pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
+            int i = ChunkLightProvider.getRealisticOpacity(world, Blocks.GRASS_BLOCK.getDefaultState(), pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
             return i < world.getMaxLightLevel();
         }
     }
@@ -124,17 +134,18 @@ public class GrassSlab extends SlabBlock {
             else if (state.get(TYPE) == SlabType.DOUBLE) {
                 world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.DOUBLE), 3);
             }
-            else {
-                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState(), 3);
+            else if (state.get(TYPE) == SlabType.BOTTOM){
+                world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.BOTTOM), 3);
             }
-        } else {
+        }
+        else {
             if (world.getLightLevel(pos.up()) >= 9) {
-                BlockState blockState = this.getDefaultState();
+                BlockState blockState = this.getDefaultState().with(TYPE,world.getBlockState(pos).get(TYPE) );
 
                 for (int i = 0; i < 4; i++) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
                     if (world.getBlockState(blockPos).isOf(ModBlocksRegistry.DIRT_SLAB) && canSpread(blockState, world, blockPos)) {
-                        world.setBlockState(blockPos, blockState.with(SNOWY, Boolean.valueOf(world.getBlockState(blockPos.up()).isOf(Blocks.SNOW))));
+                        world.setBlockState(blockPos, blockState.with(SNOWY, Boolean.valueOf(world.getBlockState(blockPos.up()).isOf(Blocks.SNOW))).with(TYPE, world.getBlockState(blockPos).get(TYPE)));
                     }
                 }
             }

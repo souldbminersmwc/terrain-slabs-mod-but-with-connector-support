@@ -21,7 +21,7 @@ public class ModBlocksRegistry {
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIRT)));
     public static final Block MUD_SLAB = registerBlock("mud_slab",
-            new MudSlab(AbstractBlock.Settings.copy(Blocks.MUD)));
+            new MudSlab(AbstractBlock.Settings.copy(Blocks.MUD).blockVision(Blocks::never)));
     public static final Block COARSE_SLAB = registerBlock("coarse_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.COARSE_DIRT)));
     public static final Block SNOW_SLAB = registerBlock("snow_slab",

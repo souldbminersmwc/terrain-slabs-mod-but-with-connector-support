@@ -3,6 +3,7 @@ package net.countered.terrainslabs.worldgen.slabfeature;
 import com.mojang.serialization.Codec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.countered.terrainslabs.block.ModSlabsMap;
+import net.countered.terrainslabs.config.MyModConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,9 +21,9 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
+public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
 
-    public SlabFeatureConfig(Codec<DefaultFeatureConfig> codec) {
+    public SlabFeatureLogic(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
     public static final Set<Block> VALID_BLOCKS_FOR_SLAB_PLACEMENT = new HashSet<>();
@@ -62,8 +63,16 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.YELLOW_TERRACOTTA);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.WHITE_TERRACOTTA);
     }
+
     @Override
-    public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
+    public boolean generate(FeatureContext<DefaultFeatureConfig> context){
+        if (MyModConfig.enableSlabGeneration) {
+            return runLogic(context); // Logic for slab generation
+        }
+        return true;
+    }
+
+    private boolean runLogic(FeatureContext<DefaultFeatureConfig> context) {
         WorldAccess world = context.getWorld();
         BlockPos origin = context.getOrigin();
         ChunkPos chunkPos = new ChunkPos(origin);
@@ -77,7 +86,13 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                     // Check conditions to place a slab on top of the current block
                     if (shouldPlaceSlabTop(world, currentPos)) {
                         if (world.getBlockState(currentPos).isOf(Blocks.SNOW)){
-                            world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 3);
+                            if (world.getBlockState(currentPos.down()).isOf(Blocks.GRASS_BLOCK)){
+                                world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 0);
+                                world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 0);
+                            }
+                            else {
+                                world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 0);
+                            }
                             continue;
                         }
                         BlockState blockBelowState = world.getBlockState(currentPos.down());
@@ -89,11 +104,11 @@ public class SlabFeatureConfig extends Feature<DefaultFeatureConfig> {
                         if (slabState.isOf(ModBlocksRegistry.GRASS_SLAB)
                                 || slabState.isOf(ModBlocksRegistry.PODZOL_SLAB)
                                 || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)) {
-                            world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 3);
+                            world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 0);
                         }
 
                         slabState = updateWaterloggedState(world, currentPos, slabState);
-                        world.setBlockState(currentPos, slabState, 3);
+                        world.setBlockState(currentPos, slabState, 0);
                         continue;
                     }
 

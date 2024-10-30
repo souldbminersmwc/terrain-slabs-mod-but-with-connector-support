@@ -32,5 +32,9 @@
   "block.terrainslabs.terrain_red_sandstone_slab": "Terrain Red Sandstone Slab",
   "block.terrainslabs.terrain_andesite_slab": "Terrain Andesite Slab",
   "block.terrainslabs.terrain_diorite_slab": "Terrain Diorite Slab",
-  "block.terrainslabs.terrain_granite_slab": "Terrain Granite Slab"
+  "block.terrainslabs.terrain_granite_slab": "Terrain Granite Slab",
+
+  "terrainslabs.midnightconfig.enableSlabGeneration": "Enable Slab Generation",
+  "terrainslabs.midnightconfig.enableSlabGeneration.tooltip": "Toggle to enable or disable slab generation in the world.",
+  "terrainslabs.midnightconfig.title": "Countered's Terrain Slabs"
 }
