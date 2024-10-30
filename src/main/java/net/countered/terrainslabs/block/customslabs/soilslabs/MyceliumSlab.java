@@ -32,22 +32,17 @@ public class MyceliumSlab extends SlabBlock {
                 .with(WATERLOGGED, Boolean.valueOf(false)));
     }
 
-    public static final MapCodec<MyceliumSlab> CODEC = createCodec(MyceliumSlab::new);
     public static final BooleanProperty SNOWY = Properties.SNOWY;
 
-    @Override
-    public MapCodec<MyceliumSlab> getCodec() {
-        return CODEC;
-    }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (direction == Direction.UP) {
             state = state.with(SNOWY, isSnow(neighborState));
         }
 
         if ((Boolean)state.get(WATERLOGGED)) {
-            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         return state;
     }
@@ -92,16 +87,16 @@ public class MyceliumSlab extends SlabBlock {
     }
 
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {
-        BlockPos blockPosUp = pos.up();
-        BlockState blockStateUp = world.getBlockState(blockPosUp);
-        if (blockStateUp.isOf(Blocks.SNOW) && (Integer)blockStateUp.get(SnowBlock.LAYERS) == 1
-                || blockStateUp.isOf(ModBlocksRegistry.SNOW_SLAB)) {
+        BlockPos blockPos = pos.up();
+        BlockState blockState = world.getBlockState(blockPos);
+        if (blockState.isOf(Blocks.SNOW) && (Integer)blockState.get(SnowBlock.LAYERS) == 1
+                || blockState.isOf(ModBlocksRegistry.SNOW_SLAB)) {
             return true;
-        } else if (blockStateUp.getFluidState().getLevel() == 8) {
+        } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            int i = ChunkLightProvider.getRealisticOpacity(Blocks.GRASS_BLOCK.getDefaultState(), blockStateUp, Direction.UP, blockStateUp.getOpacity());
-            return i < 15;
+            int i = ChunkLightProvider.getRealisticOpacity(world, state, pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
+            return i < world.getMaxLightLevel();
         }
     }
 
@@ -121,7 +116,7 @@ public class MyceliumSlab extends SlabBlock {
     }
 
     @Override
-    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!canSurvive(state, world, pos)) {
             if (state.get(TYPE) == SlabType.TOP) {
                 world.setBlockState(pos, ModBlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, SlabType.TOP), 3);

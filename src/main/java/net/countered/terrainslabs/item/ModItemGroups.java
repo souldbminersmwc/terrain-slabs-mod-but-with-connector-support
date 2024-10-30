@@ -51,6 +51,13 @@ public class ModItemGroups {
                 entries.add(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB);
                 entries.add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
 
+                entries.add(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_TUFF_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_GRANITE_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_STONE_SLAB);
             }).build());
 
     public static void registerItemGroups() {

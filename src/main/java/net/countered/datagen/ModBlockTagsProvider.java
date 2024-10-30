@@ -26,6 +26,13 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.DEEPSLATE_SLAB)
                 .add(ModBlocksRegistry.CLAY_SLAB)
                 .add(ModBlocksRegistry.MOSS_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_TUFF_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_GRANITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB)
                 .add(ModBlocksRegistry.GRASS_SLAB)
                 .add(ModBlocksRegistry.MYCELIUM_SLAB)
                 .add(ModBlocksRegistry.PODZOL_SLAB)
@@ -74,8 +81,6 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocksRegistry.MOSS_SLAB);
 
-        this.getOrCreateTagBuilder(BlockTags.CAMEL_SAND_STEP_SOUND_BLOCKS).add(ModBlocksRegistry.SAND_SLAB);
-
         this.getOrCreateTagBuilder(BlockTags.SMELTS_TO_GLASS).add(ModBlocksRegistry.SAND_SLAB, ModBlocksRegistry.RED_SAND_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.PARROTS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB);
@@ -121,9 +126,6 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.FOXES_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.SNOW_SLAB, ModBlocksRegistry.PODZOL_SLAB, ModBlocksRegistry.COARSE_SLAB);
 
-        this.getOrCreateTagBuilder(BlockTags.ARMADILLO_SPAWNABLE_ON)
-                .add(ModBlocksRegistry.RED_SAND_SLAB, ModBlocksRegistry.COARSE_SLAB);
-
         this.getOrCreateTagBuilder(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)
                 .add(
                         ModBlocksRegistry.MUD_SLAB);
@@ -131,12 +133,6 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.MUD_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.FROGS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.MUD_SLAB);
-
-        this.getOrCreateTagBuilder(BlockTags.BADLANDS_TERRACOTTA)
-                .add(Blocks.TERRACOTTA)
-                .add(
-                        Blocks.WHITE_TERRACOTTA, Blocks.YELLOW_TERRACOTTA, Blocks.ORANGE_TERRACOTTA, Blocks.RED_TERRACOTTA, Blocks.BROWN_TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA
-                );
     }
 
 }

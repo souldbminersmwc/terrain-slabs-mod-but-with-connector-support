@@ -35,6 +35,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.COARSE_DIRT).slab(ModBlocksRegistry.COARSE_SLAB);
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DEEPSLATE).slab(ModBlocksRegistry.DEEPSLATE_SLAB);
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.CLAY).slab(ModBlocksRegistry.CLAY_SLAB);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.TUFF).slab(ModBlocksRegistry.CUSTOM_TUFF_SLAB);
 
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.TERRACOTTA).slab(ModBlocksRegistry.TERRACOTTA_SLAB);
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.BROWN_TERRACOTTA).slab(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB);

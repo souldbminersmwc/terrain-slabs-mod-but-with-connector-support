@@ -15,7 +15,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.minecraft.world.tick.ScheduledTickView;
 
 public class PodzolSlab extends SlabBlock {
 
@@ -26,22 +25,17 @@ public class PodzolSlab extends SlabBlock {
                 .with(SNOWY, false)
                 .with(WATERLOGGED, Boolean.valueOf(false)));
     }
-    public static final MapCodec<PodzolSlab> CODEC = createCodec(PodzolSlab::new);
     public static final BooleanProperty SNOWY = Properties.SNOWY;
 
-    @Override
-    public MapCodec<PodzolSlab> getCodec() {
-        return CODEC;
-    }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (direction == Direction.UP) {
             state = state.with(SNOWY, isSnow(neighborState));
         }
 
         if ((Boolean)state.get(WATERLOGGED)) {
-            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         return state;
     }

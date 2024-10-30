@@ -18,6 +18,7 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
@@ -29,14 +30,13 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
-    public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, registryLookup);
+
+    public ModLootTableProvider(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     @Override
     public void generate() {
-        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
-
         this.addDrop(ModBlocksRegistry.DIRT_SLAB, block -> slabDrops(block, Blocks.DIRT));
         this.addDrop(ModBlocksRegistry.MUD_SLAB, block -> slabDrops(block, Blocks.MUD));
         this.addDrop(ModBlocksRegistry.COARSE_SLAB, block -> slabDrops(block, Blocks.COARSE_DIRT));
@@ -70,7 +70,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         this.addDrop(
                 ModBlocksRegistry.GRAVEL_SLAB,
-                block -> this.dropsWithSilkTouch(
+                block -> dropsWithSilkTouch(
                         block,
                         this.addSurvivesExplosionCondition(
                                 block,
@@ -80,7 +80,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                                         BlockStatePropertyLootCondition.builder(block)
                                                                 .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
                                                 ))
-                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.1F, 0.14285715F, 0.25F, 1.0F))
+                                        .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.1F, 0.14285715F, 0.25F, 1.0F))
                                         .alternatively(ItemEntry.builder(block)
                                                 .apply(
                                                         SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
@@ -125,7 +125,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                             .rolls(ConstantLootNumberProvider.create(1.0F))
                             .with(
                                 ItemEntry.builder(slab)
-                                        .conditionally(this.createSilkTouchCondition())  // Silk Touch condition
+                                        .conditionally(WITH_SILK_TOUCH)  // Silk Touch condition
                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
@@ -149,7 +149,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .rolls(ConstantLootNumberProvider.create(1.0F))
                         .with(
                                 ItemEntry.builder(slab)
-                                        .conditionally(this.createSilkTouchCondition())  // Silk Touch condition
+                                        .conditionally(WITH_SILK_TOUCH)  // Silk Touch condition
                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
@@ -180,7 +180,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .rolls(ConstantLootNumberProvider.create(1.0F))
                         .with(
                                 ItemEntry.builder(slab)
-                                        .conditionally(this.createSilkTouchCondition())  // Silk Touch condition
+                                        .conditionally(WITH_SILK_TOUCH)  // Silk Touch condition
                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))

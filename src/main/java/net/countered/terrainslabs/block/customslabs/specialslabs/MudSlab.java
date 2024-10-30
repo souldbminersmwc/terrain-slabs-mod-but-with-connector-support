@@ -23,7 +23,7 @@ public class MudSlab extends SlabBlock {
     }
 
     @Override
-    protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         SlabType slabType = state.get(TYPE);
         switch (slabType) {
             case DOUBLE:
@@ -36,7 +36,7 @@ public class MudSlab extends SlabBlock {
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         SlabType slabType = state.get(TYPE);
         switch (slabType) {
             case DOUBLE:
@@ -49,7 +49,7 @@ public class MudSlab extends SlabBlock {
     }
 
     @Override
-    protected VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         SlabType slabType = state.get(TYPE);
         switch (slabType) {
             case DOUBLE:
@@ -61,7 +61,7 @@ public class MudSlab extends SlabBlock {
         }
     }
     @Override
-    protected float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
+    public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
         SlabType slabType = state.get(TYPE);
         switch (slabType) {
             case DOUBLE:
