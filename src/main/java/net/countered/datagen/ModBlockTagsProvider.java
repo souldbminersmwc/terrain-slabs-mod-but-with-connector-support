@@ -132,11 +132,5 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.FROGS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.MUD_SLAB);
 
-        this.getOrCreateTagBuilder(BlockTags.BADLANDS_TERRACOTTA)
-                .add(Blocks.TERRACOTTA)
-                .add(
-                        Blocks.WHITE_TERRACOTTA, Blocks.YELLOW_TERRACOTTA, Blocks.ORANGE_TERRACOTTA, Blocks.RED_TERRACOTTA, Blocks.BROWN_TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA
-                );
     }
-
 }
