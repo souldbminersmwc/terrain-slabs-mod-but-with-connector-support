@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "terrainslabs:dirt_slab",
+    "terrainslabs:grass_slab",
+    "terrainslabs:podzol_slab",
+    "terrainslabs:coarse_slab",
+    "terrainslabs:moss_slab",
+    "terrainslabs:mud_slab"
+  ]
+}

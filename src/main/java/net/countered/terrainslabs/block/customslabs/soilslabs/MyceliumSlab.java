@@ -94,7 +94,7 @@ public class MyceliumSlab extends SlabBlock {
         } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            int i = ChunkLightProvider.getRealisticOpacity(world, state, pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
+            int i = ChunkLightProvider.getRealisticOpacity(world, Blocks.GRASS_BLOCK.getDefaultState(), pos, blockState, blockPos, Direction.UP, blockState.getOpacity(world, blockPos));
             return i < world.getMaxLightLevel();
         }
     }

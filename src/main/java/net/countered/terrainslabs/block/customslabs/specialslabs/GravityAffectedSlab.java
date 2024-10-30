@@ -2,13 +2,17 @@ package net.countered.terrainslabs.block.customslabs.specialslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.LandingBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.client.util.ParticleUtil;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.FallingBlockEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
@@ -22,7 +26,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class GravityAffectedSlab extends SlabBlock {
+public class GravityAffectedSlab extends SlabBlock implements LandingBlock {
     public GravityAffectedSlab(Settings settings) {
         super(settings);
     }
@@ -88,5 +92,22 @@ public class GravityAffectedSlab extends SlabBlock {
         }
     }
 
+    @Override
+    public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity) {
+        LandingBlock.super.onLanding(world, pos, fallingBlockState, currentStateInPos, fallingBlockEntity);
+    }
+
+    @Override
+    public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
+        LandingBlock.super.onDestroyedOnLanding(world, pos, fallingBlockEntity);
+        if (fallingBlockEntity.getBlockState().get(TYPE) == SlabType.DOUBLE) {
+            dropStack(world, pos, new ItemStack(this.asItem()));
+        }
+    }
+
+    @Override
+    public DamageSource getDamageSource(Entity attacker) {
+        return LandingBlock.super.getDamageSource(attacker);
+    }
 }
 

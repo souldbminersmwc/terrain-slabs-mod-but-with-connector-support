@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "terrainslabs:dirt_slab",
+    "terrainslabs:mud_slab",
+    "terrainslabs:coarse_slab",
+    "terrainslabs:snow_slab",
+    "terrainslabs:clay_slab",
+    "terrainslabs:grass_slab",
+    "terrainslabs:mycelium_slab",
+    "terrainslabs:podzol_slab",
+    "terrainslabs:gravel_slab",
+    "terrainslabs:sand_slab",
+    "terrainslabs:red_sand_slab"
+  ]
+}
