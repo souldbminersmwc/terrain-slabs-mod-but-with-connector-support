@@ -21,7 +21,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
-import net.minecraft.world.tick.ScheduledTickView;
 
 public class MyceliumSlab extends SlabBlock {
     public MyceliumSlab(AbstractBlock.Settings settings) {
