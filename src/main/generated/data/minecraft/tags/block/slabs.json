@@ -20,6 +20,13 @@
     "terrainslabs:light_gray_terracotta_slab",
     "terrainslabs:white_terracotta_slab",
     "terrainslabs:brown_terracotta_slab",
-    "terrainslabs:yellow_terracotta_slab"
+    "terrainslabs:yellow_terracotta_slab",
+    "terrainslabs:terrain_tuff_slab",
+    "terrainslabs:terrain_stone_slab",
+    "terrainslabs:terrain_sandstone_slab",
+    "terrainslabs:terrain_red_sandstone_slab",
+    "terrainslabs:terrain_diorite_slab",
+    "terrainslabs:terrain_andesite_slab",
+    "terrainslabs:terrain_granite_slab"
   ]
 }

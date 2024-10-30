@@ -38,7 +38,14 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB)
-                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
+                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_TUFF_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_GRANITE_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocksRegistry.DIRT_SLAB)
@@ -125,8 +132,8 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.RED_SAND_SLAB, ModBlocksRegistry.COARSE_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)
-                .add(
-                        ModBlocksRegistry.MUD_SLAB);
+                .add(ModBlocksRegistry.MUD_SLAB);
+
         this.getOrCreateTagBuilder(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH)
                 .add(ModBlocksRegistry.MUD_SLAB);
 

@@ -87,11 +87,11 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                     if (shouldPlaceSlabTop(world, currentPos)) {
                         if (world.getBlockState(currentPos).isOf(Blocks.SNOW)){
                             if (world.getBlockState(currentPos.down()).isOf(Blocks.GRASS_BLOCK)){
-                                world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 3);
-                                world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 3);
+                                world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 0);
+                                world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 0);
                             }
                             else {
-                                world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 3);
+                                world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 0);
                             }
                             continue;
                         }
@@ -104,11 +104,11 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         if (slabState.isOf(ModBlocksRegistry.GRASS_SLAB)
                                 || slabState.isOf(ModBlocksRegistry.PODZOL_SLAB)
                                 || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)) {
-                            world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 3);
+                            world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 0);
                         }
 
                         slabState = updateWaterloggedState(world, currentPos, slabState);
-                        world.setBlockState(currentPos, slabState, 3);
+                        world.setBlockState(currentPos, slabState, 0);
                         continue;
                     }
 
