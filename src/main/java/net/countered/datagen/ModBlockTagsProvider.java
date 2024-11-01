@@ -29,6 +29,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.GRASS_SLAB)
                 .add(ModBlocksRegistry.MYCELIUM_SLAB)
                 .add(ModBlocksRegistry.PODZOL_SLAB)
+                .add(ModBlocksRegistry.PATH_SLAB)
                 .add(ModBlocksRegistry.GRAVEL_SLAB)
                 .add(ModBlocksRegistry.SAND_SLAB)
                 .add(ModBlocksRegistry.RED_SAND_SLAB)
@@ -56,6 +57,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.GRASS_SLAB)
                 .add(ModBlocksRegistry.MYCELIUM_SLAB)
                 .add(ModBlocksRegistry.PODZOL_SLAB)
+                .add(ModBlocksRegistry.PATH_SLAB)
                 .add(ModBlocksRegistry.GRAVEL_SLAB)
                 .add(ModBlocksRegistry.SAND_SLAB)
                 .add(ModBlocksRegistry.RED_SAND_SLAB);

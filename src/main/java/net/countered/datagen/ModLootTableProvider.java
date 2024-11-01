@@ -62,6 +62,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.addDrop(ModBlocksRegistry.MYCELIUM_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
         this.addDrop(ModBlocksRegistry.PODZOL_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
         this.addDrop(ModBlocksRegistry.GRASS_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
+        this.addDrop(ModBlocksRegistry.PATH_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
 
         this.addDrop(ModBlocksRegistry.PACKED_ICE_SLAB, this::onlySilkSlabDrops);
 

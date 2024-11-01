@@ -4,6 +4,7 @@ import eu.midnightdust.lib.config.MidnightConfig;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.countered.terrainslabs.config.MyModConfig;
 import net.countered.terrainslabs.item.ModItemGroups;
+import net.countered.terrainslabs.item.ShovelPathSlab;
 import net.countered.terrainslabs.worldgen.feature.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
@@ -35,5 +36,6 @@ public class TerrainSlabs implements ModInitializer {
 		ModAddedFeatures.registerFeatures();
 		ModSlabGeneration.generateSlabs();
 		ModItemGroups.registerItemGroups();
+		ShovelPathSlab.init();
 	}
 }

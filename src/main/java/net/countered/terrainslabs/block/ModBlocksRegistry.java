@@ -2,6 +2,7 @@ package net.countered.terrainslabs.block;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
+import net.countered.terrainslabs.block.customslabs.soilslabs.PathSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffectedSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
@@ -44,6 +45,8 @@ public class ModBlocksRegistry {
             new MyceliumSlab(createBlockSettings(Blocks.MYCELIUM)));
     public static final Block PODZOL_SLAB = registerBlock("podzol_slab",
             new PodzolSlab(createBlockSettings(Blocks.PODZOL)));
+    public static final Block PATH_SLAB = registerBlock("path_slab",
+            new PathSlab(createBlockSettings(Blocks.DIRT_PATH)));
 
     public static final Block GRAVEL_SLAB = registerBlock("gravel_slab",
             new GravityAffectedSlab(createBlockSettings(Blocks.GRAVEL)));

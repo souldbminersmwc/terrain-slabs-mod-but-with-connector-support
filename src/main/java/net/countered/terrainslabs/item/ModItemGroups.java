@@ -38,6 +38,7 @@ public class ModItemGroups {
                 entries.add(ModBlocksRegistry.GRASS_SLAB);
                 entries.add(ModBlocksRegistry.MYCELIUM_SLAB);
                 entries.add(ModBlocksRegistry.PODZOL_SLAB);
+                entries.add(ModBlocksRegistry.PATH_SLAB);
 
                 entries.add(ModBlocksRegistry.GRAVEL_SLAB);
                 entries.add(ModBlocksRegistry.SAND_SLAB);

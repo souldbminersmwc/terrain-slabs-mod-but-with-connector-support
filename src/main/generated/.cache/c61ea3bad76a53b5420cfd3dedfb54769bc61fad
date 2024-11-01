@@ -1,4 +1,4 @@
-// 1.21.3	2024-10-30T21:54:42.8711086	Countered's Terrain Slabs/Recipe Generator
+// 1.21.3	2024-11-01T20:42:18.853577	Countered's Terrain Slabs/Recipe Generator
 a91dae7c53f3821fca73d0ddfe578b01f72f4dff data\terrainslabs\advancement\recipes\building_blocks\podzol_slab.json
 0d8bd6bd7e5935e8530c5f5e70da57568ce6e154 data\terrainslabs\recipe\coarse_slab.json
 dc81bb2042daffd97f41725e8bb18858a793afa2 data\terrainslabs\advancement\recipes\building_blocks\yellow_terracotta_slab.json
@@ -36,8 +36,10 @@ a0c529241c680c589947050521722084071d2cc7 data\terrainslabs\recipe\gravel_slab.js
 1432dbcebb98d6ba208f08a2bc9c22beb48b078b data\terrainslabs\recipe\white_terracotta_slab.json
 503d88e3902976272a5ec8512fc1303581dd6ae4 data\terrainslabs\recipe\light_gray_terracotta_slab.json
 4969d93b52afee40c4f4dda6c1e4652e8eeb13a8 data\terrainslabs\recipe\yellow_terracotta_slab.json
+6ab1f960c6f6fd66fc96af6b5b00b13acfa3bdcc data\terrainslabs\recipe\path_slab.json
 0602d06dbf67e9411168b5b30c0bd5b5818a8844 data\terrainslabs\recipe\red_terracotta_slab.json
-2a202664eddf917833f28bb237e428cfaa87409a data\terrainslabs\advancement\recipes\building_blocks\brown_terracotta_slab.json
 e978f6630de0e91f2e1ccdfe823c6b54f12dae4c data\terrainslabs\recipe\mycelium_slab.json
+2a202664eddf917833f28bb237e428cfaa87409a data\terrainslabs\advancement\recipes\building_blocks\brown_terracotta_slab.json
+cae78ed360cd441678a295acfd0592d0bbd206c5 data\terrainslabs\advancement\recipes\building_blocks\path_slab.json
 3e24a847422f5c68367b403968f2075c5e715f4d data\terrainslabs\advancement\recipes\building_blocks\sand_slab.json
 4d8e28fdaf2481e879f2df60d957822a8cff182d data\terrainslabs\recipe\sand_slab.json
