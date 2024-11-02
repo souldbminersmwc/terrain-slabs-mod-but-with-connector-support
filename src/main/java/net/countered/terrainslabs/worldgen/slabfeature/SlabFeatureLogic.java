@@ -124,7 +124,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         }
                         slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
                         slabState = updateWaterloggedState(world, currentPos, slabState);
-                        world.setBlockState(currentPos, slabState, 3);
+                        world.setBlockState(currentPos, slabState, 0);
                     }
                 }
             }
@@ -140,7 +140,9 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         BlockState blockAbove = world.getBlockState(currentPos.up());
         BlockState currentBlockState = world.getBlockState(currentPos);
 
-        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.down()).getBlock() instanceof SlabBlock){
+        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()) == Blocks.AIR
+                || world.getBlockState(currentPos.down()).getBlock() instanceof SlabBlock
+                || world.getBlockState(currentPos).isOf(Blocks.POWDER_SNOW)){
             return false;
         }
         // Check that the block below is opaque and not a slab, and the position is air or snow

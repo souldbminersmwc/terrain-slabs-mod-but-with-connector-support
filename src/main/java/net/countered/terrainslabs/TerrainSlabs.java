@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 // wrong slabs placement (dirt on sand)
 // convert to mud tag
 // tag extension/improvement (carver replacable)
+// add snow layer on slabs
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 

@@ -37,27 +37,27 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
 
-        this.addDrop(ModBlocksRegistry.DIRT_SLAB, block -> slabDrops(block, Blocks.DIRT));
-        this.addDrop(ModBlocksRegistry.MUD_SLAB, block -> slabDrops(block, Blocks.MUD));
-        this.addDrop(ModBlocksRegistry.COARSE_SLAB, block -> slabDrops(block, Blocks.COARSE_DIRT));
-        this.addDrop(ModBlocksRegistry.DEEPSLATE_SLAB, block -> slabDrops(block, Blocks.DEEPSLATE));
-        this.addDrop(ModBlocksRegistry.MOSS_SLAB, block -> slabDrops(block, Blocks.MOSS_BLOCK));
-        this.addDrop(ModBlocksRegistry.SAND_SLAB, block -> slabDrops(block, Blocks.SAND));
-        this.addDrop(ModBlocksRegistry.RED_SAND_SLAB, block -> slabDrops(block, Blocks.RED_SAND));
-        this.addDrop(ModBlocksRegistry.TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.RED_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.RED_TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.ORANGE_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.ORANGE_TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.LIGHT_GRAY_TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.WHITE_TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.BROWN_TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB, block -> slabDrops(block, Blocks.YELLOW_TERRACOTTA));
-        this.addDrop(ModBlocksRegistry.CUSTOM_STONE_SLAB, block -> slabDrops(block, Blocks.STONE));
-        this.addDrop(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB, block -> slabDrops(block, Blocks.ANDESITE));
-        this.addDrop(ModBlocksRegistry.CUSTOM_DIORITE_SLAB, block -> slabDrops(block, Blocks.DIORITE));
-        this.addDrop(ModBlocksRegistry.CUSTOM_GRANITE_SLAB, block -> slabDrops(block, Blocks.GRANITE));
-        this.addDrop(ModBlocksRegistry.CUSTOM_TUFF_SLAB, block -> slabDrops(block, Blocks.TUFF));
-        this.addDrop(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB, block -> slabDrops(block, Blocks.SANDSTONE));
-        this.addDrop(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB, block -> slabDrops(block, Blocks.RED_SANDSTONE));
+        this.addDrop(ModBlocksRegistry.DIRT_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
+        this.addDrop(ModBlocksRegistry.MUD_SLAB, block -> silkSlabDrops(block, Blocks.MUD));
+        this.addDrop(ModBlocksRegistry.COARSE_SLAB, block -> silkSlabDrops(block, Blocks.COARSE_DIRT));
+        this.addDrop(ModBlocksRegistry.DEEPSLATE_SLAB, block -> silkSlabDrops(block, Blocks.DEEPSLATE));
+        this.addDrop(ModBlocksRegistry.MOSS_SLAB, block -> silkSlabDrops(block, Blocks.MOSS_BLOCK));
+        this.addDrop(ModBlocksRegistry.SAND_SLAB, block -> silkSlabDrops(block, Blocks.SAND));
+        this.addDrop(ModBlocksRegistry.RED_SAND_SLAB, block -> silkSlabDrops(block, Blocks.RED_SAND));
+        this.addDrop(ModBlocksRegistry.TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.RED_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.RED_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.ORANGE_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.ORANGE_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.LIGHT_GRAY_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.WHITE_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.BROWN_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.YELLOW_TERRACOTTA));
+        this.addDrop(ModBlocksRegistry.CUSTOM_STONE_SLAB, block -> silkSlabDrops(block, Blocks.COBBLESTONE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB, block -> silkSlabDrops(block, Blocks.ANDESITE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_DIORITE_SLAB, block -> silkSlabDrops(block, Blocks.DIORITE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_GRANITE_SLAB, block -> silkSlabDrops(block, Blocks.GRANITE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_TUFF_SLAB, block -> silkSlabDrops(block, Blocks.TUFF));
+        this.addDrop(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB, block -> silkSlabDrops(block, Blocks.SANDSTONE));
+        this.addDrop(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB, block -> silkSlabDrops(block, Blocks.RED_SANDSTONE));
 
         this.addDrop(ModBlocksRegistry.MYCELIUM_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
         this.addDrop(ModBlocksRegistry.PODZOL_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
