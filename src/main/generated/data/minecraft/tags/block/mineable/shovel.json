@@ -11,6 +11,7 @@
     "terrainslabs:path_slab",
     "terrainslabs:gravel_slab",
     "terrainslabs:sand_slab",
-    "terrainslabs:red_sand_slab"
+    "terrainslabs:red_sand_slab",
+    "terrainslabs:snow_on_top"
   ]
 }

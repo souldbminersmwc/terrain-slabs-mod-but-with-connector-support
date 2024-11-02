@@ -1,4 +1,4 @@
 package net.countered.terrainslabs.mixin;
 
-public class BlockModelRendererMixin {
+public class PlayerOnSlabMixin {
 }

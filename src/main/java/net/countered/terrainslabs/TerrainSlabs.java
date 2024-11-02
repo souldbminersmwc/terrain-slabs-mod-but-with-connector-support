@@ -9,13 +9,16 @@ import net.countered.terrainslabs.worldgen.feature.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.item.Items;
+import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO
 // improve ceiling gen
 // Nether/end
-// add pathslab
 // add vegetation placed on slabs
 // water should be running through slabs?
 // add vertical slabs
@@ -23,7 +26,7 @@ import org.slf4j.LoggerFactory;
 // wrong slabs placement (dirt on sand)
 // convert to mud tag
 // tag extension/improvement (carver replacable)
-// add snow layer on slabs
+// fix snow layer on slabs (tint?)
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 

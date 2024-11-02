@@ -1,5 +1,5 @@
-[03:30:47] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.3 with Fabric Loader 0.16.7
-[03:30:47] [main/INFO] (FabricLoader) Loading 44 mods:
+[16:05:40] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.3 with Fabric Loader 0.16.7
+[16:05:40] [main/INFO] (FabricLoader) Loading 44 mods:
 	- fabric-api 0.106.1+1.21.3
 	- fabric-api-base 0.4.48+2127dc7240
 	- fabric-api-lookup-api-v1 1.6.78+c47b9d4340
@@ -44,23 +44,23 @@
 	- minecraft 1.21.3
 	- mixinextras 0.4.1
 	- terrainslabs 1.0.3
-[03:30:47] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/erikb/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.3+mixin.0.8.7/51ee0a44ab05f6fddd66b09e66b3a16904f9c55d/sponge-mixin-0.15.3+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
-[03:30:47] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[03:30:48] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
-[03:30:48] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[03:30:58] [main/INFO] (terrainslabs) Initializing TerrainSlabs
-[03:30:58] [main/INFO] (terrainslabs) Registering Mod Blocks for terrainslabs
-[03:30:58] [main/INFO] (terrainslabs) Registering Mod Item Groups
-[03:30:58] [main/INFO] (FabricDataGenHelper) Running data generator for terrainslabs
-[03:30:59] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/World Generator
-[03:30:59] [main/INFO] (Minecraft) Countered's Terrain Slabs/World Generator finished after 22 ms
-[03:30:59] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Model Definitions
-[03:30:59] [main/INFO] (Minecraft) Countered's Terrain Slabs/Model Definitions finished after 101 ms
-[03:30:59] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Block Loot Tables
-[03:30:59] [main/INFO] (Minecraft) Countered's Terrain Slabs/Block Loot Tables finished after 40 ms
-[03:30:59] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Tags for minecraft:block
-[03:30:59] [main/INFO] (Minecraft) Countered's Terrain Slabs/Tags for minecraft:block finished after 11 ms
-[03:30:59] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Recipe Generator
-[03:30:59] [main/INFO] (Minecraft) Countered's Terrain Slabs/Recipe Generator finished after 49 ms
-[03:30:59] [main/INFO] (Minecraft) All providers took: 228 ms
-[03:30:59] [main/INFO] (Minecraft) Caching: total files: 200, old count: 200, new count: 201, removed stale: 0, written: 35
+[16:05:40] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/erikb/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.3+mixin.0.8.7/51ee0a44ab05f6fddd66b09e66b3a16904f9c55d/sponge-mixin-0.15.3+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[16:05:41] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[16:05:41] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
+[16:05:42] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[16:05:55] [main/INFO] (terrainslabs) Initializing TerrainSlabs
+[16:05:55] [main/INFO] (terrainslabs) Registering Mod Blocks for terrainslabs
+[16:05:55] [main/INFO] (terrainslabs) Registering Mod Item Groups
+[16:05:56] [main/INFO] (FabricDataGenHelper) Running data generator for terrainslabs
+[16:05:56] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/World Generator
+[16:05:56] [main/INFO] (Minecraft) Countered's Terrain Slabs/World Generator finished after 30 ms
+[16:05:56] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Model Definitions
+[16:05:56] [main/INFO] (Minecraft) Countered's Terrain Slabs/Model Definitions finished after 113 ms
+[16:05:56] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Block Loot Tables
+[16:05:57] [main/INFO] (Minecraft) Countered's Terrain Slabs/Block Loot Tables finished after 55 ms
+[16:05:57] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Tags for minecraft:block
+[16:05:57] [main/INFO] (Minecraft) Countered's Terrain Slabs/Tags for minecraft:block finished after 17 ms
+[16:05:57] [main/INFO] (Minecraft) Starting provider: Countered's Terrain Slabs/Recipe Generator
+[16:05:57] [main/INFO] (Minecraft) Countered's Terrain Slabs/Recipe Generator finished after 85 ms
+[16:05:57] [main/INFO] (Minecraft) All providers took: 305 ms
+[16:05:57] [main/INFO] (Minecraft) Caching: total files: 201, old count: 200, new count: 202, removed stale: 0, written: 38

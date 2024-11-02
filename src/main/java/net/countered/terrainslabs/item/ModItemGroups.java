@@ -60,6 +60,7 @@ public class ModItemGroups {
                 entries.add(ModBlocksRegistry.CUSTOM_STONE_SLAB);
                 entries.add(ModBlocksRegistry.CUSTOM_TUFF_SLAB);
 
+                entries.add(ModBlocksRegistry.SNOW_ON_TOP);
             }).build());
 
     public static void registerItemGroups() {

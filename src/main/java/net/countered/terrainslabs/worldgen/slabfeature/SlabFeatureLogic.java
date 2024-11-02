@@ -91,8 +91,9 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                                 world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 0);
                             }
                             else {
-                                world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 0);
+                                world.setBlockState(currentPos, ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()).getDefaultState(), 0);
                             }
+                            world.setBlockState(currentPos.up(), ModBlocksRegistry.SNOW_ON_TOP.getDefaultState(), 0);
                             continue;
                         }
                         BlockState blockBelowState = world.getBlockState(currentPos.down());
@@ -236,7 +237,8 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         for (Direction direction : Direction.Type.HORIZONTAL) {
             if (world.getBlockState(currentPos.offset(direction).down()).isOpaque() && world.getBlockState(currentPos.offset(direction.getOpposite())).isOpaque()
             && !(world.getBlockState(currentPos.offset(direction).down()).getBlock() instanceof SlabBlock) && !(world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() instanceof SlabBlock)
-                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(Blocks.SNOW) && !world.getBlockState(currentPos.offset(direction).down()).isOf(Blocks.SNOW))
+                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(Blocks.SNOW) && !world.getBlockState(currentPos.offset(direction).down()).isOf(Blocks.SNOW)
+                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(ModBlocksRegistry.SNOW_ON_TOP) && !world.getBlockState(currentPos.offset(direction).down()).isOf(ModBlocksRegistry.SNOW_ON_TOP))
             {
                 return true;
             }

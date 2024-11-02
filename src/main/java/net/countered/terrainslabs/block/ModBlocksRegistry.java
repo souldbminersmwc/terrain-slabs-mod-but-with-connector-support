@@ -7,6 +7,7 @@ import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffected
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
+import net.countered.terrainslabs.block.ontopofslabs.SnowOnTop;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -46,7 +47,7 @@ public class ModBlocksRegistry {
     public static final Block PODZOL_SLAB = registerBlock("podzol_slab",
             new PodzolSlab(createBlockSettings(Blocks.PODZOL)));
     public static final Block PATH_SLAB = registerBlock("path_slab",
-            new PathSlab(createBlockSettings(Blocks.DIRT_PATH)));
+            new PathSlab(createBlockSettings(Blocks.DIRT_PATH).blockVision(Blocks::never)));
 
     public static final Block GRAVEL_SLAB = registerBlock("gravel_slab",
             new GravityAffectedSlab(createBlockSettings(Blocks.GRAVEL)));
@@ -84,6 +85,9 @@ public class ModBlocksRegistry {
             new SlabBlock(createBlockSettings(Blocks.DIORITE_SLAB)));
     public static final Block CUSTOM_GRANITE_SLAB = registerBlock("terrain_granite_slab",
             new SlabBlock(createBlockSettings(Blocks.GRANITE_SLAB)));
+
+    public static final Block SNOW_ON_TOP = registerBlock("snow_on_top",
+            new SnowOnTop(createBlockSettings(Blocks.SNOW)));
 
     private static Block.Settings createBlockSettings(Block baseBlock) {
         Identifier id = Identifier.of(TerrainSlabs.MOD_ID, Registries.BLOCK.getId(baseBlock).getPath());
