@@ -23,6 +23,7 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.GRASS_BLOCK, ModBlocksRegistry.GRASS_SLAB);
         SLAB_MAP.put(Blocks.MYCELIUM, ModBlocksRegistry.MYCELIUM_SLAB);
         SLAB_MAP.put(Blocks.PODZOL, ModBlocksRegistry.PODZOL_SLAB);
+        SLAB_MAP.put(Blocks.DIRT_PATH, ModBlocksRegistry.PATH_SLAB);
 
         SLAB_MAP.put(Blocks.GRAVEL, ModBlocksRegistry.GRAVEL_SLAB);
         SLAB_MAP.put(Blocks.SAND, ModBlocksRegistry.SAND_SLAB);

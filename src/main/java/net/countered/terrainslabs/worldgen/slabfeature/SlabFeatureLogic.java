@@ -33,6 +33,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRASS_BLOCK);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PODZOL);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MYCELIUM);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT_PATH);
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MOSS_BLOCK);
@@ -104,7 +105,8 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         // Handle grass slab special case by converting grass to dirt before placing the slab
                         if (slabState.isOf(ModBlocksRegistry.GRASS_SLAB)
                                 || slabState.isOf(ModBlocksRegistry.PODZOL_SLAB)
-                                || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)) {
+                                || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)
+                                || slabState.isOf(ModBlocksRegistry.PATH_SLAB)) {
                             world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 0);
                         }
 
