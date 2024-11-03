@@ -11,9 +11,8 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.SnowBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -71,14 +70,23 @@ public class TerrainSlabs implements ModInitializer {
 				if ((world.getBlockState(blockPos).isAir() || world.getBlockState(blockPos).getBlock() == ModBlocksRegistry.SNOW_ON_TOP)
 					&& world.getBlockState(blockPos.down()).getBlock() instanceof SlabBlock) {
 					// Replace with custom snow slab
-					world.setBlockState(blockPos, ModBlocksRegistry.SNOW_ON_TOP.getDefaultState(), 0);
+					int currentLayers = world.getBlockState(blockPos).getBlock() instanceof SnowBlock
+							? world.getBlockState(blockPos).get(SnowBlock.LAYERS)
+							: 0;
 
-					// Play placement sound and consume one snow slab
-					world.playSound(player, blockPos, SoundEvents.BLOCK_SNOW_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-					if (!player.isCreative()) {
-						item.decrement(1);
+					// If snow layers can be increased, increase by 1 layer
+					if (currentLayers < SnowBlock.MAX_LAYERS) {
+						world.setBlockState(blockPos, ModBlocksRegistry.SNOW_ON_TOP.getDefaultState()
+								.with(SnowBlock.LAYERS, currentLayers + 1));
+
+
+						// Play placement sound and consume one snow slab
+						world.playSound(player, blockPos, SoundEvents.BLOCK_SNOW_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+						if (!player.isCreative()) {
+							item.decrement(1);
+						}
+						return ActionResult.SUCCESS;
 					}
-					return ActionResult.SUCCESS;
 				}
 			}
 			// Pass to allow normal behavior if conditions are not met

@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.SnowBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -15,8 +16,11 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.condition.EntityPropertiesLootCondition;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
@@ -68,7 +72,33 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         this.addDrop(ModBlocksRegistry.SNOW_SLAB, block -> silkSlabDropsParts(block, Items.SNOWBALL));
         this.addDrop(ModBlocksRegistry.CLAY_SLAB, block -> silkSlabDropsParts(block, Items.CLAY_BALL));
-
+        this.addDrop(
+                ModBlocksRegistry.SNOW_ON_TOP,
+                block -> LootTable.builder()
+                        .pool(
+                                LootPool.builder()
+                                        .conditionally(EntityPropertiesLootCondition.create(LootContext.EntityTarget.THIS))
+                                        .with(
+                                                AlternativeEntry.builder(
+                                                        AlternativeEntry.builder(
+                                                                        SnowBlock.LAYERS.getValues(),
+                                                                        integer -> ItemEntry.builder(Items.SNOWBALL)
+                                                                                .conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SnowBlock.LAYERS, integer)))
+                                                                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)integer.intValue())))
+                                                                )
+                                                                .conditionally(this.createWithoutSilkTouchCondition()),
+                                                        AlternativeEntry.builder(
+                                                                SnowBlock.LAYERS.getValues(),
+                                                                integer -> integer == 8
+                                                                        ? ItemEntry.builder(Blocks.SNOW_BLOCK)
+                                                                        : ItemEntry.builder(Blocks.SNOW)
+                                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)integer.intValue())))
+                                                                        .conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SnowBlock.LAYERS, integer)))
+                                                        )
+                                                )
+                                        )
+                        )
+        );
         this.addDrop(
                 ModBlocksRegistry.GRAVEL_SLAB,
                 block -> this.dropsWithSilkTouch(
@@ -99,25 +129,25 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
      * Adds a loot table entry that makes the slab drop its base block instead of itself.
      */
 
-    public LootTable.Builder slabDrops(Block slab, Block drop) {
-        return LootTable.builder()
-                .pool(
-                        LootPool.builder()
-                                .rolls(ConstantLootNumberProvider.create(1.0F))
-                                .with(
-                                        this.applyExplosionDecay(
-                                                slab,
-                                                ItemEntry.builder(drop)
-                                                        .apply(
-                                                                SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
-                                                                        .conditionally(
-                                                                                BlockStatePropertyLootCondition.builder(slab)
-                                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE)))
-                                                        )
-                                        )
-                                )
-                );
-    }
+    //public LootTable.Builder slabDrops(Block slab, Block drop) {
+    //    return LootTable.builder()
+    //            .pool(
+    //                    LootPool.builder()
+    //                            .rolls(ConstantLootNumberProvider.create(1.0F))
+    //                            .with(
+    //                                    this.applyExplosionDecay(
+    //                                            slab,
+    //                                            ItemEntry.builder(drop)
+    //                                                    .apply(
+    //                                                            SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+    //                                                                    .conditionally(
+    //                                                                            BlockStatePropertyLootCondition.builder(slab)
+    //                                                                                    .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE)))
+    //                                                    )
+    //                                    )
+    //                            )
+    //            );
+    //}
 
     public LootTable.Builder silkSlabDrops(Block slab, Block drop) {
         return LootTable.builder()

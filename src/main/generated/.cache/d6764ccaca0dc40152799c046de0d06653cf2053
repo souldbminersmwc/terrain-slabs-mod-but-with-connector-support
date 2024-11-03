@@ -1,4 +1,4 @@
-// 1.21.3	2024-11-02T16:05:57.1503992	Countered's Terrain Slabs/Tags for minecraft:block
+// 1.21.3	2024-11-03T17:13:30.859721	Countered's Terrain Slabs/Tags for minecraft:block
 e86f7544e01d0a74bd348305d9280ec80071b801 data\minecraft\tags\block\camel_sand_step_sound_blocks.json
 99571528cebed993c6efc0cea17f9a768ab096d0 data\minecraft\tags\block\mineable\pickaxe.json
 ad7329cab53b0a4836849957deb6a32613a801ab data\minecraft\tags\block\sniffer_diggable_block.json
@@ -15,7 +15,6 @@ dcb1a45024b89c80b0c0ab4449c96cd855468838 data\minecraft\tags\block\armadillo_spa
 c1ce6a9b2633625c1eadd32ebe9ab1aa6a015028 data\minecraft\tags\block\goats_spawnable_on.json
 9d6208f3abeb4a0f6c9adeb71a0498ea055c08f0 data\minecraft\tags\block\parrots_spawnable_on.json
 185b121f2be56b2e724e847a697cbe6d4dbabc6a data\minecraft\tags\block\mangrove_roots_can_grow_through.json
-abd5adefb5ebad7207f25a716ae2f41cea9221ec data\minecraft\tags\block\snow_layer_can_survive_on.json
 11efee241e5775a928a4a51d7c1d9954b3f66924 data\minecraft\tags\block\snow.json
 f73b5004f95b818bded8c73496f8e58bf4e181be data\minecraft\tags\block\valid_spawn.json
 5bfd951f001b5a73f61d7d795ba31a8b3dafb6e5 data\minecraft\tags\block\mineable\hoe.json
