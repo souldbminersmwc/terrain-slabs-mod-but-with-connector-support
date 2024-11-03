@@ -33,6 +33,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRASS_BLOCK);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PODZOL);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MYCELIUM);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT_PATH);
 
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.DIRT);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.MOSS_BLOCK);
@@ -91,8 +92,9 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                                 world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 0);
                             }
                             else {
-                                world.setBlockState(currentPos, ModBlocksRegistry.SNOW_SLAB.getDefaultState(), 0);
+                                world.setBlockState(currentPos, ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()).getDefaultState(), 0);
                             }
+                            world.setBlockState(currentPos.up(), ModBlocksRegistry.SNOW_ON_TOP.getDefaultState(), 0);
                             continue;
                         }
                         BlockState blockBelowState = world.getBlockState(currentPos.down());
@@ -103,7 +105,8 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         // Handle grass slab special case by converting grass to dirt before placing the slab
                         if (slabState.isOf(ModBlocksRegistry.GRASS_SLAB)
                                 || slabState.isOf(ModBlocksRegistry.PODZOL_SLAB)
-                                || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)) {
+                                || slabState.isOf(ModBlocksRegistry.MYCELIUM_SLAB)
+                                || slabState.isOf(ModBlocksRegistry.PATH_SLAB)) {
                             world.setBlockState(currentPos.down(), Blocks.DIRT.getDefaultState(), 0);
                         }
 
@@ -124,7 +127,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         }
                         slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
                         slabState = updateWaterloggedState(world, currentPos, slabState);
-                        world.setBlockState(currentPos, slabState, 3);
+                        world.setBlockState(currentPos, slabState, 0);
                     }
                 }
             }
@@ -140,7 +143,9 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         BlockState blockAbove = world.getBlockState(currentPos.up());
         BlockState currentBlockState = world.getBlockState(currentPos);
 
-        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()) == Blocks.AIR || world.getBlockState(currentPos.down()).getBlock() instanceof SlabBlock){
+        if (ModSlabsMap.getSlabForBlock(world.getBlockState(currentPos.down()).getBlock()) == Blocks.AIR
+                || world.getBlockState(currentPos.down()).getBlock() instanceof SlabBlock
+                || world.getBlockState(currentPos).isOf(Blocks.POWDER_SNOW)){
             return false;
         }
         // Check that the block below is opaque and not a slab, and the position is air or snow
@@ -234,7 +239,8 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         for (Direction direction : Direction.Type.HORIZONTAL) {
             if (world.getBlockState(currentPos.offset(direction).down()).isOpaque() && world.getBlockState(currentPos.offset(direction.getOpposite())).isOpaque()
             && !(world.getBlockState(currentPos.offset(direction).down()).getBlock() instanceof SlabBlock) && !(world.getBlockState(currentPos.offset(direction.getOpposite())).getBlock() instanceof SlabBlock)
-                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(Blocks.SNOW) && !world.getBlockState(currentPos.offset(direction).down()).isOf(Blocks.SNOW))
+                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(Blocks.SNOW) && !world.getBlockState(currentPos.offset(direction).down()).isOf(Blocks.SNOW)
+                    && !world.getBlockState(currentPos.offset(direction.getOpposite())).isOf(ModBlocksRegistry.SNOW_ON_TOP) && !world.getBlockState(currentPos.offset(direction).down()).isOf(ModBlocksRegistry.SNOW_ON_TOP))
             {
                 return true;
             }

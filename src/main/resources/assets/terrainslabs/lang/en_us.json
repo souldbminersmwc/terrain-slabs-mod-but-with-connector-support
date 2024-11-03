@@ -13,6 +13,7 @@
   "block.terrainslabs.grass_slab": "Grass Slab",
   "block.terrainslabs.mycelium_slab": "Mycelium Slab",
   "block.terrainslabs.podzol_slab": "Podzol Slab",
+  "block.terrainslabs.path_slab": "Dirt Path Slab",
 
   "block.terrainslabs.gravel_slab": "Gravel Slab",
   "block.terrainslabs.sand_slab": "Sand Slab",
@@ -33,6 +34,8 @@
   "block.terrainslabs.terrain_andesite_slab": "Terrain Andesite Slab",
   "block.terrainslabs.terrain_diorite_slab": "Terrain Diorite Slab",
   "block.terrainslabs.terrain_granite_slab": "Terrain Granite Slab",
+
+  "block.terrainslabs.snow_on_top": "Snow On Slab",
 
   "terrainslabs.midnightconfig.enableSlabGeneration": "Enable Slab Generation",
   "terrainslabs.midnightconfig.enableSlabGeneration.tooltip": "Toggle to enable or disable slab generation in the world.",

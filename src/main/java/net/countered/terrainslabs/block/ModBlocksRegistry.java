@@ -2,10 +2,12 @@ package net.countered.terrainslabs.block;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
+import net.countered.terrainslabs.block.customslabs.soilslabs.PathSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffectedSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
+import net.countered.terrainslabs.block.ontopofslabs.SnowOnTop;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -41,6 +43,8 @@ public class ModBlocksRegistry {
             new MyceliumSlab(AbstractBlock.Settings.copy(Blocks.MYCELIUM)));
     public static final Block PODZOL_SLAB = registerBlock("podzol_slab",
             new PodzolSlab(AbstractBlock.Settings.copy(Blocks.PODZOL)));
+    public static final Block PATH_SLAB = registerBlock("path_slab",
+            new PathSlab(AbstractBlock.Settings.copy(Blocks.DIRT_PATH).blockVision(Blocks::never)));
 
     public static final Block GRAVEL_SLAB = registerBlock("gravel_slab",
             new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.GRAVEL)));
@@ -78,6 +82,9 @@ public class ModBlocksRegistry {
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE_SLAB)));
     public static final Block CUSTOM_GRANITE_SLAB = registerBlock("terrain_granite_slab",
             new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE_SLAB)));
+
+    public static final Block SNOW_ON_TOP = registerBlock("snow_on_top",
+            new SnowOnTop(AbstractBlock.Settings.copy(Blocks.SNOW)));
 
 
     private static Block registerBlock(String name, Block block) {
