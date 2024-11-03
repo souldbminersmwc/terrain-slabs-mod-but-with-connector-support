@@ -38,6 +38,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createSlabRecipe1(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.GRASS_SLAB, Ingredient.ofItems(Blocks.GRASS_BLOCK)).criterion("has_grass_block", conditionsFromItem(Blocks.GRASS_BLOCK)).offerTo(consumer);
         createSlabRecipe1(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.MYCELIUM_SLAB, Ingredient.ofItems(Blocks.MYCELIUM)).criterion("has_mycelium_block", conditionsFromItem(Blocks.MYCELIUM)).offerTo(consumer);
         createSlabRecipe1(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.PODZOL_SLAB, Ingredient.ofItems(Blocks.PODZOL)).criterion("has_podzol_block", conditionsFromItem(Blocks.PODZOL)).offerTo(consumer);
+        createSlabRecipe1(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.PATH_SLAB, Ingredient.ofItems(Blocks.DIRT_PATH)).criterion("has_dirt_path_block", conditionsFromItem(Blocks.DIRT_PATH)).offerTo(consumer);
 
         createSlabRecipe1(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.GRAVEL_SLAB, Ingredient.ofItems(Blocks.GRAVEL)).criterion("has_gravel_block", conditionsFromItem(Blocks.GRAVEL)).offerTo(consumer);
         createSlabRecipe1(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.SAND_SLAB, Ingredient.ofItems(Blocks.SAND)).criterion("has_sand_block", conditionsFromItem(Blocks.SAND)).offerTo(consumer);

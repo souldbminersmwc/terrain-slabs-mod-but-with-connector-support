@@ -36,6 +36,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.GRASS_SLAB)
                 .add(ModBlocksRegistry.MYCELIUM_SLAB)
                 .add(ModBlocksRegistry.PODZOL_SLAB)
+                .add(ModBlocksRegistry.PATH_SLAB)
                 .add(ModBlocksRegistry.GRAVEL_SLAB)
                 .add(ModBlocksRegistry.SAND_SLAB)
                 .add(ModBlocksRegistry.RED_SAND_SLAB)
@@ -56,9 +57,11 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.GRASS_SLAB)
                 .add(ModBlocksRegistry.MYCELIUM_SLAB)
                 .add(ModBlocksRegistry.PODZOL_SLAB)
+                .add(ModBlocksRegistry.PATH_SLAB)
                 .add(ModBlocksRegistry.GRAVEL_SLAB)
                 .add(ModBlocksRegistry.SAND_SLAB)
-                .add(ModBlocksRegistry.RED_SAND_SLAB);
+                .add(ModBlocksRegistry.RED_SAND_SLAB)
+                .add(ModBlocksRegistry.SNOW_ON_TOP);
 
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocksRegistry.PACKED_ICE_SLAB)
@@ -96,7 +99,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.GOATS_SPAWNABLE_ON) //needs improvement
                 .add(ModBlocksRegistry.CUSTOM_STONE_SLAB, ModBlocksRegistry.SNOW_SLAB, ModBlocksRegistry.PACKED_ICE_SLAB, ModBlocksRegistry.GRAVEL_SLAB);
 
-        this.getOrCreateTagBuilder(BlockTags.SNOW).add(ModBlocksRegistry.SNOW_SLAB);
+        this.getOrCreateTagBuilder(BlockTags.SNOW).add(ModBlocksRegistry.SNOW_SLAB).add(ModBlocksRegistry.SNOW_ON_TOP);
 
         this.getOrCreateTagBuilder(BlockTags.SCULK_REPLACEABLE)
                 .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)

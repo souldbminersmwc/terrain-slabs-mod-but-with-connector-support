@@ -63,6 +63,7 @@ public class GravityAffectedSlab extends SlabBlock implements LandingBlock {
         return state.isAir() || state.isIn(BlockTags.FIRE) || state.isLiquid() || state.isReplaceable();
     }
 
+    @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (random.nextInt(16) == 0) {
             BlockPos blockPos = pos.down();
@@ -93,21 +94,11 @@ public class GravityAffectedSlab extends SlabBlock implements LandingBlock {
     }
 
     @Override
-    public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity) {
-        LandingBlock.super.onLanding(world, pos, fallingBlockState, currentStateInPos, fallingBlockEntity);
-    }
-
-    @Override
     public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
         LandingBlock.super.onDestroyedOnLanding(world, pos, fallingBlockEntity);
         if (fallingBlockEntity.getBlockState().get(TYPE) == SlabType.DOUBLE) {
             dropStack(world, pos, new ItemStack(this.asItem()));
         }
-    }
-
-    @Override
-    public DamageSource getDamageSource(Entity attacker) {
-        return LandingBlock.super.getDamageSource(attacker);
     }
 }
 

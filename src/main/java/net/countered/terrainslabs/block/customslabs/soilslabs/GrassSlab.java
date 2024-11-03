@@ -23,6 +23,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
 public class GrassSlab extends SlabBlock {
+
     public GrassSlab(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
@@ -49,9 +50,12 @@ public class GrassSlab extends SlabBlock {
             state = state.with(SNOWY, isSnow(neighborState));
         }
 
-        if ((Boolean)state.get(WATERLOGGED)) {
+        // Handle waterlogging logic
+        if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
+
+        // Return the modified state based on the slab's existing logic
         return state;
     }
 
@@ -107,6 +111,7 @@ public class GrassSlab extends SlabBlock {
             return i < world.getMaxLightLevel();
         }
     }
+
     private static boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);

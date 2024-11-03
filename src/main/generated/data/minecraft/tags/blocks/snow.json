@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "terrainslabs:snow_slab"
+    "terrainslabs:snow_slab",
+    "terrainslabs:snow_on_top"
   ]
 }

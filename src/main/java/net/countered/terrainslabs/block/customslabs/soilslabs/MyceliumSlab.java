@@ -40,9 +40,12 @@ public class MyceliumSlab extends SlabBlock {
             state = state.with(SNOWY, isSnow(neighborState));
         }
 
-        if ((Boolean)state.get(WATERLOGGED)) {
+        // Handle waterlogging logic
+        if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
+
+        // Return the modified state based on the slab's existing logic
         return state;
     }
 
