@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-03T21:43:26.1756912	Countered's Terrain Slabs/Block Loot Tables
+// 1.20.1	2024-11-07T19:23:13.1821088	Countered's Terrain Slabs/Block Loot Tables
 a073f23b81c5c2c06ff6d91137bd5f30bc432266 data\terrainslabs\loot_tables\blocks\grass_slab.json
 1fdd9196b9c8e0915adc0b8bc7651d8d26f17f51 data\terrainslabs\loot_tables\blocks\moss_slab.json
 d078825b9f477c54c42f2f500770033b31c98167 data\terrainslabs\loot_tables\blocks\mycelium_slab.json
@@ -20,8 +20,8 @@ c668cb42a73cbced0e4f19638455134dcea2a7ef data\terrainslabs\loot_tables\blocks\co
 0f80dd19738d894f92b6b7189668008214eda196 data\terrainslabs\loot_tables\blocks\terrain_tuff_slab.json
 b8753e7d4d2d4eadee5c1278e3c084cd5481ee77 data\terrainslabs\loot_tables\blocks\packed_ice_slab.json
 e50ab824b7d3a484e23e12bd541583e3606309a5 data\terrainslabs\loot_tables\blocks\terracotta_slab.json
-1e417605269f54c29bc7fc2089816f869f9f00c4 data\terrainslabs\loot_tables\blocks\terrain_stone_slab.json
 88db21389e3333ac4d9bbccd18ea095217c299a0 data\terrainslabs\loot_tables\blocks\terrain_andesite_slab.json
+1e417605269f54c29bc7fc2089816f869f9f00c4 data\terrainslabs\loot_tables\blocks\terrain_stone_slab.json
 6f8dfc1138d86e9b287d0a6de22eea30e28d9047 data\terrainslabs\loot_tables\blocks\mud_slab.json
 c91950647b49ff768d335bd4fd9c507fb030e8ce data\terrainslabs\loot_tables\blocks\red_sand_slab.json
 8896ff4c7670d2feecc4b30df81bffb2ce89617b data\terrainslabs\loot_tables\blocks\orange_terracotta_slab.json

@@ -1,6 +1,5 @@
 package net.countered.terrainslabs.block.customslabs.soilslabs;
 
-import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
@@ -32,7 +31,6 @@ public class MyceliumSlab extends SlabBlock {
     }
 
     public static final BooleanProperty SNOWY = Properties.SNOWY;
-
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {

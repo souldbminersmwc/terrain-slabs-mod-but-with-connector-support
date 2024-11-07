@@ -2,9 +2,7 @@ package net.countered.terrainslabs.block.ontopofslabs;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;

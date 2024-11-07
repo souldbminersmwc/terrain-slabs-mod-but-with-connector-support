@@ -3,13 +3,6 @@ package net.countered.terrainslabs.item;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.fabricmc.fabric.mixin.content.registry.ShovelItemAccessor;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.enums.SlabType;
-
-import java.util.Properties;
-
-import static net.minecraft.block.SlabBlock.TYPE;
-
 
 public class ShovelPathSlab {
 

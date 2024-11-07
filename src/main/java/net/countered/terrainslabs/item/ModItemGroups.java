@@ -2,16 +2,7 @@ package net.countered.terrainslabs.item;
 
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
-import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
-import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
-import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
-import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffectedSlab;
-import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;

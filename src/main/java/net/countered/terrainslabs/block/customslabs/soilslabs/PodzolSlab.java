@@ -1,6 +1,5 @@
 package net.countered.terrainslabs.block.customslabs.soilslabs;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.fluid.FluidState;
@@ -24,7 +23,6 @@ public class PodzolSlab extends SlabBlock {
                 .with(WATERLOGGED, Boolean.valueOf(false)));
     }
     public static final BooleanProperty SNOWY = Properties.SNOWY;
-
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {

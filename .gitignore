@@ -15,7 +15,8 @@ classes/
 *.iml
 *.ipr
 *.iws
-
+*.log.gz
+*.log
 # vscode
 
 .settings/

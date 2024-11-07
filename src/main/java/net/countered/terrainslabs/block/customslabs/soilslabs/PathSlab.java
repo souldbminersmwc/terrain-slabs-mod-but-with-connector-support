@@ -1,6 +1,5 @@
 package net.countered.terrainslabs.block.customslabs.soilslabs;
 
-import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
@@ -16,8 +15,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Properties;
 
 public class PathSlab extends SlabBlock {
 
