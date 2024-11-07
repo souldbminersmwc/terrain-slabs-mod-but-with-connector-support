@@ -1,7 +1,6 @@
 package net.countered.terrainslabs;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
-import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -10,8 +9,6 @@ import net.minecraft.block.MapColor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.state.property.Properties;
-import net.minecraft.world.biome.GrassColors;
 
 public class TerrainSlabsClient implements ClientModInitializer {
     @Override

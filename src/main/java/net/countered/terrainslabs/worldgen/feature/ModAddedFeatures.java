@@ -1,6 +1,5 @@
 package net.countered.terrainslabs.worldgen.feature;
 
-
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.worldgen.slabfeature.SlabFeatureLogic;
 import net.minecraft.registry.Registries;

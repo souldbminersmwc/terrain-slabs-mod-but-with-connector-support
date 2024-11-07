@@ -17,8 +17,6 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Properties;
-
 public class PathSlab extends SlabBlock {
 
     public PathSlab(Settings settings) {
