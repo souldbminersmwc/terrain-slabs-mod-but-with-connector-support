@@ -58,4 +58,9 @@ public class SnowOnTop extends SnowBlock {
         }
         return false;
     }
+
+    @Override
+    protected float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
+        return 1.0F;
+    }
 }

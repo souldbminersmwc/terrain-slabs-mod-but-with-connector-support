@@ -28,7 +28,6 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         super(codec);
     }
     public static final Set<Block> VALID_BLOCKS_FOR_SLAB_PLACEMENT = new HashSet<>();
-
     static {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.GRASS_BLOCK);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.PODZOL);
@@ -132,7 +131,10 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                             if (SOIL_SLAB_BLOCKS.contains(slabState.getBlock())) {
                                 world.setBlockState(blockBelowPos, Blocks.DIRT.getDefaultState(), 0);
                             }
-
+                            if (ModSlabsMap.ON_TOP_SLAB_MAP.containsKey(currentBlockState.getBlock())){
+                                System.out.println(currentPos);
+                                world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
+                            }
                             slabState = updateWaterloggedState(world, currentPos, slabState);
                             world.setBlockState(currentPos, slabState, 0);
                         }
@@ -181,7 +183,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                     if (badNextToWaterSlab(world, currentPos, blockBelowPos, Direction.NORTH) || badNextToWaterSlab(world, currentPos, blockBelowPos, Direction.WEST) || badNextToWaterSlab(world, currentPos, blockBelowPos, Direction.SOUTH) || badNextToWaterSlab(world, currentPos, blockBelowPos, Direction.EAST) ||
                             world.getBlockState(currentPos.offset(Direction.NORTH)).isOf(Blocks.ICE) || world.getBlockState(currentPos.offset(Direction.WEST)).isOf(Blocks.ICE) || world.getBlockState(currentPos.offset(Direction.SOUTH)).isOf(Blocks.ICE) || world.getBlockState(currentPos.offset(Direction.EAST)).isOf(Blocks.ICE) ||
                             world.getBlockState(currentPos.offset(Direction.NORTH)).isOf(Blocks.LAVA) || world.getBlockState(currentPos.offset(Direction.WEST)).isOf(Blocks.LAVA) || world.getBlockState(currentPos.offset(Direction.SOUTH)).isOf(Blocks.LAVA) || world.getBlockState(currentPos.offset(Direction.EAST)).isOf(Blocks.LAVA)){
-                    return false;
+                        return false;
                     }
                     return true;
                 }

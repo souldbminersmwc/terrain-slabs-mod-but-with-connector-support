@@ -14,6 +14,7 @@ public class TerrainSlabsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocksRegistry.GRASS_SLAB, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocksRegistry.POPPY_ON_TOP, RenderLayer.getCutoutMipped());
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
                 return tintIndex == 0 && world != null && pos != null

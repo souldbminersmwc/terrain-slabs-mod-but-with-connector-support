@@ -7,11 +7,13 @@ import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffected
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
+import net.countered.terrainslabs.block.ontopofslabs.FlowerOnTop;
 import net.countered.terrainslabs.block.ontopofslabs.SnowOnTop;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -88,6 +90,8 @@ public class ModBlocksRegistry {
 
     public static final Block SNOW_ON_TOP = registerBlock("snow_on_top",
             new SnowOnTop(createBlockSettings(Blocks.SNOW)));
+    public static final Block POPPY_ON_TOP = registerBlock("poppy_on_top",
+            new FlowerOnTop(StatusEffects.NIGHT_VISION, 5.0F, createBlockSettings(Blocks.POPPY)));
 
     private static Block.Settings createBlockSettings(Block baseBlock) {
         Identifier id = Identifier.of(TerrainSlabs.MOD_ID, Registries.BLOCK.getId(baseBlock).getPath());

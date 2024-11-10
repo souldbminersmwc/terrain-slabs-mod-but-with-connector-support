@@ -36,6 +36,7 @@
   "block.terrainslabs.terrain_granite_slab": "Terrain Granite Slab",
 
   "block.terrainslabs.snow_on_top": "Snow On Slab",
+  "block.terrainslabs.poppy_on_top": "Poppy On Slab",
 
   "terrainslabs.midnightconfig.enableSlabGeneration": "Enable Slab Generation",
   "terrainslabs.midnightconfig.enableSlabGeneration.tooltip": "Toggle to enable or disable slab generation in the world.",

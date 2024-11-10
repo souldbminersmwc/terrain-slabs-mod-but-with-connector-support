@@ -52,6 +52,7 @@ public class ModItemGroups {
                 entries.add(ModBlocksRegistry.CUSTOM_TUFF_SLAB);
 
                 entries.add(ModBlocksRegistry.SNOW_ON_TOP);
+                entries.add(ModBlocksRegistry.POPPY_ON_TOP);
             }).build());
 
     public static void registerItemGroups() {

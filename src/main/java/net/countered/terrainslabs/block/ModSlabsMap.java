@@ -46,8 +46,15 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.BROWN_TERRACOTTA, ModBlocksRegistry.BROWN_TERRACOTTA_SLAB);
         SLAB_MAP.put(Blocks.YELLOW_TERRACOTTA, ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
     }
+    public static final Map<Block, Block> ON_TOP_SLAB_MAP = new HashMap<>();
+
+    static {
+        // Register your block-to-slab mappings here
+        ON_TOP_SLAB_MAP.put(Blocks.POPPY, ModBlocksRegistry.POPPY_ON_TOP);
+    }
 
     public static Block getSlabForBlock(Block blockBelow) {
         return SLAB_MAP.getOrDefault(blockBelow, Blocks.AIR); // Default slab if no match
     }
+
 }

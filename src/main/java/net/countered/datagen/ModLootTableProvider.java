@@ -95,6 +95,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         )
                         )
         );
+        this.addDrop(ModBlocksRegistry.POPPY_ON_TOP, block -> this.drops(block, Blocks.POPPY));
         this.addDrop(
                 ModBlocksRegistry.GRAVEL_SLAB,
                 block -> this.dropsWithSilkTouch(
@@ -118,7 +119,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         )
                 )
         );
-
     }
 
     /**
