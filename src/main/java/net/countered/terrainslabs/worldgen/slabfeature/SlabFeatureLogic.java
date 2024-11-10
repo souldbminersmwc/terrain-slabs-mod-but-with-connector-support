@@ -173,7 +173,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                 BlockPos neighborPos = currentPos.offset(direction);
                 BlockState neighborState = world.getBlockState(neighborPos);
                 // Check if a neighboring block is opaque and not a slab
-                if (neighborState.isOpaque() && VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(blockBelow.getBlock())
+                if (neighborState.isOpaque() && VALID_BLOCKS_FOR_SLAB_PLACEMENT.contains(neighborState.getBlock())
                         && !(neighborState.getBlock() instanceof SlabBlock)
                         && (!world.getBlockState(neighborPos.up()).isOpaque() || world.getBlockState(neighborPos.up()).getBlock() == Blocks.SNOW)
                         && !world.getBlockState(neighborPos).isOf(Blocks.SNOW)) {
