@@ -99,7 +99,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
             }
         }
 
-        for (int y = world.getBottomY(); y < highestBlock.getY(); y++) {
+        for (int y = world.getBottomY(); y < highestBlock.getY()+1; y++) {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
                     BlockPos currentPos = chunkPos.getBlockPos(x, y, z);
