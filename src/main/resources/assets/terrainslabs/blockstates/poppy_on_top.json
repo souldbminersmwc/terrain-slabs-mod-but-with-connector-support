@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "terrainslabs:block/ontop/poppy_on_top"
+    }
+  }
+}

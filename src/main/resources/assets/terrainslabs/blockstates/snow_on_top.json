@@ -1,28 +1,28 @@
 {
   "variants": {
     "layers=1": {
-      "model": "terrainslabs:block/snow_on_top2"
+      "model": "terrainslabs:block/ontop/snow_on_top2"
     },
     "layers=2": {
-      "model": "terrainslabs:block/snow_on_top4"
+      "model": "terrainslabs:block/ontop/snow_on_top4"
     },
     "layers=3": {
-      "model": "terrainslabs:block/snow_on_top6"
+      "model": "terrainslabs:block/ontop/snow_on_top6"
     },
     "layers=4": {
-      "model": "terrainslabs:block/snow_on_top8"
+      "model": "terrainslabs:block/ontop/snow_on_top8"
     },
     "layers=5": {
-      "model": "terrainslabs:block/snow_on_top10"
+      "model": "terrainslabs:block/ontop/snow_on_top10"
     },
     "layers=6": {
-      "model": "terrainslabs:block/snow_on_top12"
+      "model": "terrainslabs:block/ontop/snow_on_top12"
     },
     "layers=7": {
-      "model": "terrainslabs:block/snow_on_top14"
+      "model": "terrainslabs:block/ontop/snow_on_top14"
     },
     "layers=8": {
-      "model": "terrainslabs:block/snow_on_top_block"
+      "model": "terrainslabs:block/ontop/snow_on_top_block"
     }
   }
 }

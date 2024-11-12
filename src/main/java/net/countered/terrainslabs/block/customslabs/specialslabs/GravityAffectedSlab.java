@@ -14,6 +14,7 @@ import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -94,6 +95,13 @@ public class GravityAffectedSlab extends SlabBlock implements LandingBlock {
         LandingBlock.super.onDestroyedOnLanding(world, pos, fallingBlockEntity);
         if (fallingBlockEntity.getBlockState().get(TYPE) == SlabType.DOUBLE) {
             dropStack(world, pos, new ItemStack(this.asItem()));
+        }
+    }
+    @Override
+    public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity) {
+        LandingBlock.super.onLanding(world, pos, fallingBlockState, currentStateInPos, fallingBlockEntity);
+        if (fallingBlockState.get(TYPE) == SlabType.TOP) {
+            world.setBlockState(pos, this.getDefaultState().with(Properties.SLAB_TYPE, SlabType.BOTTOM));
         }
     }
 }

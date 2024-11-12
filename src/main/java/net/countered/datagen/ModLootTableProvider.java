@@ -1,5 +1,6 @@
 package net.countered.datagen;
 
+
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -23,7 +24,10 @@ import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
     public ModLootTableProvider(FabricDataOutput dataOutput) {
@@ -65,60 +69,77 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.addDrop(ModBlocksRegistry.CLAY_SLAB, block -> silkSlabDropsParts(block, Items.CLAY_BALL));
         this.addDrop(ModBlocksRegistry.SNOW_ON_TOP, (block) -> {
             return LootTable.builder().pool(LootPool.builder().conditionally(EntityPropertiesLootCondition.create(LootContext.EntityTarget.THIS)).with(AlternativeEntry.builder(new LootPoolEntry.Builder[]{AlternativeEntry.builder(SnowBlock.LAYERS.getValues(), (integer) -> {
-                return ((LeafEntry.Builder)ItemEntry.builder(Items.SNOWBALL).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SnowBlock.LAYERS, integer)))).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)integer)));
+                return ((LeafEntry.Builder) ItemEntry.builder(Items.SNOWBALL).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SnowBlock.LAYERS, integer)))).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)integer)));
             }).conditionally(WITHOUT_SILK_TOUCH), AlternativeEntry.builder(SnowBlock.LAYERS.getValues(), (integer) -> {
                 return (LootPoolEntry.Builder)(integer == 8 ? ItemEntry.builder(Blocks.SNOW_BLOCK) : ItemEntry.builder(Blocks.SNOW).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)integer))).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(SnowBlock.LAYERS, integer))));
             })})));
         });
         this.addDrop(
                 ModBlocksRegistry.GRAVEL_SLAB,
-                block -> dropsWithSilkTouch(
-                        block,
-                        this.addSurvivesExplosionCondition(
-                                block,
-                                ItemEntry.builder(Items.FLINT)
-                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
-                                                .conditionally(
-                                                        BlockStatePropertyLootCondition.builder(block)
-                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
-                                                ))
-                                        .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.1F, 0.14285715F, 0.25F, 1.0F))
-                                        .alternatively(ItemEntry.builder(block)
-                                                .apply(
-                                                        SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
-                                                                .conditionally(
-                                                                        BlockStatePropertyLootCondition.builder(block)
-                                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE)))
-                                                )) // For dropping the slab itself if not using Silk Touch
+                block -> gravelSlabDrops(block, Blocks.GRAVEL, Items.FLINT)
+        );
+
+        this.addDrop(ModBlocksRegistry.POPPY_ON_TOP, block -> this.drops(block, Blocks.POPPY));
+        this.addDrop(ModBlocksRegistry.DANDELION_ON_TOP, block -> this.drops(block, Blocks.DANDELION));
+        this.addDrop(ModBlocksRegistry.AZURE_BLUET_ON_TOP, block -> this.drops(block, Blocks.AZURE_BLUET));
+        this.addDrop(ModBlocksRegistry.CORNFLOWER_ON_TOP, block -> this.drops(block, Blocks.CORNFLOWER));
+        this.addDrop(ModBlocksRegistry.BROWN_MUSHROOM_ON_TOP, block -> this.drops(block, Blocks.BROWN_MUSHROOM));
+        this.addDrop(ModBlocksRegistry.RED_MUSHROOM_ON_TOP, block -> this.drops(block, Blocks.RED_MUSHROOM));
+        this.addDrop(ModBlocksRegistry.FERN_ON_TOP, block -> this.grassDrops(Blocks.FERN));
+        this.addDrop(ModBlocksRegistry.SHORT_GRASS_ON_TOP, block -> this.grassDrops(Blocks.GRASS));
+        this.addDrop(
+                ModBlocksRegistry.DEAD_BUSH_ON_TOP,
+                block -> this.dropsWithShears(
+                        Blocks.DEAD_BUSH,
+                        (LootPoolEntry.Builder<?>)this.applyExplosionDecay(
+                                block, ItemEntry.builder(Items.STICK).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F)))
                         )
                 )
         );
+        this.addDrop(ModBlocksRegistry.SEAGRASS_ON_TOP, block -> this.dropsWithShears(Blocks.SEAGRASS));
 
     }
 
     /**
      * Adds a loot table entry that makes the slab drop its base block instead of itself.
      */
+    public LootTable.Builder gravelSlabDrops(Block slab, Block gravelDrop, Item flintDrop) {
 
-    //public LootTable.Builder slabDrops(Block slab, Block drop) {
-    //    return LootTable.builder()
-    //            .pool(
-    //                    LootPool.builder()
-    //                            .rolls(ConstantLootNumberProvider.create(1.0F))
-    //                            .with(
-    //                                    this.applyExplosionDecay(
-    //                                            slab,
-    //                                            ItemEntry.builder(drop)
-    //                                                    .apply(
-    //                                                            SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
-    //                                                                    .conditionally(
-    //                                                                            BlockStatePropertyLootCondition.builder(slab)
-    //                                                                                    .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE)))
-    //                                                    )
-    //                                    )
-    //                            )
-    //            );
-    //}
+        return LootTable.builder()
+                .pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(
+                                ItemEntry.builder(slab)
+                                        .conditionally(WITH_SILK_TOUCH)  // Drops the slab if Silk Touch is used
+                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                )
+                                        )
+                                        .alternatively(
+                                                // Drops gravel or flint without Silk Touch
+                                                ItemEntry.builder(flintDrop)
+                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                )
+                                                        )
+                                                        .conditionally(TableBonusLootCondition.builder(
+                                                                Enchantments.FORTUNE,
+                                                                0.1F, 0.14285715F, 0.25F, 1.0F // Fortune levels for flint drops
+                                                        ))
+                                                        .alternatively(
+                                                                ItemEntry.builder(gravelDrop) // Drop gravel if no Fortune for flint
+                                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                                )
+                                                                        )
+                                                        )
+                                        )
+                        )
+                );
+    }
 
     public LootTable.Builder silkSlabDrops(Block slab, Block drop) {
         return LootTable.builder()

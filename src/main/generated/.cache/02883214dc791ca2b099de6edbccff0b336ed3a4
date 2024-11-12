@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-07T19:23:13.1791012	Countered's Terrain Slabs/Model Definitions
+// 1.20.1	2024-11-12T23:43:35.5404396	Countered's Terrain Slabs/Model Definitions
 c698a83fdbc7dde5eac58d9ca1bafd0e1c24d53e assets\minecraft\models\block\yellow_terracotta.json
 27546e333bab0489735376f37c476e8278637049 assets\minecraft\blockstates\clay.json
 e973a65dfedcc9fd10f77fefb825895159182cba assets\terrainslabs\models\block\moss_slab_top.json
@@ -99,8 +99,8 @@ d53f7e8724279e277f6449bd1bc8cd0a4feeeb4c assets\terrainslabs\blockstates\terraco
 4bf5557c92ece5ff9c1d78c61594db929a48edc5 assets\terrainslabs\models\item\light_gray_terracotta_slab.json
 7f691e782b968761f34ef40827571c49e4d777ea assets\terrainslabs\models\block\brown_terracotta_slab_top.json
 512d6c33e5c2999012a53096d3c17b8e7a58b2fe assets\terrainslabs\blockstates\deepslate_slab.json
-64bb558cf01e78e42b28e2ef3c501f71ee830e6a assets\minecraft\models\block\dirt.json
 c7885f37ddd66aa0cee92001a9dac1a78f5dfdb8 assets\terrainslabs\models\block\sand_slab_top.json
+64bb558cf01e78e42b28e2ef3c501f71ee830e6a assets\minecraft\models\block\dirt.json
 56d778d6f0937e960d52b3de26aeb58f41080ba2 assets\terrainslabs\models\item\coarse_slab.json
 3d79933a5176a81bc3334bb1c1eee4af4122e33f assets\terrainslabs\models\block\yellow_terracotta_slab_top.json
 669555cebcc536d14901b3f144879288c34fed05 assets\minecraft\models\block\clay.json
