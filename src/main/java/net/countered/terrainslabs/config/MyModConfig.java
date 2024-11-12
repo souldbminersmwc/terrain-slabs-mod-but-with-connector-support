@@ -7,6 +7,6 @@ public class MyModConfig extends MidnightConfig {
     // Define categories and entries
     public static final String GENERATION = "generation";  // category for world generation
 
-    @Entry(category = GENERATION, name = "Enable Slab Generation")
+    @Entry(category = GENERATION)
     public static boolean enableSlabGeneration = true;
 }

@@ -7,16 +7,18 @@ import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffected
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
-import net.countered.terrainslabs.block.ontopofslabs.SnowOnTop;
+import net.countered.terrainslabs.block.ontopofslabs.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 public class ModBlocksRegistry {
 
@@ -85,6 +87,26 @@ public class ModBlocksRegistry {
 
     public static final Block SNOW_ON_TOP = registerBlock("snow_on_top",
             new SnowOnTop(AbstractBlock.Settings.copy(Blocks.SNOW)));
+    public static final Block SEAGRASS_ON_TOP = registerBlock("seagrass_on_top",
+            new SeagrassOnTop(AbstractBlock.Settings.copy(Blocks.SEAGRASS)));
+    public static final Block POPPY_ON_TOP = registerBlock("poppy_on_top",
+            new FlowerOnTop(StatusEffects.NIGHT_VISION, 5.0F, AbstractBlock.Settings.copy(Blocks.POPPY)));
+    public static final Block DANDELION_ON_TOP = registerBlock("dandelion_on_top",
+            new FlowerOnTop(StatusEffects.SATURATION, 0.35F, AbstractBlock.Settings.copy(Blocks.DANDELION)));
+    public static final Block AZURE_BLUET_ON_TOP = registerBlock("azure_bluet_on_top",
+            new FlowerOnTop(StatusEffects.BLINDNESS, 8.0F, AbstractBlock.Settings.copy(Blocks.AZURE_BLUET)));
+    public static final Block CORNFLOWER_ON_TOP = registerBlock("cornflower_on_top",
+            new FlowerOnTop(StatusEffects.JUMP_BOOST, 6.0F, AbstractBlock.Settings.copy(Blocks.CORNFLOWER)));
+    public static final Block DEAD_BUSH_ON_TOP = registerBlock("dead_bush_on_top",
+            new DeadBushOnTop(AbstractBlock.Settings.copy(Blocks.DEAD_BUSH)));
+    public static final Block BROWN_MUSHROOM_ON_TOP = registerBlock("brown_mushroom_on_top",
+            new MushroomOnTop(TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM, AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM)));
+    public static final Block RED_MUSHROOM_ON_TOP = registerBlock("red_mushroom_on_top",
+            new MushroomOnTop(TreeConfiguredFeatures.HUGE_RED_MUSHROOM, AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)));
+    public static final Block SHORT_GRASS_ON_TOP = registerBlock("short_grass_on_top",
+            new GrassOnTop(AbstractBlock.Settings.copy(Blocks.SHORT_GRASS)));
+    public static final Block FERN_ON_TOP = registerBlock("fern_on_top",
+            new GrassOnTop(AbstractBlock.Settings.copy(Blocks.FERN)));
 
 
     private static Block registerBlock(String name, Block block) {
