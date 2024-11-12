@@ -131,14 +131,30 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                             if (SOIL_SLAB_BLOCKS.contains(slabState.getBlock())) {
                                 world.setBlockState(blockBelowPos, Blocks.DIRT.getDefaultState(), 0);
                             }
-                            if (ModSlabsMap.ON_TOP_SLAB_MAP.containsKey(currentBlockState.getBlock())){
-                                System.out.println(currentPos);
-                                world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
-                            }
-                            if (!world.getBlockState(currentPos).isOf(Blocks.AIR) && !world.getBlockState(currentPos).isOf(Blocks.CAVE_AIR) && !world.getBlockState(currentPos).isOf(Blocks.WATER)){
-                                System.out.println(world.getBlockState(currentPos).getBlock());
-                            }
+
                             slabState = updateWaterloggedState(world, currentPos, slabState);
+
+                            if (ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.containsKey(currentBlockState.getBlock())){
+                                if (world.getBlockState(blockAbovePos).isOf(Blocks.WATER)){
+                                    world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
+                                }
+                                else if (!world.getBlockState(currentPos).isOf(Blocks.SEAGRASS)){
+                                    world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
+                                }
+                            }
+                            //Debugging
+                            /*
+                            if (!world.getBlockState(currentPos).isOf(Blocks.AIR)
+                                    && !world.getBlockState(currentPos).isOf(Blocks.CAVE_AIR)
+                                    && !world.getBlockState(currentPos).isOf(Blocks.WATER)
+                                    && !world.getBlockState(currentPos).isOf(Blocks.GLOW_LICHEN)
+                                    && !world.getBlockState(currentPos).isOf(Blocks.SCULK_VEIN)
+                                    && !world.getBlockState(currentPos).isOf(Blocks.AZALEA)
+                                    && !world.getBlockState(currentPos).isOf(Blocks.FLOWERING_AZALEA)
+                                    && !ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.containsKey(world.getBlockState(currentPos).getBlock())){
+                                System.out.println(world.getBlockState(currentPos).getBlock() +" "+ currentPos);
+                            }
+                             */
                             world.setBlockState(currentPos, slabState, 0);
                         }
                     }

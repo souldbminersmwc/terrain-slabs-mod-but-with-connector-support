@@ -84,6 +84,20 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocksRegistry.MOSS_SLAB);
 
+        this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(ModBlocksRegistry.DEAD_BUSH_ON_TOP)
+                .add(ModBlocksRegistry.SHORT_GRASS_ON_TOP)
+                .add(ModBlocksRegistry.FERN_ON_TOP)
+                .add(ModBlocksRegistry.BROWN_MUSHROOM_ON_TOP)
+                .add(ModBlocksRegistry.RED_MUSHROOM_ON_TOP);
+
+        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT)
+                .add(ModBlocksRegistry.DEAD_BUSH_ON_TOP)
+                .add(ModBlocksRegistry.BROWN_MUSHROOM_ON_TOP)
+                .add(ModBlocksRegistry.RED_MUSHROOM_ON_TOP)
+                .add(ModBlocksRegistry.SHORT_GRASS_ON_TOP)
+                .add(ModBlocksRegistry.FERN_ON_TOP);
+
         this.getOrCreateTagBuilder(BlockTags.CAMEL_SAND_STEP_SOUND_BLOCKS).add(ModBlocksRegistry.SAND_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.SMELTS_TO_GLASS).add(ModBlocksRegistry.SAND_SLAB, ModBlocksRegistry.RED_SAND_SLAB);
@@ -141,6 +155,6 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.MUD_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.FROGS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.MUD_SLAB);
-
+        this.getOrCreateTagBuilder(BlockTags.UNDERWATER_BONEMEALS).add(ModBlocksRegistry.SEAGRASS_ON_TOP);
     }
 }

@@ -10,22 +10,8 @@ import net.countered.terrainslabs.worldgen.feature.ModAddedFeatures;
 import net.countered.terrainslabs.worldgen.slabfeature.ModSlabGeneration;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SnowBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";

@@ -2,7 +2,6 @@ package net.countered.terrainslabs.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,12 +45,20 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.BROWN_TERRACOTTA, ModBlocksRegistry.BROWN_TERRACOTTA_SLAB);
         SLAB_MAP.put(Blocks.YELLOW_TERRACOTTA, ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
     }
-    public static final Map<Block, Block> ON_TOP_SLAB_MAP = new HashMap<>();
+    public static final Map<Block, Block> ON_TOP_SLAB_BLOCKS_MAP = new HashMap<>();
 
     static {
         // Register your block-to-slab mappings here
-        ON_TOP_SLAB_MAP.put(Blocks.POPPY, ModBlocksRegistry.POPPY_ON_TOP);
-        ON_TOP_SLAB_MAP.put(Blocks.SHORT_GRASS, ModBlocksRegistry.SHORT_GRASS_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.POPPY, ModBlocksRegistry.POPPY_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.DANDELION, ModBlocksRegistry.DANDELION_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.AZURE_BLUET, ModBlocksRegistry.AZURE_BLUET_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.CORNFLOWER, ModBlocksRegistry.CORNFLOWER_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.DEAD_BUSH, ModBlocksRegistry.DEAD_BUSH_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.BROWN_MUSHROOM, ModBlocksRegistry.BROWN_MUSHROOM_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.RED_MUSHROOM, ModBlocksRegistry.RED_MUSHROOM_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.SHORT_GRASS, ModBlocksRegistry.SHORT_GRASS_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.FERN, ModBlocksRegistry.FERN_ON_TOP);
+        ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.SEAGRASS, ModBlocksRegistry.SEAGRASS_ON_TOP);
     }
 
     public static Block getSlabForBlock(Block blockBelow) {
