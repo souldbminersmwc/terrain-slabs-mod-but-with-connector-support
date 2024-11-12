@@ -3,10 +3,8 @@ package net.countered.datagen;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SnowBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -14,17 +12,19 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.loot.condition.EntityPropertiesLootCondition;
-import net.minecraft.loot.condition.TableBonusLootCondition;
+import net.minecraft.loot.condition.*;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -96,6 +96,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         )
         );
         this.addDrop(ModBlocksRegistry.POPPY_ON_TOP, block -> this.drops(block, Blocks.POPPY));
+        this.addDrop(ModBlocksRegistry.SHORT_GRASS_ON_TOP, (block) -> {
+            return this.shortPlantDrops1(Blocks.SHORT_GRASS);
+        });
         this.addDrop(
                 ModBlocksRegistry.GRAVEL_SLAB,
                 block -> this.dropsWithSilkTouch(
@@ -119,6 +122,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         )
                 )
         );
+    }
+    public LootTable.Builder shortPlantDrops1(Block withShears) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
+        return this.dropsWithShears(withShears, (LootPoolEntry.Builder)this.applyExplosionDecay(withShears, ((LeafEntry.Builder)ItemEntry.builder(Items.WHEAT_SEEDS).conditionally(RandomChanceLootCondition.builder(0.125F))).apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE), 2))));
     }
 
     /**

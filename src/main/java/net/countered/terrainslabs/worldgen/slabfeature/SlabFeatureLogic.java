@@ -135,6 +135,9 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                                 System.out.println(currentPos);
                                 world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
                             }
+                            if (!world.getBlockState(currentPos).isOf(Blocks.AIR) && !world.getBlockState(currentPos).isOf(Blocks.CAVE_AIR) && !world.getBlockState(currentPos).isOf(Blocks.WATER)){
+                                System.out.println(world.getBlockState(currentPos).getBlock());
+                            }
                             slabState = updateWaterloggedState(world, currentPos, slabState);
                             world.setBlockState(currentPos, slabState, 0);
                         }

@@ -15,6 +15,7 @@ public class TerrainSlabsClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocksRegistry.GRASS_SLAB, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocksRegistry.POPPY_ON_TOP, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocksRegistry.SHORT_GRASS_ON_TOP, RenderLayer.getCutoutMipped());
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
                 return tintIndex == 0 && world != null && pos != null
@@ -27,6 +28,19 @@ public class TerrainSlabsClient implements ClientModInitializer {
                 (stack, tintIndex) -> tintIndex == 0 ?
                         MinecraftClient.getInstance().getBlockColors().getColor(Blocks.GRASS_BLOCK.getDefaultState(), null, null, tintIndex) : -1,
                 ModBlocksRegistry.GRASS_SLAB
+        );
+
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
+                return tintIndex == 0 && world != null && pos != null
+                        ? BiomeColors.getGrassColor(world, pos)
+                        : MapColor.PALE_GREEN.color;
+        }, ModBlocksRegistry.SHORT_GRASS_ON_TOP);
+
+
+        ColorProviderRegistry.ITEM.register(
+                (stack, tintIndex) -> tintIndex == 0 ?
+                        MinecraftClient.getInstance().getBlockColors().getColor(Blocks.SHORT_GRASS.getDefaultState(), null, null, tintIndex) : -1,
+                ModBlocksRegistry.SHORT_GRASS_ON_TOP
         );
     }
 }

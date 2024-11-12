@@ -51,6 +51,7 @@ public class ModSlabsMap {
     static {
         // Register your block-to-slab mappings here
         ON_TOP_SLAB_MAP.put(Blocks.POPPY, ModBlocksRegistry.POPPY_ON_TOP);
+        ON_TOP_SLAB_MAP.put(Blocks.SHORT_GRASS, ModBlocksRegistry.SHORT_GRASS_ON_TOP);
     }
 
     public static Block getSlabForBlock(Block blockBelow) {

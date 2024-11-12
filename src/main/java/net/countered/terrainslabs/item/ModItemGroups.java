@@ -53,6 +53,7 @@ public class ModItemGroups {
 
                 entries.add(ModBlocksRegistry.SNOW_ON_TOP);
                 entries.add(ModBlocksRegistry.POPPY_ON_TOP);
+                entries.add(ModBlocksRegistry.SHORT_GRASS_ON_TOP);
             }).build());
 
     public static void registerItemGroups() {

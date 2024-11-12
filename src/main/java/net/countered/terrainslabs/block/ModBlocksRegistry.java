@@ -8,6 +8,7 @@ import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
 import net.countered.terrainslabs.block.ontopofslabs.FlowerOnTop;
+import net.countered.terrainslabs.block.ontopofslabs.GrassOnTop;
 import net.countered.terrainslabs.block.ontopofslabs.SnowOnTop;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -92,6 +93,8 @@ public class ModBlocksRegistry {
             new SnowOnTop(createBlockSettings(Blocks.SNOW)));
     public static final Block POPPY_ON_TOP = registerBlock("poppy_on_top",
             new FlowerOnTop(StatusEffects.NIGHT_VISION, 5.0F, createBlockSettings(Blocks.POPPY)));
+    public static final Block SHORT_GRASS_ON_TOP = registerBlock("short_grass_on_top",
+            new GrassOnTop(createBlockSettings(Blocks.SHORT_GRASS)));
 
     private static Block.Settings createBlockSettings(Block baseBlock) {
         Identifier id = Identifier.of(TerrainSlabs.MOD_ID, Registries.BLOCK.getId(baseBlock).getPath());
