@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "countereds_terrain_slabs",
+	"id": "terrainslabs",
 	"version": "1.2.0",
 	"name": "Countered's Terrain Slabs",
 	"description": "A Minecraft mod designed to smooth out terrain using custom slabs, improving the world generation and overall feel.",
