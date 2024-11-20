@@ -44,6 +44,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.WHITE_TERRACOTTA_SLAB, Ingredient.ofItems(Blocks.WHITE_TERRACOTTA)).criterion("has_white_terracotta_block", conditionsFromItem(Blocks.WHITE_TERRACOTTA)).offerTo(exporter);
         createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.BROWN_TERRACOTTA_SLAB, Ingredient.ofItems(Blocks.BROWN_TERRACOTTA)).criterion("has_brown_terracotta_block", conditionsFromItem(Blocks.BROWN_TERRACOTTA)).offerTo(exporter);
         createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB, Ingredient.ofItems(Blocks.YELLOW_TERRACOTTA)).criterion("has_yellow_terracotta_block", conditionsFromItem(Blocks.YELLOW_TERRACOTTA)).offerTo(exporter);
+
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.SOUL_SAND_SLAB, Ingredient.ofItems(Blocks.SOUL_SAND)).criterion("has_soul_sand_block", conditionsFromItem(Blocks.SOUL_SAND)).offerTo(exporter);
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.SOUL_SOIL_SLAB, Ingredient.ofItems(Blocks.SOUL_SOIL)).criterion("has_soul_soil_block", conditionsFromItem(Blocks.SOUL_SOIL)).offerTo(exporter);
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.NETHERRACK_SLAB, Ingredient.ofItems(Blocks.NETHERRACK)).criterion("has_netherrack_block", conditionsFromItem(Blocks.NETHERRACK)).offerTo(exporter);
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.WARPED_NYLIUM_SLAB, Ingredient.ofItems(Blocks.WARPED_NYLIUM)).criterion("has_warped_nylium_block", conditionsFromItem(Blocks.WARPED_NYLIUM)).offerTo(exporter);
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.CRIMSON_NYLIUM_SLAB, Ingredient.ofItems(Blocks.CRIMSON_NYLIUM)).criterion("has_crimson_nylium_block", conditionsFromItem(Blocks.CRIMSON_NYLIUM)).offerTo(exporter);
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.BASALT_SLAB, Ingredient.ofItems(Blocks.BASALT)).criterion("has_basalt_block", conditionsFromItem(Blocks.BASALT)).offerTo(exporter);
+        createSlabRecipe3(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.ENDSTONE_SLAB, Ingredient.ofItems(Blocks.END_STONE)).criterion("has_end_stone_block", conditionsFromItem(Blocks.END_STONE)).offerTo(exporter);
+
     }
     public static CraftingRecipeJsonBuilder createSlabRecipe3(RecipeCategory category, ItemConvertible output, Ingredient input) {
         return ShapedRecipeJsonBuilder.create(category, output, 3).input('#', input).pattern("###");
