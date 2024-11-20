@@ -44,11 +44,19 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.WHITE_TERRACOTTA, ModBlocksRegistry.WHITE_TERRACOTTA_SLAB);
         SLAB_MAP.put(Blocks.BROWN_TERRACOTTA, ModBlocksRegistry.BROWN_TERRACOTTA_SLAB);
         SLAB_MAP.put(Blocks.YELLOW_TERRACOTTA, ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
+
+        SLAB_MAP.put(Blocks.SOUL_SAND, ModBlocksRegistry.SOUL_SAND_SLAB);
+        SLAB_MAP.put(Blocks.SOUL_SOIL, ModBlocksRegistry.SOUL_SOIL_SLAB);
+        SLAB_MAP.put(Blocks.NETHERRACK, ModBlocksRegistry.NETHERRACK_SLAB);
+        SLAB_MAP.put(Blocks.WARPED_NYLIUM, ModBlocksRegistry.WARPED_NYLIUM_SLAB);
+        SLAB_MAP.put(Blocks.CRIMSON_NYLIUM, ModBlocksRegistry.CRIMSON_NYLIUM_SLAB);
+        SLAB_MAP.put(Blocks.BASALT, ModBlocksRegistry.BASALT_SLAB);
+        SLAB_MAP.put(Blocks.BLACKSTONE, ModBlocksRegistry.CUSTOM_BLACKSTONE_SLAB);
+        SLAB_MAP.put(Blocks.END_STONE, ModBlocksRegistry.ENDSTONE_SLAB);
     }
     public static final Map<Block, Block> ON_TOP_SLAB_BLOCKS_MAP = new HashMap<>();
 
     static {
-        // Register your block-to-slab mappings here
         ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.POPPY, ModBlocksRegistry.POPPY_ON_TOP);
         ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.DANDELION, ModBlocksRegistry.DANDELION_ON_TOP);
         ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.AZURE_BLUET, ModBlocksRegistry.AZURE_BLUET_ON_TOP);

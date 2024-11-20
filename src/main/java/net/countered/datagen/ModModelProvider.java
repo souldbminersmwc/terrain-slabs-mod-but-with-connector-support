@@ -3,8 +3,11 @@ package net.countered.datagen;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
+
+import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
 
 
 public class ModModelProvider extends FabricModelProvider {
@@ -35,7 +38,14 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.YELLOW_TERRACOTTA).slab(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
         blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.LIGHT_GRAY_TERRACOTTA).slab(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB);
 
+        blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SOUL_SAND).slab(ModBlocksRegistry.SOUL_SAND_SLAB);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SOUL_SOIL).slab(ModBlocksRegistry.SOUL_SOIL_SLAB);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.NETHERRACK).slab(ModBlocksRegistry.NETHERRACK_SLAB);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.BLACKSTONE).slab(ModBlocksRegistry.CUSTOM_BLACKSTONE_SLAB);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.END_STONE).slab(ModBlocksRegistry.ENDSTONE_SLAB);
+
     }
+
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {

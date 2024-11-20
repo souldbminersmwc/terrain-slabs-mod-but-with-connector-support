@@ -7,6 +7,9 @@ import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffected
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab;
+import net.countered.terrainslabs.block.customslabs.specialslabs.dimensions.NetherrackSlab;
+import net.countered.terrainslabs.block.customslabs.specialslabs.dimensions.NyliumSlab;
+import net.countered.terrainslabs.block.customslabs.specialslabs.dimensions.SoulSandSlab;
 import net.countered.terrainslabs.block.ontopofslabs.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -19,7 +22,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
@@ -87,6 +89,23 @@ public class ModBlocksRegistry {
             new SlabBlock(createBlockSettings(Blocks.DIORITE_SLAB)));
     public static final Block CUSTOM_GRANITE_SLAB = registerBlock("terrain_granite_slab",
             new SlabBlock(createBlockSettings(Blocks.GRANITE_SLAB)));
+
+    public static final Block SOUL_SAND_SLAB = registerBlock("soul_sand_slab",
+            new SoulSandSlab(createBlockSettings(Blocks.SOUL_SAND).blockVision(Blocks::never)));
+    public static final Block SOUL_SOIL_SLAB = registerBlock("soul_soil_slab",
+            new SlabBlock(createBlockSettings(Blocks.SOUL_SOIL)));
+    public static final Block NETHERRACK_SLAB = registerBlock("netherrack_slab",
+            new NetherrackSlab(createBlockSettings(Blocks.NETHERRACK)));
+    public static final Block WARPED_NYLIUM_SLAB = registerBlock("warped_nylium_slab",
+            new NyliumSlab(createBlockSettings(Blocks.WARPED_NYLIUM)));
+    public static final Block CRIMSON_NYLIUM_SLAB = registerBlock("crimson_nylium_slab",
+            new NyliumSlab(createBlockSettings(Blocks.CRIMSON_NYLIUM)));
+    public static final Block BASALT_SLAB = registerBlock("basalt_slab",
+            new SlabBlock(createBlockSettings(Blocks.BASALT)));
+    public static final Block CUSTOM_BLACKSTONE_SLAB = registerBlock("terrain_blackstone_slab",
+            new SlabBlock(createBlockSettings(Blocks.BLACKSTONE_SLAB)));
+    public static final Block ENDSTONE_SLAB = registerBlock("endstone_slab",
+            new SlabBlock(createBlockSettings(Blocks.END_STONE)));
 
     public static final Block SNOW_ON_TOP = registerBlock("snow_on_top",
             new SnowOnTop(createBlockSettings(Blocks.SNOW)));
