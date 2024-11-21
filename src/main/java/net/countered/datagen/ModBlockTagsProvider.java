@@ -24,27 +24,40 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.DEEPSLATE_SLAB)
                 .add(ModBlocksRegistry.CLAY_SLAB)
                 .add(ModBlocksRegistry.MOSS_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_TUFF_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_GRANITE_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB)
+
                 .add(ModBlocksRegistry.GRASS_SLAB)
                 .add(ModBlocksRegistry.MYCELIUM_SLAB)
                 .add(ModBlocksRegistry.PODZOL_SLAB)
                 .add(ModBlocksRegistry.PATH_SLAB)
+
                 .add(ModBlocksRegistry.GRAVEL_SLAB)
                 .add(ModBlocksRegistry.SAND_SLAB)
                 .add(ModBlocksRegistry.RED_SAND_SLAB)
+
                 .add(ModBlocksRegistry.TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.RED_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.ORANGE_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.LIGHT_GRAY_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB)
                 .add(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB)
-                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB);
+                .add(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB)
+
+                .add(ModBlocksRegistry.CUSTOM_TUFF_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_GRANITE_SLAB)
+
+                .add(ModBlocksRegistry.SOUL_SAND_SLAB)
+                .add(ModBlocksRegistry.SOUL_SOIL_SLAB)
+                .add(ModBlocksRegistry.NETHERRACK_SLAB)
+                .add(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB)
+                .add(ModBlocksRegistry.WARPED_NYLIUM_SLAB)
+                .add(ModBlocksRegistry.BASALT_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_BLACKSTONE_SLAB)
+                .add(ModBlocksRegistry.ENDSTONE_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocksRegistry.DIRT_SLAB)
@@ -59,7 +72,10 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.GRAVEL_SLAB)
                 .add(ModBlocksRegistry.SAND_SLAB)
                 .add(ModBlocksRegistry.RED_SAND_SLAB)
-                .add(ModBlocksRegistry.SNOW_ON_TOP);
+                .add(ModBlocksRegistry.SNOW_ON_TOP)
+
+                .add(ModBlocksRegistry.SOUL_SAND_SLAB)
+                .add(ModBlocksRegistry.SOUL_SOIL_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocksRegistry.PACKED_ICE_SLAB)
@@ -77,7 +93,14 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocksRegistry.CUSTOM_DIORITE_SLAB)
                 .add(ModBlocksRegistry.CUSTOM_STONE_SLAB)
                 .add(ModBlocksRegistry.CUSTOM_RED_SANDSTONE_SLAB)
-                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB);
+                .add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB)
+
+                .add(ModBlocksRegistry.NETHERRACK_SLAB)
+                .add(ModBlocksRegistry.WARPED_NYLIUM_SLAB)
+                .add(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB)
+                .add(ModBlocksRegistry.CUSTOM_BLACKSTONE_SLAB)
+                .add(ModBlocksRegistry.BASALT_SLAB)
+                .add(ModBlocksRegistry.ENDSTONE_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocksRegistry.MOSS_SLAB);
@@ -144,10 +167,23 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)
                 .add(ModBlocksRegistry.MUD_SLAB);
+
         this.getOrCreateTagBuilder(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH)
                 .add(ModBlocksRegistry.MUD_SLAB);
 
         this.getOrCreateTagBuilder(BlockTags.FROGS_SPAWNABLE_ON).add(ModBlocksRegistry.GRASS_SLAB, ModBlocksRegistry.MUD_SLAB);
+
         this.getOrCreateTagBuilder(BlockTags.UNDERWATER_BONEMEALS).add(ModBlocksRegistry.SEAGRASS_ON_TOP);
+
+        this.getOrCreateTagBuilder(BlockTags.SOUL_SPEED_BLOCKS).add(ModBlocksRegistry.SOUL_SAND_SLAB, ModBlocksRegistry.SOUL_SOIL_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.INFINIBURN_OVERWORLD).add(ModBlocksRegistry.NETHERRACK_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(ModBlocksRegistry.MYCELIUM_SLAB).add(ModBlocksRegistry.PODZOL_SLAB).add(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB).add(ModBlocksRegistry.WARPED_NYLIUM_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(ModBlocksRegistry.ENDSTONE_SLAB);
+
+        this.getOrCreateTagBuilder(BlockTags.NYLIUM).add(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB, ModBlocksRegistry.WARPED_NYLIUM_SLAB);
+
     }
 }

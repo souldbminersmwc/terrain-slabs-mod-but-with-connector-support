@@ -62,6 +62,15 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.LIGHT_GRAY_TERRACOTTA);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.YELLOW_TERRACOTTA);
         VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.WHITE_TERRACOTTA);
+
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SOUL_SAND);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.SOUL_SOIL);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.NETHERRACK);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.WARPED_NYLIUM);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.CRIMSON_NYLIUM);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.BASALT);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.BLACKSTONE);
+        VALID_BLOCKS_FOR_SLAB_PLACEMENT.add(Blocks.END_STONE);
     }
     private static final Set<Block> SOIL_SLAB_BLOCKS = Set.of(
             ModBlocksRegistry.GRASS_SLAB,
@@ -113,13 +122,13 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                     if (shouldPlaceSlabTop(world, currentPos, blockBelowPos, blockAboveState, blockBelowState, currentBlockState)) {
                         if (world.getBlockState(currentPos).isOf(Blocks.SNOW)){
                             if (world.getBlockState(blockBelowPos).isOf(Blocks.GRASS_BLOCK)){
-                                world.setBlockState(blockBelowPos, Blocks.DIRT.getDefaultState(), 0);
-                                world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 0);
+                                world.setBlockState(blockBelowPos, Blocks.DIRT.getDefaultState(), 3);
+                                world.setBlockState(currentPos, ModBlocksRegistry.GRASS_SLAB.getDefaultState().with(Properties.SNOWY, true), 3);
                             }
                             else {
-                                world.setBlockState(currentPos, ModSlabsMap.getSlabForBlock(world.getBlockState(blockBelowPos).getBlock()).getDefaultState(), 0);
+                                world.setBlockState(currentPos, ModSlabsMap.getSlabForBlock(world.getBlockState(blockBelowPos).getBlock()).getDefaultState(), 3);
                             }
-                            world.setBlockState(blockAbovePos, ModBlocksRegistry.SNOW_ON_TOP.getDefaultState(), 0);
+                            world.setBlockState(blockAbovePos, ModBlocksRegistry.SNOW_ON_TOP.getDefaultState(), 3);
                         }
                         else {
                             blockBelowState = world.getBlockState(blockBelowPos);
@@ -129,17 +138,20 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
 
                             // Handle grass slab special case by converting grass to dirt before placing the slab
                             if (SOIL_SLAB_BLOCKS.contains(slabState.getBlock())) {
-                                world.setBlockState(blockBelowPos, Blocks.DIRT.getDefaultState(), 0);
+                                world.setBlockState(blockBelowPos, Blocks.DIRT.getDefaultState(), 3);
+                            }
+                            if (slabState.isOf(ModBlocksRegistry.WARPED_NYLIUM_SLAB) || slabState.isOf(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB)) {
+                                world.setBlockState(blockBelowPos, Blocks.NETHERRACK.getDefaultState(), 3);
                             }
 
                             slabState = updateWaterloggedState(world, currentPos, slabState);
 
                             if (ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.containsKey(currentBlockState.getBlock())){
                                 if (world.getBlockState(blockAbovePos).isOf(Blocks.WATER)){
-                                    world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
+                                    world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 3);
                                 }
                                 else if (!world.getBlockState(currentPos).isOf(Blocks.SEAGRASS)){
-                                    world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 0);
+                                    world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 3);
                                 }
                             }
                             //Debugging
@@ -155,7 +167,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                                 System.out.println(world.getBlockState(currentPos).getBlock() +" "+ currentPos);
                             }
                              */
-                            world.setBlockState(currentPos, slabState, 0);
+                            world.setBlockState(currentPos, slabState, 3);
                         }
                     }
                     else if (shouldPlaceSlabOnUnderside(world, currentPos, blockAbovePos, blockBelowPos, currentBlockState, blockBelowState)) {
@@ -166,7 +178,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         }
                         slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
                         slabState = updateWaterloggedState(world, currentPos, slabState);
-                        world.setBlockState(currentPos, slabState, 0);
+                        world.setBlockState(currentPos, slabState, 3);
                     }
                 }
             }

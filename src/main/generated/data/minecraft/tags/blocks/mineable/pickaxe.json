@@ -16,6 +16,12 @@
     "terrainslabs:terrain_diorite_slab",
     "terrainslabs:terrain_stone_slab",
     "terrainslabs:terrain_red_sandstone_slab",
-    "terrainslabs:terrain_sandstone_slab"
+    "terrainslabs:terrain_sandstone_slab",
+    "terrainslabs:netherrack_slab",
+    "terrainslabs:warped_nylium_slab",
+    "terrainslabs:crimson_nylium_slab",
+    "terrainslabs:terrain_blackstone_slab",
+    "terrainslabs:basalt_slab",
+    "terrainslabs:endstone_slab"
   ]
 }

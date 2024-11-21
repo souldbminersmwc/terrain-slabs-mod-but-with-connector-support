@@ -50,6 +50,15 @@ public class ModItemGroups {
                 entries.add(ModBlocksRegistry.CUSTOM_SANDSTONE_SLAB);
                 entries.add(ModBlocksRegistry.CUSTOM_STONE_SLAB);
                 entries.add(ModBlocksRegistry.CUSTOM_TUFF_SLAB);
+
+                entries.add(ModBlocksRegistry.SOUL_SAND_SLAB);
+                entries.add(ModBlocksRegistry.SOUL_SOIL_SLAB);
+                entries.add(ModBlocksRegistry.NETHERRACK_SLAB);
+                entries.add(ModBlocksRegistry.WARPED_NYLIUM_SLAB);
+                entries.add(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB);
+                entries.add(ModBlocksRegistry.BASALT_SLAB);
+                entries.add(ModBlocksRegistry.CUSTOM_BLACKSTONE_SLAB);
+                entries.add(ModBlocksRegistry.ENDSTONE_SLAB);
             }).build());
 
     public static void registerItemGroups() {

@@ -35,6 +35,15 @@
   "block.terrainslabs.terrain_diorite_slab": "Terrain Diorite Slab",
   "block.terrainslabs.terrain_granite_slab": "Terrain Granite Slab",
 
+  "block.terrainslabs.soul_sand_slab": "Soul Sand Slab",
+  "block.terrainslabs.soul_soil_slab": "Soul Soil Slab",
+  "block.terrainslabs.netherrack_slab": "Netherrack Slab",
+  "block.terrainslabs.warped_nylium_slab": "Warped Nylium Slab",
+  "block.terrainslabs.crimson_nylium_slab": "Crimson Nylium Slab",
+  "block.terrainslabs.basalt_slab": "Basalt Slab",
+  "block.terrainslabs.terrain_blackstone_slab": "Terrain Blackstone Slab",
+  "block.terrainslabs.endstone_slab": "End Stone Slab",
+
   "block.terrainslabs.snow_on_top": "Snow On Slab",
   "block.terrainslabs.poppy_on_top": "Poppy On Slab",
   "block.terrainslabs.dandelion_on_top": "Dandelion On Slab",

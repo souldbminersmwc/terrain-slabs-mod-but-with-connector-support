@@ -41,8 +41,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.addDrop(ModBlocksRegistry.COARSE_SLAB, block -> silkSlabDrops(block, Blocks.COARSE_DIRT));
         this.addDrop(ModBlocksRegistry.DEEPSLATE_SLAB, block -> silkSlabDrops(block, Blocks.DEEPSLATE));
         this.addDrop(ModBlocksRegistry.MOSS_SLAB, block -> silkSlabDrops(block, Blocks.MOSS_BLOCK));
+
         this.addDrop(ModBlocksRegistry.SAND_SLAB, block -> silkSlabDrops(block, Blocks.SAND));
         this.addDrop(ModBlocksRegistry.RED_SAND_SLAB, block -> silkSlabDrops(block, Blocks.RED_SAND));
+
         this.addDrop(ModBlocksRegistry.TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.TERRACOTTA));
         this.addDrop(ModBlocksRegistry.RED_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.RED_TERRACOTTA));
         this.addDrop(ModBlocksRegistry.ORANGE_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.ORANGE_TERRACOTTA));
@@ -50,6 +52,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.addDrop(ModBlocksRegistry.WHITE_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.WHITE_TERRACOTTA));
         this.addDrop(ModBlocksRegistry.BROWN_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.BROWN_TERRACOTTA));
         this.addDrop(ModBlocksRegistry.YELLOW_TERRACOTTA_SLAB, block -> silkSlabDrops(block, Blocks.YELLOW_TERRACOTTA));
+
         this.addDrop(ModBlocksRegistry.CUSTOM_STONE_SLAB, block -> silkSlabDrops(block, Blocks.COBBLESTONE));
         this.addDrop(ModBlocksRegistry.CUSTOM_ANDESITE_SLAB, block -> silkSlabDrops(block, Blocks.ANDESITE));
         this.addDrop(ModBlocksRegistry.CUSTOM_DIORITE_SLAB, block -> silkSlabDrops(block, Blocks.DIORITE));
@@ -62,6 +65,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.addDrop(ModBlocksRegistry.PODZOL_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
         this.addDrop(ModBlocksRegistry.GRASS_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
         this.addDrop(ModBlocksRegistry.PATH_SLAB, block -> silkSlabDrops(block, Blocks.DIRT));
+
+        this.addDrop(ModBlocksRegistry.SOUL_SAND_SLAB, block -> silkSlabDrops(block, Blocks.SOUL_SAND));
+        this.addDrop(ModBlocksRegistry.SOUL_SOIL_SLAB, block -> silkSlabDrops(block, Blocks.SOUL_SOIL));
+        this.addDrop(ModBlocksRegistry.NETHERRACK_SLAB, block -> silkSlabDrops(block, Blocks.NETHERRACK));
+        this.addDrop(ModBlocksRegistry.WARPED_NYLIUM_SLAB, block -> silkSlabDrops(block, Blocks.NETHERRACK));
+        this.addDrop(ModBlocksRegistry.CRIMSON_NYLIUM_SLAB, block -> silkSlabDrops(block, Blocks.NETHERRACK));
+        this.addDrop(ModBlocksRegistry.BASALT_SLAB, block -> silkSlabDrops(block, Blocks.BASALT));
+        this.addDrop(ModBlocksRegistry.CUSTOM_BLACKSTONE_SLAB, block -> silkSlabDrops(block, Blocks.BLACKSTONE));
+        this.addDrop(ModBlocksRegistry.ENDSTONE_SLAB, block -> silkSlabDrops(block, Blocks.END_STONE));
 
         this.addDrop(ModBlocksRegistry.PACKED_ICE_SLAB, this::onlySilkSlabDrops);
 
