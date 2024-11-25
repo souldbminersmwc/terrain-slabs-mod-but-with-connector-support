@@ -63,10 +63,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocksRegistry.ENDSTONE_SLAB, Ingredient.ofItems(Blocks.END_STONE)).criterion("has_end_stone_block", conditionsFromItem(Blocks.END_STONE)).offerTo(exporter);
             }
 
-            @Override
-            public CraftingRecipeJsonBuilder createSlabRecipe(RecipeCategory category, ItemConvertible output, Ingredient input) {
-                return this.createShaped(category, output, 3).input('#', input).pattern("###");
-            }
         };
     }
 
