@@ -12,7 +12,7 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-// TODO fix crash sometimes on world load, fix drops
+
 public class TerrainSlabs implements ModInitializer {
 	public static final String MOD_ID = "terrainslabs";
 

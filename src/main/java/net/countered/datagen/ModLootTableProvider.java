@@ -1,10 +1,10 @@
 package net.countered.datagen;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -25,8 +25,6 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.util.math.BlockPos;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -163,6 +161,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         .alternatively(
                                                 // Drops gravel or flint without Silk Touch
                                                 ItemEntry.builder(flintDrop)
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, true)))
                                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
@@ -174,11 +173,22 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                                         ))
                                                         .alternatively(
                                                                 ItemEntry.builder(gravelDrop) // Drop gravel if no Fortune for flint
+                                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, true)))
                                                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
                                                                                 )
                                                                         )
+                                                        )
+
+                                        )
+                                        .alternatively(
+                                                ItemEntry.builder(slab)
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, false)))
+                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                )
                                                         )
                                         )
                         )
@@ -193,36 +203,30 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                 .rolls(ConstantLootNumberProvider.create(1.0F))
                                 .with(
                                         ItemEntry.builder(slab)
-                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
-                                                        .properties(StatePredicate.Builder.create()
-                                                                .exactMatch(BooleanProperty.of("generated"), true)))
                                                 .conditionally(this.createSilkTouchCondition())  // Silk Touch condition
-                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
-                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
-                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
-                                                )
-                                        )
-                                        .alternatively(
-                                                ItemEntry.builder(drop)
-                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab)
-                                                                .properties(StatePredicate.Builder.create()
-                                                                        .exactMatch(BooleanProperty.of("generated"), true)))
-                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
-                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
-                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
-                                                                )
-                                                        )
-                                        )
-                                )
-                                .with(
-                                        ItemEntry.builder(slab)
-                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
-                                                        .properties(StatePredicate.Builder.create()
-                                                                .exactMatch(BooleanProperty.of("generated"), false)))
                                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                         .conditionally(BlockStatePropertyLootCondition.builder(slab)
-                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE)))
-                                        )
+                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                        )
+                                                )
+                                                .alternatively(
+                                                        ItemEntry.builder(drop)
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, true)))
+                                                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                        )
+                                                                )
+                                                )
+                                                .alternatively(
+                                                        ItemEntry.builder(slab)
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, false)))
+                                                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                        )
+                                                                )
+                                                )
                                 )
                 );
     }
@@ -241,18 +245,33 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         )
                                         .alternatively(
                                                 ItemEntry.builder(drop)
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, true)))
                                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(8.0F))
                                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
                                                                 )
                                                         )
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, true)))
                                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0F))
                                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.BOTTOM))
                                                                 )
                                                         )
-
-
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, true)))
+                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0F))
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.TOP))
+                                                                )
+                                                        )
+                                        )
+                                        .alternatively(
+                                                ItemEntry.builder(slab)
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, false)))
+                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                )
+                                                        )
                                         )
                         )
                 );
@@ -272,7 +291,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         )
                                         .alternatively(
                                                 ItemEntry.builder(slab)
-                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(0)))
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab).properties(StatePredicate.Builder.create().exactMatch(CustomSlab.GENERATED, false)))
+                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                        .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
+                                                                )
+                                                        )
                                         )
 
                         )

@@ -2,6 +2,7 @@ package net.countered.terrainslabs.block.customslabs.soilslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.fluid.FluidState;
@@ -19,12 +20,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
-public class PathSlab extends SlabBlock {
-    public static final BooleanProperty GENERATED;
-
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
+public class PathSlab extends CustomSlab {
 
     public PathSlab(Settings settings) {
         super(settings);

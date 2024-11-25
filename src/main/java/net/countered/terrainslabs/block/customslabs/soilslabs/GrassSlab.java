@@ -2,6 +2,7 @@ package net.countered.terrainslabs.block.customslabs.soilslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.Entity;
@@ -28,12 +29,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.tick.ScheduledTickView;
 
-public class GrassSlab extends SlabBlock {
-    public static final BooleanProperty GENERATED;
-
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
+public class GrassSlab extends CustomSlab {
 
     public GrassSlab(Settings settings) {
         super(settings);

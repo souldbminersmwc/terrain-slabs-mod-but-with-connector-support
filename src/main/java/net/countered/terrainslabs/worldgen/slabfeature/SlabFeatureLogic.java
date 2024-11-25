@@ -155,20 +155,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                                     world.setBlockState(blockAbovePos, ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.get(currentBlockState.getBlock()).getDefaultState(), 3);
                                 }
                             }
-                            //Debugging
-                            /*
-                            if (!world.getBlockState(currentPos).isOf(Blocks.AIR)
-                                    && !world.getBlockState(currentPos).isOf(Blocks.CAVE_AIR)
-                                    && !world.getBlockState(currentPos).isOf(Blocks.WATER)
-                                    && !world.getBlockState(currentPos).isOf(Blocks.GLOW_LICHEN)
-                                    && !world.getBlockState(currentPos).isOf(Blocks.SCULK_VEIN)
-                                    && !world.getBlockState(currentPos).isOf(Blocks.AZALEA)
-                                    && !world.getBlockState(currentPos).isOf(Blocks.FLOWERING_AZALEA)
-                                    && !ModSlabsMap.ON_TOP_SLAB_BLOCKS_MAP.containsKey(world.getBlockState(currentPos).getBlock())){
-                                System.out.println(world.getBlockState(currentPos).getBlock() +" "+ currentPos);
-                            }
-                             */
-                            world.setBlockState(currentPos, slabState, 3);
+                            world.setBlockState(currentPos, slabState.with(CustomSlab.GENERATED, true), 3);
                         }
                     }
                     else if (shouldPlaceSlabOnUnderside(world, currentPos, blockAbovePos, blockBelowPos, currentBlockState, blockBelowState)) {
@@ -179,7 +166,7 @@ public class SlabFeatureLogic extends Feature<DefaultFeatureConfig> {
                         }
                         slabState = slabState.with(Properties.SLAB_TYPE, SlabType.TOP);
                         slabState = updateWaterloggedState(world, currentPos, slabState);
-                        world.setBlockState(currentPos, slabState, 3);
+                        world.setBlockState(currentPos, slabState.with(CustomSlab.GENERATED, true), 3);
                     }
                 }
             }

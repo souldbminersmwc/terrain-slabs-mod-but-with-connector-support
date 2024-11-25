@@ -11,13 +11,6 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "terrainslabs:grass_slab",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "generated": "true"
-                  }
-                },
-                {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "predicates": {
@@ -79,37 +72,37 @@
                 }
               ],
               "name": "minecraft:dirt"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "conditions": [
+            },
             {
-              "block": "terrainslabs:grass_slab",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "generated": "false"
-              }
-            }
-          ],
-          "functions": [
-            {
-              "add": false,
+              "type": "minecraft:item",
               "conditions": [
                 {
                   "block": "terrainslabs:grass_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "type": "double"
+                    "generated": "false"
                   }
                 }
               ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "functions": [
+                {
+                  "add": false,
+                  "conditions": [
+                    {
+                      "block": "terrainslabs:grass_slab",
+                      "condition": "minecraft:block_state_property",
+                      "properties": {
+                        "type": "double"
+                      }
+                    }
+                  ],
+                  "count": 2.0,
+                  "function": "minecraft:set_count"
+                }
+              ],
+              "name": "terrainslabs:grass_slab"
             }
-          ],
-          "name": "terrainslabs:grass_slab"
+          ]
         }
       ],
       "rolls": 1.0

@@ -1,6 +1,7 @@
 package net.countered.terrainslabs.block.customslabs.soilslabs;
 
 import com.mojang.serialization.MapCodec;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.fluid.FluidState;
@@ -17,12 +18,8 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 
-public class PodzolSlab extends SlabBlock {
-    public static final BooleanProperty GENERATED;
+public class PodzolSlab extends CustomSlab {
 
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
     public PodzolSlab(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()

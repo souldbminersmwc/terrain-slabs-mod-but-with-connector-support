@@ -29,12 +29,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
-public class GravityAffectedSlab extends SlabBlock implements LandingBlock {
-    public static final BooleanProperty GENERATED;
-
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
+public class GravityAffectedSlab extends CustomSlab implements LandingBlock {
 
     public GravityAffectedSlab(Settings settings) {
         super(settings);

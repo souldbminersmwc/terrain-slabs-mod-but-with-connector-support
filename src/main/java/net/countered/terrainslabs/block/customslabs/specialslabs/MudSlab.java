@@ -9,19 +9,13 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class MudSlab extends SlabBlock {
+public class MudSlab extends CustomSlab {
     protected static final VoxelShape BOTTOM_SHAPE_COL = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 7.0, 16.0);
     protected static final VoxelShape FULL_SHAPE_COL = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0);
     protected static final VoxelShape TOP_SHAPE_COL = Block.createCuboidShape(0.0, 8.0, 0.0, 16.0, 14.0, 16.0);
 
     protected static final VoxelShape BOTTOM_SHAPE_OUT = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0);
     protected static final VoxelShape TOP_SHAPE_OUT = Block.createCuboidShape(0.0, 8.0, 0.0, 16.0, 16.0, 16.0);
-
-    public static final BooleanProperty GENERATED;
-
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
 
     public MudSlab(Settings settings) {
         super(settings);

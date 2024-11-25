@@ -1,6 +1,7 @@
 package net.countered.terrainslabs.block.customslabs.specialslabs.dimensions;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.registry.tag.BlockTags;
@@ -12,12 +13,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class NetherrackSlab extends SlabBlock implements Fertilizable{
-    public static final BooleanProperty GENERATED;
-
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
+public class NetherrackSlab extends CustomSlab implements Fertilizable{
 
     public NetherrackSlab(Settings settings) {
         super(settings);

@@ -1,6 +1,7 @@
 package net.countered.terrainslabs.block.customslabs.specialslabs.dimensions;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
@@ -13,12 +14,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
-public class NyliumSlab extends SlabBlock implements Fertilizable {
-    public static final BooleanProperty GENERATED;
-
-    static {
-        GENERATED = BooleanProperty.of("generated");
-    }
+public class NyliumSlab extends CustomSlab implements Fertilizable {
 
     public NyliumSlab(Settings settings) {
         super(settings);
