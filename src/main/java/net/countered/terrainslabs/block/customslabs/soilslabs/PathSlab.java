@@ -8,6 +8,8 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -18,10 +20,25 @@ import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 
 public class PathSlab extends SlabBlock {
+    public static final BooleanProperty GENERATED;
+
+    static {
+        GENERATED = BooleanProperty.of("generated");
+    }
 
     public PathSlab(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState()
+                .with(TYPE, SlabType.BOTTOM)
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(TYPE, WATERLOGGED, GENERATED);
+    }
+
     public static final MapCodec<PathSlab> CODEC = createCodec(PathSlab::new);
 
     @Override

@@ -1,4 +1,4 @@
-// 1.21.3	2024-11-21T00:39:25.3565873	Countered's Terrain Slabs/Model Definitions
+// 1.21.3	2024-11-25T20:01:35.4803411	Countered's Terrain Slabs/Model Definitions
 c698a83fdbc7dde5eac58d9ca1bafd0e1c24d53e assets\minecraft\models\block\yellow_terracotta.json
 27546e333bab0489735376f37c476e8278637049 assets\minecraft\blockstates\clay.json
 1abcff4243f5ec1c36628c3156eda8068a10a0c0 assets\minecraft\blockstates\netherrack.json
@@ -20,8 +20,8 @@ db108c302846acdc5b0b6e10b8d54785d7b9721e assets\terrainslabs\models\item\orange_
 41033a7061cd1239c755c4cee09f207d801926fb assets\minecraft\blockstates\moss_block.json
 8068c011d09fa0e3462729ec5faa2b71844dfdb7 assets\terrainslabs\models\block\clay_slab.json
 5f348583dc38c2e1f6ad4e9912a689981c5cd23a assets\terrainslabs\models\block\white_terracotta_slab.json
-2b914942a5aa83e928c61d83138e5a112615401d assets\terrainslabs\blockstates\coarse_slab.json
 231e5d499785932a985ae132a7e6f2e2626b74a5 assets\minecraft\blockstates\dirt.json
+2b914942a5aa83e928c61d83138e5a112615401d assets\terrainslabs\blockstates\coarse_slab.json
 6cdedf16e9750931345133486e2c1017e5dfdfaa assets\terrainslabs\models\block\yellow_terracotta_slab.json
 4c1880619db40ff02880334e0ef85c6ac2ed5824 assets\terrainslabs\models\block\red_terracotta_slab.json
 f37e3dfe4acc540146d7d4ce599fb508ef16650e assets\minecraft\blockstates\gravel.json
@@ -52,8 +52,8 @@ d3e9a3fca226bc5d505886c188aad68c82ab197d assets\terrainslabs\models\block\red_te
 423ad0bcbeeb0116ca114ea44b76ffb6de0f910c assets\minecraft\models\block\terracotta.json
 4ac2d0211dacd6e74b96fb1c2880cef3d7ea0a7a assets\terrainslabs\blockstates\moss_slab.json
 d8f41c765cadc80867d15b20058bf1711f34b9aa assets\terrainslabs\models\item\terrain_blackstone_slab.json
-c6a8da12fa069834ea4cd756f83f8a5db53188eb assets\minecraft\blockstates\end_stone.json
 51f7be14badf8d4c1cf6a3feb4ed6a16cd73bfa3 assets\terrainslabs\blockstates\dirt_slab.json
+c6a8da12fa069834ea4cd756f83f8a5db53188eb assets\minecraft\blockstates\end_stone.json
 94ef66eae255a15e1ed09e0de1cb661fc4382c5e assets\terrainslabs\models\block\netherrack_slab_top.json
 0015808238e04e0a7c0dd4fbb38197aa67cda867 assets\minecraft\blockstates\light_gray_terracotta.json
 49a234a2bae6b4887904b3149f03838c3b488928 assets\minecraft\blockstates\sand.json

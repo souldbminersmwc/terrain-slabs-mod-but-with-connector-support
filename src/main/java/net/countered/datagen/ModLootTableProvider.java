@@ -25,6 +25,7 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.concurrent.CompletableFuture;
@@ -181,6 +182,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                                         )
                                         )
                         )
+
                 );
     }
 
@@ -188,10 +190,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         return LootTable.builder()
                 .pool(
                         LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1.0F))
-                            .with(
-                                ItemEntry.builder(slab)
-                                        .conditionally(this.createSilkTouchCondition())  // Silk Touch condition
+                                .rolls(ConstantLootNumberProvider.create(1.0F))
+                                .with(
+                                        ItemEntry.builder(slab)
+                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                        .properties(StatePredicate.Builder.create()
+                                                                .exactMatch(BooleanProperty.of("generated"), true)))
+                                                .conditionally(this.createSilkTouchCondition())  // Silk Touch condition
                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
@@ -199,13 +204,26 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         )
                                         .alternatively(
                                                 ItemEntry.builder(drop)
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                .properties(StatePredicate.Builder.create()
+                                                                        .exactMatch(BooleanProperty.of("generated"), true)))
                                                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
                                                                 .conditionally(BlockStatePropertyLootCondition.builder(slab)
                                                                         .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))
                                                                 )
                                                         )
                                         )
-                        )
+                                )
+                                .with(
+                                        ItemEntry.builder(slab)
+                                                .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                        .properties(StatePredicate.Builder.create()
+                                                                .exactMatch(BooleanProperty.of("generated"), false)))
+                                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                        .conditionally(BlockStatePropertyLootCondition.builder(slab)
+                                                                .properties(StatePredicate.Builder.create().exactMatch(SlabBlock.TYPE, SlabType.DOUBLE)))
+                                        )
+                                )
                 );
     }
 

@@ -29,13 +29,19 @@ import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.tick.ScheduledTickView;
 
 public class GrassSlab extends SlabBlock {
+    public static final BooleanProperty GENERATED;
+
+    static {
+        GENERATED = BooleanProperty.of("generated");
+    }
 
     public GrassSlab(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(SlabBlock.TYPE, SlabType.BOTTOM)
                 .with(SNOWY, false)
-                .with(WATERLOGGED, Boolean.valueOf(false)));
+                .with(WATERLOGGED, Boolean.FALSE)
+                .with(GENERATED, Boolean.FALSE));
     }
 
     public static final MapCodec<GrassSlab> CODEC = createCodec(GrassSlab::new);
@@ -104,7 +110,7 @@ public class GrassSlab extends SlabBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SNOWY, TYPE, WATERLOGGED);
+        builder.add(SNOWY, TYPE, WATERLOGGED, GENERATED);
     }
 
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {

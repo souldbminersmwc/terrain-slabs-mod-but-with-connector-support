@@ -24,12 +24,19 @@ import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.minecraft.world.tick.ScheduledTickView;
 
 public class MyceliumSlab extends SlabBlock {
+    public static final BooleanProperty GENERATED;
+
+    static {
+        GENERATED = BooleanProperty.of("generated");
+    }
+
     public MyceliumSlab(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(SlabBlock.TYPE, SlabType.BOTTOM)
                 .with(SNOWY, false)
-                .with(WATERLOGGED, Boolean.valueOf(false)));
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
 
     public static final MapCodec<MyceliumSlab> CODEC = createCodec(MyceliumSlab::new);
@@ -88,7 +95,7 @@ public class MyceliumSlab extends SlabBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SNOWY, TYPE, WATERLOGGED);
+        builder.add(SNOWY, TYPE, WATERLOGGED, GENERATED);
     }
 
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {

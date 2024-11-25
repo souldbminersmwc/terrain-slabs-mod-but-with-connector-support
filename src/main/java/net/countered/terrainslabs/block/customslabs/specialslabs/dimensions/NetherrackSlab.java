@@ -5,15 +5,33 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
 public class NetherrackSlab extends SlabBlock implements Fertilizable{
+    public static final BooleanProperty GENERATED;
+
+    static {
+        GENERATED = BooleanProperty.of("generated");
+    }
+
     public NetherrackSlab(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState()
+                .with(TYPE, SlabType.BOTTOM)
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(TYPE, WATERLOGGED, GENERATED);
+    }
+
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         if (!world.getBlockState(pos.up()).isTransparent()) {

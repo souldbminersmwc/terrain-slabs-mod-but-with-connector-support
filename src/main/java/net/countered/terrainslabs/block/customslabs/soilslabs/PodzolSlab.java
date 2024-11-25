@@ -18,14 +18,20 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 
 public class PodzolSlab extends SlabBlock {
+    public static final BooleanProperty GENERATED;
 
+    static {
+        GENERATED = BooleanProperty.of("generated");
+    }
     public PodzolSlab(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(SlabBlock.TYPE, SlabType.BOTTOM)
                 .with(SNOWY, false)
-                .with(WATERLOGGED, Boolean.valueOf(false)));
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
+
     public static final MapCodec<PodzolSlab> CODEC = createCodec(PodzolSlab::new);
     public static final BooleanProperty SNOWY = Properties.SNOWY;
 
@@ -83,6 +89,6 @@ public class PodzolSlab extends SlabBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SNOWY, TYPE, WATERLOGGED);
+        builder.add(SNOWY, TYPE, WATERLOGGED, GENERATED);
     }
 }
