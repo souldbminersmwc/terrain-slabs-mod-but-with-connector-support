@@ -17,6 +17,8 @@ classes/
 *.iws
 *.log.gz
 *.log
+*.cache/
+
 # vscode
 
 .settings/

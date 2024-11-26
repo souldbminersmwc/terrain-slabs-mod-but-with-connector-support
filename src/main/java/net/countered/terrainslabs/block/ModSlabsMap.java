@@ -57,7 +57,6 @@ public class ModSlabsMap {
     public static final Map<Block, Block> ON_TOP_SLAB_BLOCKS_MAP = new HashMap<>();
 
     static {
-        // Register your block-to-slab mappings here
         ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.POPPY, ModBlocksRegistry.POPPY_ON_TOP);
         ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.DANDELION, ModBlocksRegistry.DANDELION_ON_TOP);
         ON_TOP_SLAB_BLOCKS_MAP.put(Blocks.AZURE_BLUET, ModBlocksRegistry.AZURE_BLUET_ON_TOP);

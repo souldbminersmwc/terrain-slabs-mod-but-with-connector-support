@@ -2,6 +2,7 @@ package net.countered.terrainslabs.block.customslabs.soilslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.fluid.FluidState;
@@ -22,13 +23,15 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
-public class MyceliumSlab extends SlabBlock {
+public class MyceliumSlab extends CustomSlab {
+
     public MyceliumSlab(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(SlabBlock.TYPE, SlabType.BOTTOM)
                 .with(SNOWY, false)
-                .with(WATERLOGGED, Boolean.valueOf(false)));
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
 
     public static final MapCodec<MyceliumSlab> CODEC = createCodec(MyceliumSlab::new);
@@ -93,7 +96,7 @@ public class MyceliumSlab extends SlabBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SNOWY, TYPE, WATERLOGGED);
+        builder.add(SNOWY, TYPE, WATERLOGGED, GENERATED);
     }
 
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {

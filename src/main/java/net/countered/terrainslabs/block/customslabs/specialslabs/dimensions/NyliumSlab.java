@@ -1,12 +1,11 @@
 package net.countered.terrainslabs.block.customslabs.specialslabs.dimensions;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.SlabBlock;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -14,10 +13,21 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
-public class NyliumSlab extends SlabBlock implements Fertilizable {
+public class NyliumSlab extends CustomSlab implements Fertilizable {
+
     public NyliumSlab(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState()
+                .with(TYPE, SlabType.BOTTOM)
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(TYPE, WATERLOGGED, GENERATED);
+    }
+
     private static boolean stayAlive(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
         BlockState blockState = world.getBlockState(blockPos);

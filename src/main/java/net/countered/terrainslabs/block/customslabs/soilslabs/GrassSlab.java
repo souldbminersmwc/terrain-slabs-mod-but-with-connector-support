@@ -2,6 +2,7 @@ package net.countered.terrainslabs.block.customslabs.soilslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,14 +23,15 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
-public class GrassSlab extends SlabBlock {
+public class GrassSlab extends CustomSlab {
 
     public GrassSlab(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(SlabBlock.TYPE, SlabType.BOTTOM)
                 .with(SNOWY, false)
-                .with(WATERLOGGED, Boolean.valueOf(false)));
+                .with(WATERLOGGED, Boolean.FALSE)
+                .with(GENERATED, Boolean.FALSE));
     }
 
     public static final MapCodec<GrassSlab> CODEC = createCodec(GrassSlab::new);
@@ -104,7 +106,7 @@ public class GrassSlab extends SlabBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SNOWY, TYPE, WATERLOGGED);
+        builder.add(SNOWY, TYPE, WATERLOGGED, GENERATED);
     }
 
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {

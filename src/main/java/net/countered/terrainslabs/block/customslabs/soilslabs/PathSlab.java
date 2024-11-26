@@ -2,12 +2,14 @@ package net.countered.terrainslabs.block.customslabs.soilslabs;
 
 import com.mojang.serialization.MapCodec;
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -17,11 +19,21 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class PathSlab extends SlabBlock {
+public class PathSlab extends CustomSlab {
 
     public PathSlab(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState()
+                .with(TYPE, SlabType.BOTTOM)
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(TYPE, WATERLOGGED, GENERATED);
+    }
+
     public static final MapCodec<PathSlab> CODEC = createCodec(PathSlab::new);
 
     @Override

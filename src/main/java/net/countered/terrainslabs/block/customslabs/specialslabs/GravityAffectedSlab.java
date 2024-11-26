@@ -1,6 +1,7 @@
 package net.countered.terrainslabs.block.customslabs.specialslabs;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LandingBlock;
 import net.minecraft.block.SlabBlock;
@@ -15,6 +16,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.particle.ParticleUtil;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -24,9 +26,19 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-public class GravityAffectedSlab extends SlabBlock implements LandingBlock {
+public class GravityAffectedSlab extends CustomSlab implements LandingBlock {
+
     public GravityAffectedSlab(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState()
+                .with(TYPE, SlabType.BOTTOM)
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(TYPE, WATERLOGGED, GENERATED);
     }
 
     public static final MapCodec<GravityAffectedSlab> CODEC = createCodec(GravityAffectedSlab::new);
