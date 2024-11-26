@@ -44,10 +44,28 @@
             },
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "terrainslabs:packed_ice_slab",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "generated": "false"
+                  }
+                }
+              ],
               "functions": [
                 {
                   "add": false,
-                  "count": 0.0,
+                  "conditions": [
+                    {
+                      "block": "terrainslabs:packed_ice_slab",
+                      "condition": "minecraft:block_state_property",
+                      "properties": {
+                        "type": "double"
+                      }
+                    }
+                  ],
+                  "count": 2.0,
                   "function": "minecraft:set_count"
                 }
               ],

@@ -44,6 +44,15 @@
             },
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "terrainslabs:grass_slab",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "generated": "true"
+                  }
+                }
+              ],
               "functions": [
                 {
                   "add": false,
@@ -61,6 +70,35 @@
                 }
               ],
               "name": "minecraft:dirt"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "terrainslabs:grass_slab",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "generated": "false"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "add": false,
+                  "conditions": [
+                    {
+                      "block": "terrainslabs:grass_slab",
+                      "condition": "minecraft:block_state_property",
+                      "properties": {
+                        "type": "double"
+                      }
+                    }
+                  ],
+                  "count": 2.0,
+                  "function": "minecraft:set_count"
+                }
+              ],
+              "name": "terrainslabs:grass_slab"
             }
           ]
         }

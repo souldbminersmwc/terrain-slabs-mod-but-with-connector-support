@@ -3,6 +3,7 @@ package net.countered.terrainslabs.block;
 import net.countered.terrainslabs.TerrainSlabs;
 import net.countered.terrainslabs.block.customslabs.soilslabs.GrassSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PathSlab;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.countered.terrainslabs.block.customslabs.specialslabs.GravityAffectedSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.MyceliumSlab;
 import net.countered.terrainslabs.block.customslabs.soilslabs.PodzolSlab;
@@ -14,7 +15,6 @@ import net.countered.terrainslabs.block.ontopofslabs.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -26,23 +26,23 @@ import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 public class ModBlocksRegistry {
 
     public static final Block DIRT_SLAB = registerBlock("dirt_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIRT)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.DIRT)));
     public static final Block MUD_SLAB = registerBlock("mud_slab",
             new MudSlab(AbstractBlock.Settings.copy(Blocks.MUD).blockVision(Blocks::never)));
     public static final Block COARSE_SLAB = registerBlock("coarse_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.COARSE_DIRT)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.COARSE_DIRT)));
     public static final Block SNOW_SLAB = registerBlock("snow_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK)));
     public static final Block PACKED_ICE_SLAB = registerBlock("packed_ice_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.PACKED_ICE)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.PACKED_ICE)));
     public static final Block DEEPSLATE_SLAB = registerBlock("deepslate_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.DEEPSLATE)));
     public static final Block CLAY_SLAB = registerBlock("clay_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.CLAY)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.CLAY)));
     public static final Block MOSS_SLAB = registerBlock("moss_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK)));
     public static final Block CUSTOM_TUFF_SLAB = registerBlock("terrain_tuff_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.TUFF)));
 
     public static final Block GRASS_SLAB = registerBlock("grass_slab",
             new GrassSlab(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
@@ -61,37 +61,37 @@ public class ModBlocksRegistry {
             new GravityAffectedSlab(AbstractBlock.Settings.copy(Blocks.RED_SAND)));
 
     public static final Block TERRACOTTA_SLAB = registerBlock("terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.TERRACOTTA)));
     public static final Block RED_TERRACOTTA_SLAB = registerBlock("red_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.RED_TERRACOTTA)));
     public static final Block ORANGE_TERRACOTTA_SLAB = registerBlock("orange_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.ORANGE_TERRACOTTA)));
     public static final Block LIGHT_GRAY_TERRACOTTA_SLAB = registerBlock("light_gray_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.LIGHT_GRAY_TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.LIGHT_GRAY_TERRACOTTA)));
     public static final Block WHITE_TERRACOTTA_SLAB = registerBlock("white_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.WHITE_TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.WHITE_TERRACOTTA)));
     public static final Block BROWN_TERRACOTTA_SLAB = registerBlock("brown_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.BROWN_TERRACOTTA)));
     public static final Block YELLOW_TERRACOTTA_SLAB = registerBlock("yellow_terracotta_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_TERRACOTTA)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.YELLOW_TERRACOTTA)));
 
     public static final Block CUSTOM_STONE_SLAB = registerBlock("terrain_stone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.STONE_SLAB)));
     public static final Block CUSTOM_SANDSTONE_SLAB = registerBlock("terrain_sandstone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.SANDSTONE_SLAB)));
     public static final Block CUSTOM_RED_SANDSTONE_SLAB = registerBlock("terrain_red_sandstone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE_SLAB)));
     public static final Block CUSTOM_ANDESITE_SLAB = registerBlock("terrain_andesite_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.ANDESITE_SLAB)));
     public static final Block CUSTOM_DIORITE_SLAB = registerBlock("terrain_diorite_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.DIORITE_SLAB)));
     public static final Block CUSTOM_GRANITE_SLAB = registerBlock("terrain_granite_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.GRANITE_SLAB)));
 
     public static final Block SOUL_SAND_SLAB = registerBlock("soul_sand_slab",
             new SoulSandSlab(AbstractBlock.Settings.copy(Blocks.SOUL_SAND).blockVision(Blocks::never)));
     public static final Block SOUL_SOIL_SLAB = registerBlock("soul_soil_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.SOUL_SOIL)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.SOUL_SOIL)));
     public static final Block NETHERRACK_SLAB = registerBlock("netherrack_slab",
             new NetherrackSlab(AbstractBlock.Settings.copy(Blocks.NETHERRACK)));
     public static final Block WARPED_NYLIUM_SLAB = registerBlock("warped_nylium_slab",
@@ -99,11 +99,11 @@ public class ModBlocksRegistry {
     public static final Block CRIMSON_NYLIUM_SLAB = registerBlock("crimson_nylium_slab",
             new NyliumSlab(AbstractBlock.Settings.copy(Blocks.CRIMSON_NYLIUM)));
     public static final Block BASALT_SLAB = registerBlock("basalt_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.BASALT)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.BASALT)));
     public static final Block CUSTOM_BLACKSTONE_SLAB = registerBlock("terrain_blackstone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.BLACKSTONE_SLAB)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.BLACKSTONE_SLAB)));
     public static final Block ENDSTONE_SLAB = registerBlock("endstone_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.END_STONE)));
+            new CustomSlab(AbstractBlock.Settings.copy(Blocks.END_STONE)));
 
     public static final Block SNOW_ON_TOP = registerBlock("snow_on_top",
             new SnowOnTop(AbstractBlock.Settings.copy(Blocks.SNOW)));

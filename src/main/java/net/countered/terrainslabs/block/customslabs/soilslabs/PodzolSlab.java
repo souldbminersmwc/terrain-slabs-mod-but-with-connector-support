@@ -1,5 +1,6 @@
 package net.countered.terrainslabs.block.customslabs.soilslabs;
 
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.fluid.FluidState;
@@ -13,14 +14,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldAccess;
 
-public class PodzolSlab extends SlabBlock {
+public class PodzolSlab extends CustomSlab {
 
     public PodzolSlab(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(SlabBlock.TYPE, SlabType.BOTTOM)
                 .with(SNOWY, false)
-                .with(WATERLOGGED, Boolean.valueOf(false)));
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
     }
     public static final BooleanProperty SNOWY = Properties.SNOWY;
 
@@ -76,6 +78,6 @@ public class PodzolSlab extends SlabBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SNOWY, TYPE, WATERLOGGED);
+        builder.add(SNOWY, TYPE, WATERLOGGED, GENERATED);
     }
 }

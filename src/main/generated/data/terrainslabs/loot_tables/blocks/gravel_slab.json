@@ -49,6 +49,13 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
+                      "block": "terrainslabs:gravel_slab",
+                      "condition": "minecraft:block_state_property",
+                      "properties": {
+                        "generated": "true"
+                      }
+                    },
+                    {
                       "chances": [
                         0.1,
                         0.14285715,
@@ -79,6 +86,15 @@
                 },
                 {
                   "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "block": "terrainslabs:gravel_slab",
+                      "condition": "minecraft:block_state_property",
+                      "properties": {
+                        "generated": "true"
+                      }
+                    }
+                  ],
                   "functions": [
                     {
                       "add": false,
@@ -98,6 +114,35 @@
                   "name": "minecraft:gravel"
                 }
               ]
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "terrainslabs:gravel_slab",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "generated": "false"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "add": false,
+                  "conditions": [
+                    {
+                      "block": "terrainslabs:gravel_slab",
+                      "condition": "minecraft:block_state_property",
+                      "properties": {
+                        "type": "double"
+                      }
+                    }
+                  ],
+                  "count": 2.0,
+                  "function": "minecraft:set_count"
+                }
+              ],
+              "name": "terrainslabs:gravel_slab"
             }
           ]
         }

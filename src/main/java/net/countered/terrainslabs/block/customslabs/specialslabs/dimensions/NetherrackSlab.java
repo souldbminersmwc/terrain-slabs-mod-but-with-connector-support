@@ -1,19 +1,30 @@
 package net.countered.terrainslabs.block.customslabs.specialslabs.dimensions;
 
 import net.countered.terrainslabs.block.ModBlocksRegistry;
+import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class NetherrackSlab extends SlabBlock implements Fertilizable{
+public class NetherrackSlab extends CustomSlab implements Fertilizable{
 
     public NetherrackSlab(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState()
+                .with(TYPE, SlabType.BOTTOM)
+                .with(WATERLOGGED, Boolean.valueOf(false))
+                .with(GENERATED, Boolean.valueOf(false)));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(TYPE, WATERLOGGED, GENERATED);
     }
 
     @Override
